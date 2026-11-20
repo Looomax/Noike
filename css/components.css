@@ -1,0 +1,247 @@
+/* COMPOSANTS — boutons, liens, étiquettes, échelles, badges, squelettes. */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + 2 * var(--page-pad));
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-xs);
+  min-height: var(--control-height);
+  padding: 0 var(--gap-m);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: var(--fs-button);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--primary {
+  background: var(--color-ink);
+  border-color: var(--color-bg);
+  color: var(--color-white);
+}
+
+.btn--light {
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+.btn--ghost-light {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.6);
+  color: var(--color-white);
+}
+
+@media (hover: hover) {
+  .btn--primary:hover {
+    background: color-mix(in srgb, var(--color-ink) 80%, var(--color-white));
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-1px);
+  }
+
+  .btn--light:hover {
+    box-shadow: 0 10px 28px -10px rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .btn--ghost-light:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: var(--color-white);
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+}
+
+/* ---------- Liens ---------- */
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-xs);
+  min-height: var(--gap-xl);
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--gap-xs) + 2px);
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transform: scaleX(0.0);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.link:hover::after,
+.link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.link--underlined::after {
+  transform: scaleX(1);
+}
+
+.link--underlined:hover::after {
+  transform: scaleX(0.4);
+}
+
+/* ---------- Icônes (planche SVG intégrée, couleur = currentColor) ---------- */
+.icon {
+  display: inline-block;
+  flex: none;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+/* ---------- Étiquette ---------- */
+.label {
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+/* ---------- Échelle de lecture : un point sur une ligne, jamais une note ---------- */
+.scale {
+  display: grid;
+  gap: var(--gap-s);
+}
+
+.scale__row {
+  display: grid;
+  grid-template-columns: minmax(4.5rem, auto) 1fr minmax(4.5rem, auto);
+  align-items: center;
+  gap: var(--gap-s);
+  font-size: var(--fs-small);
+  line-height: var(--lh-snug);
+  color: var(--color-text-muted);
+}
+
+.scale__row > :last-child {
+  text-align: right;
+}
+
+.scale__track {
+  position: relative;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-grey-200);
+}
+
+.scale__band {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  left: var(--from);
+  width: var(--span);
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--color-accent) 28%, transparent);
+}
+
+.scale__dot {
+  position: absolute;
+  top: 50%;
+  left: var(--pos);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  transform: translate(-50%, -50%);
+  transition: left 1000ms var(--ease-out);
+}
+
+.scale__dot--accent {
+  background: var(--color-accent-strong);
+}
+
+.js-anim .scale__dot {
+  left: 50%;
+}
+
+.js-anim .is-in .scale__dot {
+  left: var(--pos);
+}
+
+/* ---------- Pastille d'état ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-accent) 18%, var(--color-white));
+  color: var(--color-accent-strong);
+  font-family: var(--font-ui);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.badge::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge--dark {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-on-dark);
+}
+
+/* ---------- Squelette (barres qui figurent du contenu, style « chargement ») ---------- */
+.sk {
+  display: block;
+  width: var(--w, 100%);
+  height: 6px;
+  border-radius: 99px;
+  background: var(--color-grey-200);
+}
+
+.sk--ink {
+  background: var(--color-ink);
+}
+
+.sk--dark {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sk--lit {
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.sk-row {
+  display: flex;
+  gap: 4px;
+}

@@ -1,0 +1,1938 @@
+/* ==========================================================================
+   Styles de la page d'accueil : comparatif réel et sourcé (noike.fr), prix affichés. Charte Figma inchangée.
+   ========================================================================== */
+
+/* ---------- Hero : la ligne d'assurance sous les boutons ---------- */
+.hero__note {
+  color: var(--color-on-dark-muted);
+  font-size: var(--fs-small);
+  line-height: var(--lh-snug);
+  animation: rise 800ms var(--ease-out) 1250ms both;
+}
+
+/* ---------- Bouton cerné (cartes de prix) ---------- */
+.btn--outline {
+  border-color: var(--color-ink);
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+@media (hover: hover) {
+  .btn--outline:hover {
+    background: var(--color-ink);
+    color: var(--color-white);
+  }
+}
+
+/* ---------- 7. Comparatif réel ---------- */
+.ctabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-xs);
+  margin-bottom: var(--gap-xl);
+}
+
+.ctab {
+  min-height: var(--control-height);
+  padding: 0 var(--gap-m);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: var(--fs-button);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.ctab:active {
+  transform: scale(0.97);
+}
+
+.ctab[aria-selected="true"] {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+@media (hover: hover) {
+  .ctab[aria-selected="false"]:hover {
+    border-color: var(--color-ink);
+  }
+}
+
+.cmp {
+  display: grid;
+  gap: var(--gap-2xl);
+}
+
+.cmp[hidden] {
+  display: none;
+}
+
+.cmp__top {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--gap-2xl);
+  align-items: start;
+}
+
+.cmp__says {
+  display: grid;
+  gap: var(--gap-s);
+  padding: var(--gap-l);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-image);
+  background: var(--color-white);
+}
+
+.cmp__says .label,
+.cmp__diff .label,
+.pick .label {
+  color: var(--color-ink);
+}
+
+.cmp__src {
+  font-family: var(--font-ui);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  color: var(--color-accent-strong);
+}
+
+.cmp__quote {
+  color: var(--color-text-muted);
+  font-size: var(--fs-body-s);
+  line-height: 1.55;
+}
+
+.cmp__diff {
+  display: grid;
+  gap: var(--gap-m);
+  align-content: start;
+}
+
+.cmp__sentence {
+  max-width: 32ch;
+  color: var(--color-ink);
+  font-size: var(--fs-h2-sub);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.cmp .compare__scroll {
+  margin-top: 0;
+}
+
+.cmp .compare {
+  min-width: calc(640rem / 16);
+}
+
+.cmp .compare tbody th {
+  width: 24%;
+}
+
+.cmp .compare td {
+  width: 38%;
+}
+
+.cmp .compare .is-noike {
+  width: 38%;
+}
+
+.cmp__picks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap-m);
+}
+
+.pick {
+  display: grid;
+  align-content: start;
+  gap: var(--gap-s);
+  padding: var(--gap-l);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-image);
+  background: var(--color-white);
+}
+
+.pick p {
+  line-height: 1.55;
+}
+
+.pick--noike {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.pick--noike .label {
+  color: var(--color-white);
+}
+
+/* Ce que Noike ne fait pas */
+.nofait {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: var(--gap-2xl);
+  align-items: start;
+  margin-top: var(--gap-3xl);
+  padding: var(--gap-2xl);
+  overflow: hidden;
+  border-radius: var(--radius-image);
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.nofait::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 80% at 95% 0%, rgba(116, 140, 188, 0.35), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 3px, transparent 3px 11px);
+}
+
+.nofait__head {
+  display: grid;
+  gap: var(--gap-m);
+}
+
+.nofait__title {
+  color: var(--color-white);
+  font-size: var(--fs-h2-sub);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.nofait__text {
+  max-width: 34ch;
+  color: var(--color-on-dark-muted);
+  line-height: 1.55;
+}
+
+.nofait__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-m);
+  padding: var(--gap-m) 0;
+  border-bottom: 1px solid var(--color-on-dark-line);
+  font-size: calc(22rem / 16);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.nofait__list li:first-child {
+  padding-top: 0;
+}
+
+.nofait__list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.nofait__list .icon {
+  width: calc(14rem / 16);
+  height: calc(14rem / 16);
+  color: var(--color-on-dark-muted);
+}
+
+/* ---------- Tarifs ---------- */
+.plans {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gap-m);
+  align-items: stretch;
+  padding-top: var(--gap-s);
+}
+
+.plan {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: var(--gap-l);
+  padding: calc(36rem / 16) var(--gap-l) var(--gap-l);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-image);
+  background: var(--color-white);
+}
+
+.plan__name {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.plan__for {
+  min-height: 1.4em;
+  margin-top: 6px;
+  color: var(--color-text-muted);
+  font-size: var(--fs-body-s);
+}
+
+.plan__price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--color-ink);
+  font-size: clamp(calc(36rem / 16), 3.3vw, calc(48rem / 16));
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.plan__per {
+  color: var(--color-text-muted);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.plan__cap {
+  display: grid;
+  align-content: end;
+  gap: var(--gap-xs);
+}
+
+.cap__bar {
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(17, 17, 17, 0.1);
+}
+
+.cap__bar i {
+  display: block;
+  width: var(--w);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-ink);
+  transition: width 1100ms var(--ease-out) 200ms;
+}
+
+.js-anim .plans:not(.is-in) .cap__bar i {
+  width: 0;
+}
+
+.cap__label {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.cap__extra {
+  color: var(--color-text-muted);
+  font-size: var(--fs-body-s);
+}
+
+.plan .btn {
+  width: 100%;
+}
+
+/* Pro : la carte recommandée, sombre et légèrement soulevée */
+.plan--pro {
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: calc(-1 * var(--gap-s));
+  margin-bottom: var(--gap-s);
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-white);
+  box-shadow: var(--shadow-lift);
+}
+
+.plan--pro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(70% 45% at 90% 0%, rgba(116, 140, 188, 0.4), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 3px, transparent 3px 11px);
+}
+
+.plan--pro .plan__name,
+.plan--pro .plan__price,
+.plan--pro .cap__label {
+  color: var(--color-white);
+}
+
+.plan--pro .plan__for,
+.plan--pro .plan__per,
+.plan--pro .cap__extra {
+  color: var(--color-on-dark-muted);
+}
+
+.plan--pro .cap__bar {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.plan--pro .cap__bar i {
+  background: var(--color-white);
+}
+
+.plan__badge {
+  position: absolute;
+  top: var(--gap-s);
+  right: var(--gap-s);
+}
+
+/* Enterprise : une bande sur toute la largeur */
+.plan-wide {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: var(--gap-xl);
+  margin-top: var(--gap-m);
+  padding: var(--gap-l) var(--gap-xl);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-image);
+  background: var(--color-white);
+}
+
+.plan__price--wide {
+  font-size: var(--fs-h2-sub);
+}
+
+@media (max-width: 62rem) {
+  .cmp__top,
+  .nofait {
+    grid-template-columns: 1fr;
+    gap: var(--gap-xl);
+  }
+
+  .plans {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plan--pro {
+    margin: 0;
+  }
+}
+
+@media (max-width: 40rem) {
+  .plans,
+  .cmp__picks {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-wide {
+    grid-template-columns: 1fr;
+    gap: var(--gap-m);
+    padding: var(--gap-l);
+  }
+
+  .nofait {
+    padding: var(--gap-l);
+  }
+
+  .nofait__list li {
+    font-size: var(--fs-body);
+  }
+}
+
+/* ==========================================================================
+   comparatif compact (une seule ligne d'onglets, citation repliée,
+   tableau serré, cartes empilées sur mobile) et encadré « ne mesure pas » rempli.
+   ========================================================================== */
+
+/* Onglets : une seule ligne qui défile, jamais trois lignes de boutons */
+.ctabs {
+  flex-wrap: nowrap;
+  gap: var(--gap-xs);
+  margin-bottom: var(--gap-l);
+  padding-bottom: 4px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ctabs::-webkit-scrollbar {
+  display: none;
+}
+
+.ctab {
+  flex: none;
+  scroll-snap-align: start;
+}
+
+.compare-section .dims2__head {
+  margin-bottom: var(--gap-xl);
+}
+
+/* Panneau : la phrase d'abord, la citation sourcée repliée */
+.cmp {
+  gap: var(--gap-l);
+}
+
+.cmp__top {
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--gap-xl);
+  align-items: start;
+}
+
+.cmp__diff {
+  gap: var(--gap-xs);
+}
+
+.cmp__sentence {
+  max-width: none;
+  font-size: calc(24rem / 16);
+  line-height: 1.25;
+}
+
+.cmp__says {
+  display: block;
+  padding: 0 var(--gap-m);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  background: var(--color-white);
+}
+
+.cmp__says summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-s);
+  min-height: var(--control-height);
+  list-style: none;
+  cursor: pointer;
+}
+
+.cmp__says summary::-webkit-details-marker {
+  display: none;
+}
+
+.cmp__says summary::after {
+  content: "";
+  flex: none;
+  width: 12px;
+  height: 12px;
+  background:
+    linear-gradient(currentColor, currentColor) center / 12px 2px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 2px 12px no-repeat;
+  transition: background-size var(--duration-base) var(--ease-out);
+}
+
+.cmp__says[open] summary::after {
+  background-size: 12px 2px, 2px 0;
+}
+
+.cmp__says .cmp__src {
+  margin-left: auto;
+}
+
+.cmp__says .cmp__quote {
+  padding-bottom: var(--gap-m);
+}
+
+/* Tableau serré, sans défilement horizontal */
+.cmp .compare {
+  min-width: 0;
+}
+
+.cmp .compare th,
+.cmp .compare td,
+.cmp .compare tbody th {
+  padding: var(--gap-s) var(--gap-m);
+}
+
+.cmp .compare thead th {
+  padding-block: var(--gap-s);
+}
+
+.cmp .compare tbody th {
+  width: 26%;
+}
+
+.cmp .compare td,
+.cmp .compare .is-noike {
+  width: 37%;
+}
+
+.cmp .compare__scroll {
+  overflow-x: visible;
+}
+
+/* Cartes « Choisissez… si » serrées */
+.cmp__picks {
+  gap: var(--gap-s);
+}
+
+.pick {
+  gap: var(--gap-xs);
+  padding: var(--gap-m);
+  font-size: var(--fs-body-s);
+}
+
+.pick p {
+  line-height: 1.5;
+}
+
+/* Ce que Noike ne fait pas : bloc plus bas, liste en deux colonnes */
+.nofait {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--gap-xl);
+  align-items: center;
+  margin-top: var(--gap-xl);
+  padding: var(--gap-xl);
+}
+
+.nofait__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--gap-l);
+}
+
+.nofait__list li,
+.nofait__list li:first-child,
+.nofait__list li:last-child {
+  padding: var(--gap-s) 0;
+  border-bottom: 1px solid var(--color-on-dark-line);
+  font-size: var(--fs-body);
+}
+
+@media (max-width: 62rem) {
+  .cmp__top,
+  .nofait {
+    grid-template-columns: 1fr;
+    gap: var(--gap-m);
+  }
+}
+
+/* Mobile : chaque critère devient un petit bloc, plus de tableau à faire défiler */
+@media (max-width: 40rem) {
+  .cmp {
+    gap: var(--gap-m);
+  }
+
+  .cmp .compare,
+  .cmp .compare tbody,
+  .cmp .compare tr,
+  .cmp .compare tbody th,
+  .cmp .compare td {
+    display: block;
+    width: auto;
+  }
+
+  .cmp .compare thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .cmp .compare tr {
+    padding: var(--gap-m) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cmp .compare tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .cmp .compare tbody th {
+    padding: 0 0 var(--gap-xs);
+    border: 0;
+  }
+
+  .cmp .compare td {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: var(--gap-s);
+    padding: 6px 0;
+    border: 0;
+  }
+
+  .cmp .compare td::before {
+    content: attr(data-label);
+    color: var(--color-text-muted);
+    font-family: var(--font-ui);
+    font-size: var(--fs-micro);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .cmp .compare td.is-noike {
+    width: auto;
+    margin-top: 4px;
+    padding: 8px 12px;
+    border-radius: var(--radius-panel);
+    border-bottom: 0;
+  }
+
+  .cmp .compare td.is-noike::before {
+    color: var(--color-on-dark-muted);
+  }
+
+  .cmp__says summary {
+    flex-wrap: wrap;
+    padding-block: var(--gap-xs);
+  }
+
+  .cmp__says .cmp__src {
+    margin-left: 0;
+    width: 100%;
+    order: 3;
+  }
+
+  .nofait {
+    padding: var(--gap-l);
+  }
+
+  .nofait__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Noike décrit, vous décidez : reprise de la maquette Figma (nœud 2035:194)
+   ========================================================================== */
+.decrit3 .split__title {
+  font-size: var(--fs-display);
+  line-height: 1.1;
+}
+
+.decrit3 .split__note {
+  font-size: var(--fs-small);
+  line-height: var(--lh-snug);
+}
+
+.decrit3 .split__note strong {
+  font-weight: 700;
+}
+
+.decrit3 .split__body {
+  gap: var(--gap-xl);
+}
+
+.statements {
+  display: grid;
+}
+
+.statements li {
+  display: grid;
+  grid-template-columns: var(--gap-m) minmax(0, 1fr);
+  gap: var(--gap-xs);
+  align-items: start;
+  color: var(--color-text);
+  font-size: clamp(calc(18rem / 16), 1.4vw, calc(20rem / 16));
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.statements .icon {
+  width: var(--gap-m);
+  height: var(--gap-m);
+  margin-top: calc((1.8em - var(--gap-m)) / 2);
+}
+
+/* ==========================================================================
+   Trois dimensions : triptyque de verre. Texte et échelles toujours visibles,
+   rien à cliquer. La photo se prolonge d'un panneau à l'autre.
+   ========================================================================== */
+.tri {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap-s);
+}
+
+.tri__panel {
+  position: relative;
+  display: grid;
+  align-content: end;
+  min-height: clamp(33rem, 40vw, 37rem);
+  padding: var(--gap-s);
+  overflow: hidden;
+  border-radius: var(--radius-image);
+  background: var(--color-grey-200);
+  isolation: isolate;
+}
+
+.tri__photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url("../assets/img/verre-cannele.jpg") var(--bgx) 50% / 300% auto no-repeat;
+  transition: transform 900ms var(--ease-out);
+}
+
+.tri__panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.4));
+}
+
+.tri__card {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: var(--gap-s);
+  padding: var(--gap-l);
+  border: 1px solid var(--color-glass-line);
+  border-radius: 12px;
+  background: var(--color-glass);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.tri__num {
+  color: var(--color-ink);
+}
+
+.tri__name {
+  font-size: var(--fs-h2-sub);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.tri__text {
+  min-height: 3em;
+  color: var(--color-text);
+  line-height: var(--lh-body);
+}
+
+.tri__scales {
+  gap: var(--gap-m);
+  margin-top: var(--gap-xs);
+  padding-top: var(--gap-m);
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
+}
+
+.tri__scales .scale__track {
+  background: rgba(17, 17, 17, 0.2);
+}
+
+.tri__scales .scale__dot {
+  width: 14px;
+  height: 14px;
+  transition-delay: calc(300ms + var(--k, 0) * 110ms);
+}
+
+@media (hover: hover) {
+  .tri__panel:hover .tri__photo {
+    transform: scale(1.03);
+  }
+
+  .tri__panel:hover .tri__card {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 62rem) {
+  .tri {
+    grid-template-columns: 1fr;
+  }
+
+  .tri__panel {
+    min-height: 28rem;
+  }
+
+  .tri__photo {
+    background-size: 220% auto;
+  }
+
+  .tri__text {
+    min-height: 0;
+  }
+}
+
+/* ==========================================================================
+   Tuile « Construction collaborative du profil cible » : trois personnes
+   (manager, titulaire, pair), un avis chacune, qui se rejoignent dans la zone retenue.
+   ========================================================================== */
+.agree {
+  --who: 8.5rem;
+  position: relative;
+  display: grid;
+  gap: var(--gap-l);
+  padding-block: var(--gap-s);
+}
+
+.agree__row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: var(--who) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--gap-m);
+}
+
+.agree__who {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xs);
+  color: var(--color-on-dark);
+  font-size: var(--fs-body-s);
+  font-weight: 600;
+}
+
+.agree__av {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: calc(28rem / 16);
+  height: calc(28rem / 16);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--color-on-dark);
+  font-family: var(--font-ui);
+  font-size: var(--fs-micro);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.agree__track {
+  position: relative;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.agree__dot {
+  position: absolute;
+  top: 50%;
+  left: var(--to);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-white);
+  transform: translate(-50%, -50%);
+  transition: left 1500ms var(--ease-out) calc(var(--k) * 150ms + 250ms);
+}
+
+.js-anim .tile:not(.is-in) .agree__dot {
+  left: var(--from);
+}
+
+/* La zone retenue : une bande qui traverse les trois lignes */
+.agree__zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--who) + var(--gap-m) + (100% - var(--who) - var(--gap-m)) * 0.52);
+  width: calc((100% - var(--who) - var(--gap-m)) * 0.26);
+  border: 1px solid rgba(116, 140, 188, 0.75);
+  border-radius: 12px;
+  background: rgba(116, 140, 188, 0.28);
+  pointer-events: none;
+}
+
+@media (max-width: 40rem) {
+  .agree {
+    --who: 6.5rem;
+  }
+
+  .agree__row {
+    gap: var(--gap-s);
+  }
+}
+
+/* Tuile « profil cible » : la zone visée sur chaque dimension, sans personnes */
+.agree__band {
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: var(--from);
+  width: var(--span);
+  border: 1px solid rgba(116, 140, 188, 0.8);
+  border-radius: 99px;
+  background: rgba(116, 140, 188, 0.38);
+  transition:
+    transform 1100ms var(--ease-out) calc(var(--k) * 160ms + 250ms),
+    opacity 600ms var(--ease-out) calc(var(--k) * 160ms + 250ms);
+}
+
+.js-anim .tile:not(.is-in) .agree__band {
+  opacity: 0;
+  transform: scaleX(0.2);
+}
+
+/* Tuile « accords et désaccords » : la fiche d'un candidat avec les commentaires des recruteurs */
+.thread {
+  display: grid;
+  gap: var(--gap-s);
+}
+
+.thread__row {
+  display: grid;
+  grid-template-columns: calc(32rem / 16) minmax(0, 1fr);
+  gap: var(--gap-s);
+  align-items: start;
+  transition:
+    opacity 600ms var(--ease-out) calc(var(--k) * 180ms + 200ms),
+    transform 600ms var(--ease-out) calc(var(--k) * 180ms + 200ms);
+}
+
+.thread__row--reply {
+  margin-left: var(--gap-l);
+}
+
+.thread__bubble {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  padding: var(--gap-s) var(--gap-m);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-bg);
+}
+
+.thread__bubble .sk {
+  width: var(--w);
+}
+
+.js-anim .tile:not(.is-in) .thread__row {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* Tuile « Synthèses » : l'illustration fournie remplace le dessin en barres */
+.tile__vis--shot {
+  min-height: 0;
+}
+
+.tile__vis--shot img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ==========================================================================
+   Tuile « Visualisation des accords » : verre translucide, comme l'illustration
+   des synthèses (panneaux de verre dépoli posés devant du verre cannelé).
+   ========================================================================== */
+.tile--glass {
+  position: relative;
+  isolation: isolate;
+  align-content: stretch;
+  padding: var(--gap-s);
+  border: 0;
+  background: var(--color-grey-200) url("../assets/img/verre-cannele.jpg") 30% 50% / cover no-repeat;
+}
+
+.tile--glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 45%);
+}
+
+.glass {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  align-content: space-between;
+  gap: var(--gap-l);
+  padding: var(--gap-l);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.4));
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+  backdrop-filter: blur(22px) saturate(1.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 24px 48px -24px rgba(17, 17, 17, 0.35);
+}
+
+.tile--glass .thread__bubble {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.34));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 8px 20px -12px rgba(17, 17, 17, 0.28);
+}
+
+.tile--glass .who__avatar {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 10px -4px rgba(17, 17, 17, 0.3);
+}
+
+.tile--glass .sk {
+  background: rgba(17, 17, 17, 0.14);
+}
+
+.tile--glass .sk--ink {
+  background: rgba(17, 17, 17, 0.55);
+}
+
+.tile--glass .badge {
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Le fil de réponse : un trait part de B et rejoint C, pour montrer que C répond à B */
+.thread__row {
+  position: relative;
+}
+
+.thread__row--parent::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: calc(32rem / 16);
+  bottom: calc(-2 * var(--gap-s));
+  width: 17px;
+  border-bottom: 2px solid rgba(17, 17, 17, 0.28);
+  border-left: 2px solid rgba(17, 17, 17, 0.28);
+  border-bottom-left-radius: 12px;
+  pointer-events: none;
+}
+
+/* Tuile « Construction collaborative du profil cible » : photo en fond, voile sombre pour garder le texte lisible */
+.tile--a {
+  background: var(--color-night) url("../assets/img/construction-collaborative.jpg") 50% 55% / cover no-repeat;
+}
+
+.tile--a::before {
+  background:
+    linear-gradient(180deg, rgba(10, 12, 18, 0.82) 0%, rgba(10, 12, 18, 0.1) 42%, rgba(10, 12, 18, 0.5) 100%),
+    radial-gradient(60% 40% at 90% 0%, rgba(116, 140, 188, 0.28), transparent 70%);
+}
+
+/* La zone retenue : verre bleuté (dépoli, reflet en haut, lueur bleue en dessous) */
+.agree__zone {
+  border: 1px solid rgba(190, 208, 245, 0.14);
+  background: linear-gradient(160deg, rgba(150, 175, 225, 0.36), rgba(116, 140, 188, 0.14));
+  -webkit-backdrop-filter: blur(10px) saturate(1.5);
+  backdrop-filter: blur(10px) saturate(1.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Les trois lignes Manager, Titulaire, Pair : plus serrées */
+.agree {
+  gap: var(--gap-s);
+}
+
+/* ==========================================================================
+   Portrait candidat : même verre translucide que « Visualisation des accords »
+   (plaques de verre dépoli, reflet en haut, cartes de questions en verre)
+   ========================================================================== */
+.guide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 45%);
+}
+
+.guide .gcard {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.4));
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+  backdrop-filter: blur(22px) saturate(1.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 24px 48px -24px rgba(17, 17, 17, 0.35);
+}
+
+.guide .gcard__head {
+  border-bottom-color: rgba(255, 255, 255, 0.7);
+}
+
+.guide .ask {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.34));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 8px 20px -12px rgba(17, 17, 17, 0.28);
+}
+
+.guide .sk {
+  background: rgba(17, 17, 17, 0.14);
+}
+
+.guide .sk--ink {
+  background: rgba(17, 17, 17, 0.55);
+}
+
+.guide .avatar {
+  box-shadow: 0 4px 10px -4px rgba(17, 17, 17, 0.3), inset 0 -14px 0 -6px var(--color-ink);
+}
+
+/* ==========================================================================
+   Carte « Portrait candidat » : moins vide, moins « maquette fil de fer ».
+   Contenu repris du profil de démo de noike.fr (/exemple).
+   ========================================================================== */
+.avatar--photo {
+  width: calc(56rem / 16);
+  height: calc(56rem / 16);
+  background: url("../assets/img/voile-3.jpg") -96px -26px / 400px auto no-repeat;
+  box-shadow: 0 6px 14px -6px rgba(17, 17, 17, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+.gcard__title {
+  color: var(--color-ink);
+  font-size: calc(18rem / 16);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.pgroups {
+  display: grid;
+  gap: var(--gap-m);
+}
+
+.pgroup {
+  display: grid;
+  gap: var(--gap-xs);
+  padding: var(--gap-xs) var(--gap-s);
+  margin-inline: calc(-1 * var(--gap-s));
+  border-radius: var(--radius-panel);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.pgroup.is-linked {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.pgroup__label {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xs);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.pgroup__label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-grey-600);
+}
+
+.pgroup[data-pair="2"] .pgroup__label::before {
+  background: var(--color-accent-strong);
+}
+
+.pgroup[data-pair="3"] .pgroup__label::before {
+  background: var(--color-ink);
+}
+
+.pchips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pchips li {
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.42));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 6px 14px -10px rgba(17, 17, 17, 0.3);
+  color: var(--color-ink);
+  font-size: var(--fs-body-s);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Mobile : les deux cartes du portrait s'empilent */
+@media (max-width: 53.75rem) {
+  .guide__grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-s);
+  }
+}
+
+/* Triptyque « Trois dimensions » : la photo du prisme se prolonge d'un panneau à l'autre */
+.tri__photo {
+  background-image: url("../assets/img/mec-diffuse-prisme.jpg");
+  background-size: calc(300% + 2 * var(--gap-s)) auto;
+}
+
+/* Échelles du triptyque : une rainure en relief, une partie remplie et une bille, au lieu d'un simple trait */
+.tri__scales {
+  gap: var(--gap-m);
+}
+
+.tri__scales .scale__track {
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(17, 17, 17, 0.06);
+  box-shadow:
+    inset 0 1px 2px rgba(17, 17, 17, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.scale__fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--pos);
+  border-radius: inherit;
+  background: #ffffff;
+  box-shadow:
+    0 0 4px 1px rgba(255, 255, 255, 0.95),
+    0 0 12px 2px rgba(255, 255, 255, 0.7),
+    0 0 26px 4px rgba(255, 255, 255, 0.4);
+  transition: width 1000ms var(--ease-out) calc(300ms + var(--k, 0) * 110ms);
+}
+
+.js-anim .scale__fill {
+  width: 50%;
+}
+
+.js-anim .is-in .scale__fill {
+  width: var(--pos);
+}
+
+.tri__scales .scale__dot {
+  width: calc(16rem / 16);
+  height: calc(16rem / 16);
+  background: radial-gradient(circle at 35% 30%, #5b5b5b 0, #111 62%);
+  box-shadow:
+    0 6px 12px -4px rgba(17, 17, 17, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+/* Un éclat de lumière au bout du trait, juste avant la bille : l'effet « rayon de lumière » */
+.scale__fill::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  width: 36px;
+  height: 18px;
+  transform: translateY(-50%);
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+/* Fond du bloc « Le portrait candidat comme guide d'entretien » : nouvelle photo */
+.guide {
+  background-image: url("../assets/img/guide-entretien.jpg");
+  background-position: 50% 50%;
+}
+
+/* Photo de la section « L'expérience candidat » (format 4:5) */
+.cand__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-image);
+}
+
+/* Carte « Télécharger / Partager » : même verre translucide que les autres blocs, avec une photo de profil */
+.cand__card {
+  width: min(20rem, 76%);
+  gap: var(--gap-m);
+  padding: var(--gap-m);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.42));
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+  backdrop-filter: blur(22px) saturate(1.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 24px 48px -24px rgba(17, 17, 17, 0.45);
+}
+
+.cand__head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--gap-s);
+}
+
+.avatar--candidate {
+  width: calc(48rem / 16);
+  height: calc(48rem / 16);
+  border-radius: 50%;
+  background: url("../assets/img/experience-candidat.jpg") -43px -26px / 139px auto no-repeat;
+  box-shadow: 0 6px 14px -6px rgba(17, 17, 17, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+.cand__card .sk {
+  background: rgba(17, 17, 17, 0.14);
+}
+
+.cand__card .sk--ink {
+  background: rgba(17, 17, 17, 0.55);
+}
+
+.cand__card .pill-btn {
+  min-height: calc(36rem / 16);
+  padding: 0 var(--gap-m);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.42));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 6px 14px -10px rgba(17, 17, 17, 0.35);
+  color: var(--color-ink);
+  font-family: var(--font-text);
+  font-size: var(--fs-body-s);
+  font-weight: 500;
+}
+
+.cand__card button.pill-btn[aria-pressed="true"] {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+
+/* Carte « Télécharger / Partager » : un picto de profil, aucune animation à la souris, une animation d'entrée */
+.picto {
+  display: grid;
+  place-items: center;
+  width: calc(48rem / 16);
+  height: calc(48rem / 16);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 6px 14px -8px rgba(17, 17, 17, 0.35);
+  color: var(--color-ink);
+}
+
+.picto svg {
+  width: calc(24rem / 16);
+  height: calc(24rem / 16);
+}
+
+/* Pas de réaction à la souris */
+.cand__visual:hover .cand__card {
+  transform: none;
+}
+
+.cand__card .pill-btn,
+.cand__card button.pill-btn {
+  transition: none;
+}
+
+.cand__card button.pill-btn:active {
+  transform: none;
+}
+
+.cand__card button.pill-btn[aria-pressed="false"]:hover {
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+/* Entrée : la carte monte et apparaît, les traits se dessinent, les boutons arrivent en dernier */
+.cand__card {
+  transition:
+    opacity 700ms var(--ease-out) 150ms,
+    transform 700ms var(--ease-out) 150ms;
+}
+
+.js-anim .cand__card:not(.is-in) {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.cand__card .sk {
+  transform-origin: left;
+  transition: transform 800ms var(--ease-out) 500ms;
+}
+
+.cand__card .sk:nth-child(2) {
+  transition-delay: 620ms;
+}
+
+.cand__card .sk:nth-child(3) {
+  transition-delay: 740ms;
+}
+
+.js-anim .cand__card:not(.is-in) .sk {
+  transform: scaleX(0);
+}
+
+.cand__card .cand__actions {
+  transition:
+    opacity 600ms var(--ease-out) 900ms,
+    transform 600ms var(--ease-out) 900ms;
+}
+
+.js-anim .cand__card:not(.is-in) .cand__actions {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* ==========================================================================
+   « Levez le voile » : les trois cartes Personnalité, Motivations, Raisonnement
+   en verre translucide, comme les autres blocs (version pour fond sombre)
+   ========================================================================== */
+.reads {
+  gap: var(--gap-s);
+}
+
+.read {
+  gap: calc(10rem / 16);
+  padding: var(--gap-m) var(--gap-m) var(--gap-m);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05));
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  backdrop-filter: blur(18px) saturate(1.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 18px 36px -20px rgba(0, 0, 0, 0.65);
+}
+
+.read__label {
+  margin-bottom: 4px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.1em;
+  color: var(--color-on-dark);
+}
+
+.read .sk {
+  height: 6px;
+}
+
+.read .sk--dark {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.read .sk--lit {
+  background: #ffffff;
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.45);
+}
+
+.read .badge--dark {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ==========================================================================
+   Tarifs : cartes en verre translucide posées sur la photo de verre cannelé,
+   comme les autres blocs. La carte Pro reste sombre pour ressortir.
+   ========================================================================== */
+.tarifs__stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(1rem, 4vw, 3.5rem);
+  border-radius: var(--radius-image);
+  background: var(--color-grey-200) url("../assets/img/verre-cannele.jpg") 50% 40% / cover no-repeat;
+}
+
+.tarifs__stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 45%);
+}
+
+.tarifs__stage .plans,
+.tarifs__stage .plan-wide {
+  position: relative;
+  z-index: 1;
+}
+
+.plan,
+.plan-wide {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.42));
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+  backdrop-filter: blur(22px) saturate(1.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 24px 48px -24px rgba(17, 17, 17, 0.35);
+}
+
+.plan--pro {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: linear-gradient(160deg, rgba(24, 26, 34, 0.92), rgba(10, 12, 18, 0.84));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 30px 60px -24px rgba(0, 0, 0, 0.65);
+}
+
+.plan:not(.plan--pro) .cap__bar {
+  background: rgba(17, 17, 17, 0.08);
+  box-shadow: inset 0 1px 2px rgba(17, 17, 17, 0.15);
+}
+
+.plan .btn--outline {
+  border-color: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.45));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 8px 18px -12px rgba(17, 17, 17, 0.35);
+}
+
+.plan .badge--dark {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Tarifs : sans image de fond et sans marges gauche et droite autour des cartes */
+.tarifs__stage {
+  padding-inline: 0;
+  overflow: visible;
+  background: none;
+}
+
+.tarifs__stage::after {
+  display: none;
+}
+
+/* Jauges du triptyque : sans la bille noire. Le trait de lumière se termine par un point lumineux. */
+.tri__scales .scale__dot {
+  display: none;
+}
+
+.scale__fill::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  box-shadow:
+    0 0 6px 2px rgba(255, 255, 255, 0.95),
+    0 0 16px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* Pro : dépasse en haut, mais son bas et son bouton sont alignés sur les trois autres cartes */
+@media (min-width: 62.0625rem) {
+  .plan--pro {
+    margin-top: calc(-1 * var(--gap-s));
+    margin-bottom: 0;
+  }
+}
+
+/* Tarifs : les barres de capacité reprennent les jauges du triptyque (trait blanc lumineux sur rainure claire) */
+.cap__bar {
+  height: 8px;
+}
+
+.plan:not(.plan--pro) .cap__bar {
+  background: rgba(17, 17, 17, 0.12);
+  box-shadow:
+    inset 0 1px 2px rgba(17, 17, 17, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.plan--pro .cap__bar {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.cap__bar i,
+.plan--pro .cap__bar i {
+  position: relative;
+  background: #ffffff;
+  box-shadow:
+    0 0 4px 1px rgba(255, 255, 255, 0.95),
+    0 0 12px 2px rgba(255, 255, 255, 0.7),
+    0 0 26px 4px rgba(255, 255, 255, 0.4);
+}
+
+.cap__bar i::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  box-shadow:
+    0 0 6px 2px rgba(255, 255, 255, 0.95),
+    0 0 16px 4px rgba(255, 255, 255, 0.6);
+}
+
+.cap__bar i::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  width: 40px;
+  height: 20px;
+  transform: translateY(-50%);
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+/* Sur les cartes claires, le trait blanc doit rester lisible : rainure plus marquée, trait plus épais que la rainure et léger relief */
+.plan:not(.plan--pro) .cap__bar {
+  background: rgba(17, 17, 17, 0.16);
+  box-shadow:
+    inset 0 1px 3px rgba(17, 17, 17, 0.28),
+    0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.cap__bar i {
+  height: 14px;
+  margin-top: -3px;
+}
+
+.plan:not(.plan--pro) .cap__bar i {
+  box-shadow:
+    0 0 4px 1px rgba(255, 255, 255, 0.95),
+    0 0 12px 2px rgba(255, 255, 255, 0.7),
+    0 3px 6px -1px rgba(17, 17, 17, 0.28);
+}
+
+/* Cartes claires : le trait blanc repose dans une rainure grise plus épaisse (comme sur la référence), avec un contour fin */
+.plan:not(.plan--pro) .cap__bar {
+  height: 12px;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.16), rgba(17, 17, 17, 0.09));
+  box-shadow:
+    inset 0 1px 3px rgba(17, 17, 17, 0.3),
+    0 0 0 1px rgba(17, 17, 17, 0.08),
+    0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.plan:not(.plan--pro) .cap__bar i {
+  height: 100%;
+  margin-top: 0;
+}
+
+.plan--pro .cap__bar {
+  height: 12px;
+}
+
+.plan--pro .cap__bar i {
+  height: 100%;
+  margin-top: 0;
+}
+
+/* Tarifs : cartes claires sur formes floues (comme « Visualisation des accords »), et jauges strictement identiques à celles du triptyque */
+.plan:not(.plan--pro) {
+  background:
+    radial-gradient(60% 45% at 12% 8%, rgba(116, 140, 188, 0.55), rgba(116, 140, 188, 0) 70%),
+    radial-gradient(55% 40% at 95% 55%, rgba(176, 160, 142, 0.5), rgba(176, 160, 142, 0) 70%),
+    radial-gradient(70% 40% at 30% 105%, rgba(120, 124, 132, 0.45), rgba(120, 124, 132, 0) 70%),
+    linear-gradient(160deg, rgba(247, 247, 247, 0.55), rgba(247, 247, 247, 0.3));
+}
+
+.plans .plan:nth-child(2):not(.plan--pro) {
+  background:
+    radial-gradient(55% 40% at 90% 10%, rgba(176, 160, 142, 0.55), rgba(176, 160, 142, 0) 70%),
+    radial-gradient(60% 45% at 5% 60%, rgba(116, 140, 188, 0.5), rgba(116, 140, 188, 0) 70%),
+    radial-gradient(70% 40% at 70% 105%, rgba(120, 124, 132, 0.4), rgba(120, 124, 132, 0) 70%),
+    linear-gradient(160deg, rgba(247, 247, 247, 0.55), rgba(247, 247, 247, 0.3));
+}
+
+.plans .plan:nth-child(4):not(.plan--pro) {
+  background:
+    radial-gradient(60% 45% at 85% 6%, rgba(116, 140, 188, 0.55), rgba(116, 140, 188, 0) 70%),
+    radial-gradient(55% 40% at 8% 50%, rgba(176, 160, 142, 0.5), rgba(176, 160, 142, 0) 70%),
+    radial-gradient(70% 40% at 60% 105%, rgba(120, 124, 132, 0.45), rgba(120, 124, 132, 0) 70%),
+    linear-gradient(160deg, rgba(247, 247, 247, 0.55), rgba(247, 247, 247, 0.3));
+}
+
+/* Jauges : mêmes valeurs que le triptyque (rainure 6 px, trait blanc lumineux, point lumineux, éclat) */
+.plan .cap__bar,
+.plan:not(.plan--pro) .cap__bar,
+.plan--pro .cap__bar {
+  height: 6px;
+  border-radius: 99px;
+  overflow: visible;
+}
+
+.plan:not(.plan--pro) .cap__bar {
+  background: rgba(17, 17, 17, 0.06);
+  box-shadow:
+    inset 0 1px 2px rgba(17, 17, 17, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.plan--pro .cap__bar {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.plan .cap__bar i,
+.plan:not(.plan--pro) .cap__bar i,
+.plan--pro .cap__bar i {
+  height: 100%;
+  margin-top: 0;
+  border-radius: inherit;
+  background: #ffffff;
+  box-shadow:
+    0 0 4px 1px rgba(255, 255, 255, 0.95),
+    0 0 12px 2px rgba(255, 255, 255, 0.7),
+    0 0 26px 4px rgba(255, 255, 255, 0.4);
+}
+
+.cap__bar i::before {
+  right: -3px;
+  width: 8px;
+  height: 8px;
+}
+
+.cap__bar i::after {
+  right: -10px;
+  width: 36px;
+  height: 18px;
+}
+
+/* Tarifs : fond de verre plus proche de la référence — gris chauds désaturés, grandes taches très douces, aucun bleu vif */
+.plan:not(.plan--pro),
+.plans .plan:nth-child(2):not(.plan--pro),
+.plans .plan:nth-child(4):not(.plan--pro) {
+  background:
+    radial-gradient(90% 55% at 15% 30%, rgba(150, 150, 146, 0.42), rgba(150, 150, 146, 0) 75%),
+    radial-gradient(80% 50% at 100% 100%, rgba(196, 184, 168, 0.55), rgba(196, 184, 168, 0) 75%),
+    radial-gradient(70% 45% at 0% 100%, rgba(110, 112, 106, 0.4), rgba(110, 112, 106, 0) 75%),
+    radial-gradient(60% 40% at 85% 20%, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 75%),
+    linear-gradient(180deg, rgba(236, 236, 234, 0.7), rgba(222, 220, 216, 0.55));
+}
+
+.plans .plan:nth-child(2):not(.plan--pro) {
+  background:
+    radial-gradient(90% 55% at 85% 35%, rgba(150, 150, 146, 0.42), rgba(150, 150, 146, 0) 75%),
+    radial-gradient(80% 50% at 0% 100%, rgba(196, 184, 168, 0.55), rgba(196, 184, 168, 0) 75%),
+    radial-gradient(70% 45% at 100% 100%, rgba(110, 112, 106, 0.4), rgba(110, 112, 106, 0) 75%),
+    radial-gradient(60% 40% at 15% 15%, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 75%),
+    linear-gradient(180deg, rgba(236, 236, 234, 0.7), rgba(222, 220, 216, 0.55));
+}
+
+/* Trois dimensions : on remet les billes (seules les barres des tarifs n'en ont pas) */
+.tri__scales .scale__dot {
+  display: block;
+}
+
+/* Tarifs : barre de capacité lisible, sans lumière — remplissage plein contrasté sur rainure marquée */
+.plan .cap__bar,
+.plan:not(.plan--pro) .cap__bar {
+  height: 10px;
+  background: rgba(17, 17, 17, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(17, 17, 17, 0.08);
+}
+
+.plan .cap__bar i,
+.plan:not(.plan--pro) .cap__bar i {
+  background: var(--color-ink);
+  box-shadow: none;
+}
+
+.plan--pro .cap__bar {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.plan--pro .cap__bar i {
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.cap__bar i::before,
+.cap__bar i::after {
+  display: none;
+}
+
+/* Tarifs : les barres de capacité sont alignées sur la même ligne dans les quatre cartes (le texte s'écrit dessous) */
+.plan__cap {
+  align-content: start;
+}
+
+/* Pro dépasse en haut : on décale son contenu du même écart pour que nom, prix et barre soient sur les mêmes lignes */
+@media (min-width: 62.0625rem) {
+  .plan--pro {
+    padding-top: calc(calc(36rem / 16) + var(--gap-s));
+  }
+}
+
+/* Tarifs : fond de la jauge = rainure de « Trois dimensions » */
+.plan:not(.plan--pro) .cap__bar {
+  background: rgba(17, 17, 17, 0.06);
+  box-shadow:
+    inset 0 1px 2px rgba(17, 17, 17, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Tarifs : même épaisseur de jauge que « Trois dimensions » (6 px) */
+.plan .cap__bar,
+.plan:not(.plan--pro) .cap__bar,
+.plan--pro .cap__bar {
+  height: 6px;
+}
+
+/* Pro : image de fond (prix-pro.jpg), sans les stries ni le halo d'avant */
+.plan--pro {
+  background: var(--color-ink) url("../assets/img/prix-pro.jpg") center / cover no-repeat;
+}
+
+.plan--pro::before {
+  display: none;
+}
+
+/* Tarifs : moins d'espace entre le texte d'introduction et les cartes */
+.tarifs .dims2__head {
+  margin-bottom: var(--gap-m);
+}
+
+/* Construction collaborative : rainure en relief, billes plus présentes, avatars en verre (la zone bleue reste comme avant) */
+.agree {
+  gap: var(--gap-xs);
+  padding-block: 0;
+}
+
+.agree__track {
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.24);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.agree__dot {
+  width: calc(20rem / 16);
+  height: calc(20rem / 16);
+  background: radial-gradient(circle at 35% 30%, #ffffff 0, #d6d8dd 55%, #a9acb4 100%);
+  box-shadow:
+    0 6px 12px -4px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 3px rgba(60, 64, 76, 0.35);
+}
+
+.agree__av {
+  width: calc(32rem / 16);
+  height: calc(32rem / 16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.08));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Bloc bleu : bordure plus discrète, dépasse davantage en haut et en bas des trois lignes */
+.agree__zone {
+  top: calc(var(--gap-m) * -1);
+  bottom: calc(var(--gap-m) * -1);
+  border-color: rgba(190, 208, 245, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
