@@ -121,7 +121,11 @@
       if (travel > 8) {
         /* Écran large : la carte reste épinglée pendant que l'animation se joue */
         const stickTop = parseFloat(getComputedStyle(sticky).top) || 0;
-        setProgress(clamp((stickTop - rect.top) / travel));
+        /* Délai de scroll (data-voile-delay, en part de la hauteur d'écran) : la carte reste collée sans rien
+           animer avant le début et après la fin de l'animation */
+        const delay = (parseFloat(voile.dataset.voileDelay) || 0) * viewport;
+        const span = Math.max(travel - 2 * delay, 1);
+        setProgress(clamp((stickTop - rect.top - delay) / span));
       } else {
         /* Petit écran : l'animation se joue pendant que la carte traverse l'écran */
         setProgress(clamp((viewport * 0.9 - rect.top) / (viewport * 0.6)));

@@ -1966,3 +1966,10 @@ body {
 html.is-night {
   background-color: #111111;
 }
+
+/* « Levez le voile » : un peu de scroll avant et après l'animation (0,15 écran de chaque côté, voir data-voile-delay) */
+@media (min-width: 56.25rem) and (min-height: 40rem) and (prefers-reduced-motion: no-preference) {
+  .voile {
+    height: calc(var(--voile-h) + 160vh);
+  }
+}

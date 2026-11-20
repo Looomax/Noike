@@ -21,7 +21,7 @@
   const RIM_WIDTH = 0.003;
   const TINT_MAX = 0.8;
   const STRIP = { x0: 0.222, x1: 0.401 };   // place de la bande, en part de la largeur de la photo
-  const STRIP_END = 0;   // hauteur finale de la bande (part de la photo) : elle disparaît tout en bas
+  const OVER = 0.10;   // la bande dépasse de la photo en haut et en bas (part de la hauteur) : on ne voit pas ses bords haut et bas
   const START = 0.05, END = 0.9;   // le verre se retire entre ces deux moments de la progression
 
   const canvas = document.createElement("canvas");
@@ -406,7 +406,7 @@ void main() {
     const g = Math.min(1, Math.max(0, (progress() - START) / (END - START)));
     // Le verre est une bande verticale posée sur le visage (même place que dans la photo voile-1).
     // Au départ elle va du haut au bas de la photo ; elle se retire par le haut et disparaît tout en bas.
-    const yTop = g * (1 - STRIP_END);      // haut de la bande, en part de la hauteur de la photo (0 = haut)
+    const yTop = -OVER + g * (1 + OVER);    // haut de la bande, en part de la hauteur de la photo (0 = haut) ; part au-dessus de la photo et finit en bas
 
     // Recadrage « cover » : la photo est cadrée comme avec object-fit: cover et object-position
     const pos = getComputedStyle(img).objectPosition.split(" ").map((v) => parseFloat(v) / 100);
@@ -418,7 +418,7 @@ void main() {
     const toX = (u) => ((u - ox) / fx) * w;
     const toY = (v) => ((1 - v - oy) / fy) * h;
     const x0 = toX(STRIP.x0), x1 = toX(STRIP.x1);
-    const yHi = toY(yTop), yLo = toY(1);
+    const yHi = toY(yTop), yLo = toY(1 + OVER);
     let hsx = (x1 - x0) / 2, hsy = (yHi - yLo) / 2;
     if (hsy < 0.5) { hsx = 0; hsy = 0; }   // verre entièrement retiré
 
