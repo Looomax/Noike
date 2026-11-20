@@ -204,10 +204,8 @@
     <div class="voile__sticky">
       <div class="container">
         <div class="voile__card on-dark">
-          <!-- 3 images de fond : voile-1 (voilée), voile-2 (le verre descend), voile-3 (nette) -->
-          <img class="voile__layer voile__layer--1" src="assets/img/voile-1.jpg" alt="" width="2613" height="1254">
-          <img class="voile__layer voile__layer--2" src="assets/img/voile-2.jpg" alt="" width="2613" height="1254" loading="lazy">
-          <img class="voile__layer voile__layer--3" src="assets/img/voile-3.jpg" alt="" width="2613" height="1254" loading="lazy">
+          <!-- Photo lever-voile (personne nette) ; le verre liquide (canvas ajouté par js/glass.js) la recouvre puis se retire pendant le scroll -->
+          <img class="voile__layer voile__layer--1" src="assets/img/lever-voile.jpg" alt="" width="2613" height="1254">
           <div class="voile__content">
             <h2 class="voile__title rv" id="t-voile" style="--s:.16;--d:.22">Levez le voile sur vos candidats</h2>
             <p class="voile__text rv" style="--s:.30;--d:.22">Trois angles pour comprendre une personne, trois lectures, jamais de score.</p>
@@ -715,5 +713,6 @@
 <script src="js/main.js" defer></script>
 <script src="js/guide.js" defer></script>
 <script src="js/page.js" defer></script>
+<script src="js/glass.js" defer></script>
 </body>
 </html>
