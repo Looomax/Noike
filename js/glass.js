@@ -11,8 +11,8 @@
 
   // ---------- Réglages du verre (valeurs choisies dans l'outil, sur 100 → ÷ 100) ----------
   const GLASS = {
-    refr: 0.56, edge: 0.60, disp: 0.28, blur: 0.13,
-    tint: 0.17, tintColor: [200 / 255, 200 / 255, 200 / 255], high: 0, low: 0,
+    refr: 0.70, edge: 0.70, disp: 0.43, blur: 0.30,
+    tint: 0.20, tintColor: [200 / 255, 200 / 255, 200 / 255], high: 0, low: 0,
     flute: 0, grain: 0.09, depth: 0, rim: 0.17, round: 0.03,
   };
   const BLUR_MAX_FRACTION = 0.02;
@@ -20,7 +20,7 @@
   const SATURATION = 1.0;
   const RIM_WIDTH = 0.003;
   const TINT_MAX = 0.8;
-  const STRIP = { x0: 0.237, x1: 0.386 };   // place de la bande, en part de la largeur de la photo
+  const STRIP = { x0: 0.222, x1: 0.401 };   // place de la bande, en part de la largeur de la photo
   const STRIP_END = 0;   // hauteur finale de la bande (part de la photo) : elle disparaît tout en bas
   const START = 0.05, END = 0.9;   // le verre se retire entre ces deux moments de la progression
 
