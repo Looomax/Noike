@@ -529,14 +529,19 @@
 }
 
 /* Pastilles oui / non */
+.compare .v {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap-xs);
+}
+
 .yn {
   display: inline-grid;
+  flex: none;
   place-items: center;
   width: calc(20rem / 16);
   height: calc(20rem / 16);
-  margin-right: var(--gap-xs);
   border-radius: 50%;
-  vertical-align: -5px;
 }
 
 .yn .icon {
