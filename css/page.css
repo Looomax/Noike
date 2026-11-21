@@ -2228,6 +2228,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: var(--color-text-muted);   /* gris foncé */
   gap: var(--gap-s);
   padding: var(--gap-m);
   border: 0;
