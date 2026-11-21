@@ -366,7 +366,7 @@ void main() {
     gl.generateMipmap(gl.TEXTURE_2D);
     texParams(gl.LINEAR_MIPMAP_LINEAR, gl.CLAMP_TO_EDGE);
 
-    const bw = Math.min(img.naturalWidth, BLUR_TEXTURE_MAX);
+    const bw = Math.min(img.naturalWidth, opts.bgBlur ? 480 : BLUR_TEXTURE_MAX);   // fond très flou : petite texture (le sous-échantillonnage lisse les fines stries de l'image, sinon traits sombres)
     const bh = Math.max(1, Math.round((img.naturalHeight * bw) / img.naturalWidth));
     blurA = target(bw, bh);
     blurB = target(bw, bh);
@@ -412,7 +412,7 @@ void main() {
     gl.uniform2f(P.u.u_uvo, (1 - fx) * posX, (1 - fy) * (1 - posY));
     gl.uniform2f(P.u.u_c, G.cx, G.cy);
     gl.uniform2f(P.u.u_hs, hsx, hsy);
-    gl.uniform1f(P.u.u_r, GLASS.round * Math.min(hsx, hsy));
+    gl.uniform1f(P.u.u_r, G.r != null ? G.r : GLASS.round * Math.min(hsx, hsy));
     gl.uniform1f(P.u.u_refr, GLASS.refr);
     gl.uniform1f(P.u.u_mix, 1);
     gl.uniform1f(P.u.u_rim, GLASS.rim);
@@ -520,7 +520,7 @@ void main() {
         const stacked = card.querySelector(".nofait__head").getBoundingClientRect().bottom <= lr.top + 1;   // mobile : liste sous le titre
         const x0 = Math.max(inset, lr.left - cr.left - pad) * s, x1 = w - inset * s;
         const top = (stacked ? Math.max(inset, lr.top - cr.top - pad) : inset) * s, bot = h - inset * s;
-        return { fx: c.fx, fy: c.fy, posX: c.posX, posY: c.posY, cx: (x0 + x1) / 2, cy: h - (top + bot) / 2, hsx: (x1 - x0) / 2, hsy: (bot - top) / 2 };
+        return { fx: c.fx, fy: c.fy, posX: c.posX, posY: c.posY, cx: (x0 + x1) / 2, cy: h - (top + bot) / 2, hsx: (x1 - x0) / 2, hsy: (bot - top) / 2, r: 6 * s };
       },
     });
   }

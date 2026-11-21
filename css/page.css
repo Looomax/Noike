@@ -2198,3 +2198,17 @@ html.is-night {
 .pill-btn {
   font-family: var(--font-ui);
 }
+
+/* « Ce que Noike ne fait pas » : pas de traits de séparation, croix alignée sur la première ligne, légère ombre sous le texte */
+.nofait__list li,
+.nofait__list li:first-child,
+.nofait__list li:last-child {
+  align-items: flex-start;
+  border-bottom: 0;
+  line-height: 1.3;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.nofait__list .icon {
+  margin-top: calc((1.3em - 14px) / 2);
+}
