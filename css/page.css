@@ -2201,3 +2201,12 @@ html.is-night {
 .nofait__list .icon {
   margin-top: calc((1.3em - 14px) / 2);
 }
+
+/* Hero : texte limité à 580 px, tout le contenu calé en bas de la carte */
+.hero__card {
+  align-items: end;
+}
+
+.hero__text {
+  max-width: calc(580rem / 16);
+}
