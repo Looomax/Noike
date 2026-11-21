@@ -2308,3 +2308,35 @@
     transition: none;
   }
 }
+
+/* Onglets du comparatif : ils apparaissent un par un quand on arrive dessus */
+.ctab:nth-child(1) { --k: 0; }
+.ctab:nth-child(2) { --k: 1; }
+.ctab:nth-child(3) { --k: 2; }
+.ctab:nth-child(4) { --k: 3; }
+.ctab:nth-child(5) { --k: 4; }
+.ctab:nth-child(6) { --k: 5; }
+.ctab:nth-child(7) { --k: 6; }
+.ctab:nth-child(8) { --k: 7; }
+
+.js-anim .ctabs:not(.is-in) .ctab {
+  opacity: 0;
+}
+
+.js-anim .ctabs.is-in .ctab {
+  animation: ctab-in 700ms var(--ease-out) backwards;
+  animation-delay: calc(var(--k, 0) * 90ms);
+}
+
+@keyframes ctab-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-anim .ctabs.is-in .ctab {
+    animation: none;
+  }
+}
