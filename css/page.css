@@ -2293,7 +2293,7 @@
 
 /* Animation : les trois cartes glissent de dessous le bloc du guide, l'une après l'autre, quand on arrive dessus */
 .steps2 li {
-  transition: transform 800ms var(--ease-out) calc(var(--k, 0) * 140ms);
+  transition: transform 1200ms var(--ease-out) calc(var(--k, 0) * 140ms);
 }
 
 .steps2 li:nth-child(2) { --k: 1; }
