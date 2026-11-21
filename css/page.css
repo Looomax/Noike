@@ -2360,7 +2360,7 @@
   color: var(--color-white);
 }
 
-/* Marge à gauche doublée à l'intérieur du bloc de verre : 24 px → 48 px (le verre ne bouge pas) */
+/* Marges gauche et droite doublées à l'intérieur du bloc de verre : 24 px → 48 px (le verre ne bouge pas) */
 .nofait__list {
-  padding-left: var(--gap-m);
+  padding-inline: var(--gap-m);
 }
