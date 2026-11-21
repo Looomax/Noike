@@ -122,10 +122,10 @@
         /* Écran large : la carte reste épinglée pendant que l'animation se joue */
         const stickTop = parseFloat(getComputedStyle(sticky).top) || 0;
         /* Délai de scroll (data-voile-delay, en part de la hauteur d'écran) : la carte reste collée sans rien
-           animer avant le début et après la fin de l'animation */
+           animer APRÈS la fin de l'animation (plus de délai au début : l'animation part dès que la carte se colle) */
         const delay = (parseFloat(voile.dataset.voileDelay) || 0) * viewport;
-        const span = Math.max(travel - 2 * delay, 1);
-        setProgress(clamp((stickTop - rect.top - delay) / span));
+        const span = Math.max(travel - delay, 1);
+        setProgress(clamp((stickTop - rect.top) / span));
       } else {
         /* Petit écran : l'animation se joue pendant que la carte traverse l'écran */
         setProgress(clamp((viewport * 0.9 - rect.top) / (viewport * 0.6)));
