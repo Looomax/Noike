@@ -2252,5 +2252,5 @@
   height: calc(32rem / 16);
   margin: 0;
   transform: translateY(-50%);
-  color: rgba(17, 17, 17, 0.14);   /* gris clair */
+  color: rgba(17, 17, 17, 0.08);   /* gris clair */
 }
