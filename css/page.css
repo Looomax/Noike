@@ -2238,17 +2238,19 @@
     0 24px 48px -24px rgba(17, 17, 17, 0.25);
 }
 
-/* Grosse flèche posée sur le bord gauche de chaque carte, la pointe à l'intérieur */
+/* Grosse flèche blanche : elle sort de la carte par la gauche, coupée par le bord, et sa pointe est à l'intérieur */
 .steps2 li {
+  overflow: hidden;
   padding-left: calc(68rem / 16);
 }
 
 .steps2 li .icon {
   position: absolute;
   top: 50%;
-  left: -2px;
-  width: calc(53rem / 16);
-  height: calc(24rem / 16);
+  left: calc(-24rem / 16);
+  width: calc(72rem / 16);
+  height: calc(32rem / 16);
   margin: 0;
   transform: translateY(-50%);
+  color: var(--color-white);
 }
