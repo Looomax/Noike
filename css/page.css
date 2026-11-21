@@ -2362,5 +2362,5 @@
 
 /* Marges gauche et droite doublées à l'intérieur du bloc de verre : 24 px → 48 px (le verre ne bouge pas) */
 .nofait__list {
-  padding-inline: var(--gap-m);
+  padding-inline: var(--gap-m) var(--gap-s);   /* le verre déborde de 32 px à droite et de 24 px à gauche : 48 px de chaque côté */
 }
