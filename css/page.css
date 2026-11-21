@@ -2254,3 +2254,12 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     0 24px 48px -24px rgba(17, 17, 17, 0.18);
 }
+
+/* Guide d'entretien : lignes et points de liaison en blanc (essai) ; le bleu au survol est gardé */
+.guide__links path:not(.is-linked) {
+  stroke: var(--color-white);
+}
+
+.guide__links circle:not(.is-linked) {
+  fill: var(--color-white);
+}
