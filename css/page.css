@@ -2340,3 +2340,13 @@
     animation: none;
   }
 }
+
+/* « Ce que Noike ne fait pas » : voile sombre à gauche, sous le titre et le texte, pour garder le contraste sur le visuel clair */
+.nofait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(10, 12, 18, 0.72) 0%, rgba(10, 12, 18, 0.55) 30%, rgba(10, 12, 18, 0) 58%);
+}
