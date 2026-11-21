@@ -2364,3 +2364,24 @@
 .nofait__list {
   padding-inline: var(--gap-m) var(--gap-s);   /* le verre déborde de 32 px à droite et de 24 px à gauche : 48 px de chaque côté */
 }
+
+/* « Ce que Noike ne fait pas » : chaque entrée (croix + texte) passe du flou au net, comme le H1, l'une après l'autre */
+.nofait__list li:nth-child(1) { --i: 0; }
+.nofait__list li:nth-child(2) { --i: 1; }
+.nofait__list li:nth-child(3) { --i: 2; }
+.nofait__list li:nth-child(4) { --i: 3; }
+
+.js-anim .nofait:not(.is-in) .nofait__list li {
+  opacity: 0;
+}
+
+.js-anim .nofait.is-in .nofait__list li {
+  animation: focus-in 900ms var(--ease-out) backwards;
+  animation-delay: calc(var(--i) * 220ms + 300ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-anim .nofait.is-in .nofait__list li {
+    animation: none;
+  }
+}
