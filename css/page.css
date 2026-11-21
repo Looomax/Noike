@@ -2116,21 +2116,6 @@
   }
 }
 
-/* Fond du site : #111111 pendant que « Levez le voile » est collée (classe posée par page.js).
-   Le fond est porté par <html> seulement (et <body> transparent) : sinon, au moment du fondu, le blanc par défaut du navigateur apparaissait. */
-html {
-  background-color: var(--color-bg);
-  transition: background-color 1000ms var(--ease-out);
-}
-
-body {
-  background: transparent;
-}
-
-html.is-night {
-  background-color: #111111;
-}
-
 /* « Levez le voile » : un peu de scroll avant et après l'animation (0,15 écran de chaque côté, voir data-voile-delay) */
 @media (min-width: 56.25rem) and (min-height: 40rem) and (prefers-reduced-motion: no-preference) {
   .voile {
@@ -2209,4 +2194,25 @@ html.is-night {
 
 .hero__text {
   max-width: calc(580rem / 16);
+}
+
+/* « Levez le voile » en plein écran : la carte remplit toute la fenêtre pendant l'épinglage (plus de changement de fond de page) */
+@media (min-width: 56.25rem) and (min-height: 40rem) and (prefers-reduced-motion: no-preference) {
+  .voile {
+    --voile-h: 100vh;
+  }
+
+  .voile__sticky {
+    top: 0;
+  }
+
+  .voile__sticky > .container {
+    width: 100%;
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  .voile__card {
+    border-radius: 0;
+  }
 }
