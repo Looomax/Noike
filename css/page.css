@@ -615,13 +615,17 @@
   max-width: 70ch;
 }
 
-/* Première ligne « En une phrase » : l'intro du tableau, en plus gros */
+/* Première ligne « En une phrase » : l'intro du tableau, en plus gros, collée aux noms (pas de trait entre les deux) */
+.cmp .compare thead th {
+  border-bottom: 0;
+}
+
 .cmp .compare__lead th {
   vertical-align: middle;
 }
 
 .cmp .compare__lead td {
-  padding-block: var(--gap-l);
+  padding-block: var(--gap-xs) var(--gap-l);
   color: var(--color-ink);
   font-size: calc(20rem / 16);
   font-weight: 600;
