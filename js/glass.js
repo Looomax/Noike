@@ -495,17 +495,17 @@ void main() {
     });
   }
 
-  // ---------- « Ce que Noike ne fait pas » : un bloc de verre fixe derrière le titre, sur un fond très flou ----------
+  // ---------- « Ce que Noike ne fait pas » : un bloc de verre fixe derrière la liste (à droite), sur un fond très flou ----------
   const card = document.querySelector("[data-glass-card]");
   const cardImg = card && card.querySelector(".nofait__bg");
-  const cardHead = card && card.querySelector(".nofait__head");
+  const cardHead = card && card.querySelector(".nofait__list");
   if (card && cardImg && cardHead) {
     const canvas = document.createElement("canvas");
     canvas.className = "nofait__glass";
     canvas.setAttribute("aria-hidden", "true");
     cardImg.after(canvas);
     create(cardImg, canvas, {
-      bgBlur: 0.05,
+      bgBlur: 0.02,
       observe: (schedule) => {
         const ro = new ResizeObserver(schedule);
         ro.observe(card);
@@ -514,11 +514,12 @@ void main() {
       },
       geometry: (w, h) => {
         const c = cover(cardImg, w, h);
-        const cr = card.getBoundingClientRect(), hr = cardHead.getBoundingClientRect();
+        const cr = card.getBoundingClientRect(), lr = cardHead.getBoundingClientRect();
         const s = w / cr.width;                                   // pixels du canvas par pixel d'écran
-        const pad = 24;                                           // marge du verre autour du titre et du texte
-        const x0 = Math.max(0, (hr.left - cr.left - pad) * s), x1 = Math.min(w, (hr.right - cr.left + pad) * s);
-        const top = Math.max(0, (hr.top - cr.top - pad) * s), bot = Math.min(h, (hr.bottom - cr.top + pad) * s);
+        const inset = 16, pad = 24;                               // marge égale en haut, à droite et en bas ; air autour de la liste
+        const stacked = card.querySelector(".nofait__head").getBoundingClientRect().bottom <= lr.top + 1;   // mobile : liste sous le titre
+        const x0 = Math.max(inset, lr.left - cr.left - pad) * s, x1 = w - inset * s;
+        const top = (stacked ? Math.max(inset, lr.top - cr.top - pad) : inset) * s, bot = h - inset * s;
         return { fx: c.fx, fy: c.fy, posX: c.posX, posY: c.posY, cx: (x0 + x1) / 2, cy: h - (top + bot) / 2, hsx: (x1 - x0) / 2, hsy: (bot - top) / 2 };
       },
     });
