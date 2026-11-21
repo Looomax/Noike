@@ -617,7 +617,7 @@
 
 /* Première ligne « En une phrase » : l'intro du tableau, en plus gros, collée aux noms (pas de trait entre les deux) */
 .cmp table.compare thead th {
-  padding-bottom: 0;
+  padding-bottom: var(--gap-xs);
   border-bottom: 0;
 }
 
