@@ -777,12 +777,6 @@
 
 .tile--b .badge {
   justify-self: start;
-  transition: opacity 500ms var(--ease-out) 1500ms, transform 500ms var(--ease-out) 1500ms;
-}
-
-.js-anim .tile--b:not(.is-in) .badge {
-  opacity: 0;
-  transform: translateY(6px);
 }
 
 .tile--b .scale__dot,
