@@ -615,6 +615,25 @@
   max-width: 70ch;
 }
 
+/* Première ligne « En une phrase » : l'intro du tableau, en plus gros */
+.cmp .compare__lead th {
+  vertical-align: middle;
+}
+
+.cmp .compare__lead td {
+  padding-block: var(--gap-l);
+  color: var(--color-ink);
+  font-size: calc(20rem / 16);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  vertical-align: middle;
+}
+
+.cmp .compare__lead td.is-noike {
+  color: var(--color-white);
+}
+
 /* Dernière ligne « Idéal pour » */
 .cmp .compare__ideal td,
 .cmp .compare__ideal th {
