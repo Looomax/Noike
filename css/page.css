@@ -705,6 +705,50 @@
   }
 }
 
+/* Colonne Noike « lumière » comme la carte Pro des tarifs : halo bleu, fines rayures, ombre.
+   Elle est dessinée d'un seul bloc derrière le tableau (largeurs de colonnes fixes). */
+@media (min-width: 40.0625rem) {
+  .cmp .compare__scroll {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .cmp .compare__scroll::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: var(--gap-xs);
+    right: var(--gap-xs);
+    bottom: var(--gap-xs);
+    width: calc((100% - 2 * var(--gap-xs)) * 0.37);
+    border-radius: var(--radius-image);
+    background:
+      radial-gradient(90% 40% at 90% 0%, rgba(116, 140, 188, 0.4), transparent 70%),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 3px, transparent 3px 11px),
+      var(--color-ink);
+    box-shadow: var(--shadow-lift);
+    pointer-events: none;
+  }
+
+  .cmp table.compare {
+    table-layout: fixed;
+  }
+
+  .cmp table.compare thead th:first-child {
+    width: 26%;
+  }
+
+  .cmp table.compare thead th:nth-child(2),
+  .cmp table.compare thead th.is-noike {
+    width: 37%;
+  }
+
+  .cmp table.compare .is-noike {
+    background: transparent;
+    border-radius: 0;
+  }
+}
+
 /* Ce que Noike ne fait pas : bloc plus bas, liste en deux colonnes */
 .nofait {
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
