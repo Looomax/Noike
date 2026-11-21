@@ -2277,6 +2277,8 @@
 /* Les trois étapes : 16 px sous le bloc du guide, et elles en sortent par l'animation ci-dessous */
 .guide {
   z-index: 2;
+  /* ombre portée du bloc sur les cartes qui sortent de dessous : elle donne la profondeur */
+  box-shadow: 0 20px 28px -14px rgba(17, 17, 17, 0.3);
 }
 
 .steps2 {
