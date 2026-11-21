@@ -2286,7 +2286,7 @@
 }
 
 .steps2 li {
-  padding-top: calc(var(--gap-m) + var(--gap-l));
+  padding-top: calc(var(--gap-l) + var(--gap-s));   /* 32 px cachés sous le bloc + 16 px de marge visible au-dessus du texte */
 }
 
 /* Animation : les trois cartes glissent de dessous le bloc du guide, l'une après l'autre, quand on arrive dessus */
