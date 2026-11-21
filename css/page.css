@@ -616,8 +616,17 @@
 }
 
 /* Première ligne « En une phrase » : l'intro du tableau, en plus gros */
-.cmp .compare__lead th {
-  vertical-align: middle;
+.cmp .compare thead .compare__lead th,
+.cmp .compare thead .compare__lead td {
+  border-bottom: 0;
+}
+
+.cmp .compare thead .compare__lead td.is-noike {
+  border-radius: var(--radius-image) var(--radius-image) 0 0;
+}
+
+.cmp .compare thead tr + tr .is-noike {
+  border-radius: 0;
 }
 
 .cmp .compare__lead td {
@@ -717,13 +726,26 @@
     width: auto;
   }
 
-  .cmp .compare thead {
+  .cmp .compare thead,
+  .cmp .compare thead tr {
+    display: block;
+  }
+
+  .cmp .compare thead tr:not(.compare__lead) {
     position: absolute;
     width: 1px;
     height: 1px;
     margin: -1px;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
+  }
+
+  .cmp .compare thead .compare__lead th {
+    display: none;
+  }
+
+  .cmp .compare thead .compare__lead td.is-noike {
+    border-radius: var(--radius-panel);
   }
 
   .cmp .compare tr {
