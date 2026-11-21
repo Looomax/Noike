@@ -36,6 +36,25 @@
   --color-grey-400: #c8c8c8;
   --color-grey-500: #ababab;
   --color-grey-600: #808080;
+  /* Suite de l'échelle de gris et couleurs du design système (variables Figma « colors ») */
+  --color-grey-100: #f7f7f7;
+  --color-grey-150: #f0f0f0;
+  --color-grey-300: #dddddd;
+  --color-grey-700: #5e5e5e;
+  --color-grey-800: #2e2e2e;
+  --color-grey-1000: #1f1d1e;
+  --color-primary-100: #dfe9ff;
+  --color-primary-200: #a4b4d4;
+  --color-primary-400: #748cbc;
+  --color-primary-500: #111111;
+  --color-primary-700: #2d4066;
+  --color-pending-500: #b9672c;
+  --color-warning-500: #c23a78;
+  --color-warning-100: #fff0f5;
+  --color-success-500: #21805a;
+  --color-success-100: rgba(221, 245, 231, 0.5);
+  --color-input-over-b80: rgba(0, 0, 0, 0.08);
+  --color-input-over-b120: rgba(0, 0, 0, 0.12);
   --color-accent: #748cbc;
   --color-accent-strong: #3f5a8f;
   --color-border: rgba(31, 29, 30, 0.1);
