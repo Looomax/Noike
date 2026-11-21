@@ -66,7 +66,7 @@
 
   /* Espacements */
   --page-pad: clamp(1rem, 4.17vw, calc(60rem / 16));
-  --section-gap: clamp(3.5rem, 6.67vw, calc(96rem / 16));
+  --section-gap: clamp(4.5rem, 11.12vw, calc(160rem / 16));   /* espace entre sections : 160 px dès 1440 px de large */
   --gap-xs: calc(8rem / 16);
   --gap-s: calc(16rem / 16);
   --gap-m: calc(24rem / 16);

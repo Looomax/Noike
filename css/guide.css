@@ -1168,10 +1168,6 @@ button.pill-btn[aria-pressed="true"] {
    Respiration et hiérarchie : titres de section plus mesurés (48 px pour 64 px
    au hero), plus d'air entre les sections et à l'intérieur des blocs.
    ========================================================================== */
-:root {
-  --section-gap: clamp(4.5rem, 9.4vw, 8.5rem);
-}
-
 /* Titres de section : tous à la même taille, plus petits que le H1 */
 .voile__title,
 .cta__title {
