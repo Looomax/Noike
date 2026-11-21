@@ -706,17 +706,6 @@
   border-bottom-color: var(--cmp-line);
 }
 
-@media (min-width: 40.0625rem) {
-  .cmp table.compare .compare__ideal th,
-  .cmp table.compare .compare__ideal td:not(.is-noike) {
-    background: color-mix(in srgb, var(--color-accent) 12%, var(--color-white));
-  }
-
-  .cmp table.compare .compare__ideal th {
-    border-radius: var(--radius-image) 0 0 var(--radius-image);
-  }
-}
-
 /* Colonne Noike « lumière » comme la carte Pro des tarifs : halo bleu, fines rayures, ombre.
    Elle est dessinée d'un seul bloc derrière le tableau (largeurs de colonnes fixes). */
 @media (min-width: 40.0625rem) {
