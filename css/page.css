@@ -2386,12 +2386,20 @@
   }
 }
 
-/* Tous les H2 : flou → net d'un bloc, comme le H1 mais plus court (700 ms) */
+/* Tous les H2 : flou → net d'un bloc (1400 ms, montée de 20 px) */
 .h2-anim {
   opacity: 0;
 }
 
 .h2-anim.is-in-h2 {
   opacity: 1;
-  animation: focus-in 700ms var(--ease-out) backwards;
+  animation: h2-in 1400ms var(--ease-out) backwards;
+}
+
+@keyframes h2-in {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(20px);
+  }
 }
