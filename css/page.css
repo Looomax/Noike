@@ -2263,3 +2263,12 @@
 .guide__links circle:not(.is-linked) {
   fill: var(--color-white);
 }
+
+/* Au survol, le lien mis en avant passe en bleu primary 100 */
+.guide__links path.is-linked {
+  stroke: var(--color-primary-100);
+}
+
+.guide__links circle.is-linked {
+  fill: var(--color-primary-100);
+}
