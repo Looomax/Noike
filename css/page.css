@@ -2228,7 +2228,7 @@
   align-items: center;
   gap: var(--gap-s);
   padding: var(--gap-m);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 0;
   border-radius: 16px;
   background: var(--color-bg);   /* essai : même fond que la page, les autres effets du verre sont gardés */
   -webkit-backdrop-filter: blur(22px) saturate(1.3);
