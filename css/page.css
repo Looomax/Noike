@@ -570,6 +570,7 @@
 
 .compare small {
   font-size: inherit;
+  line-height: calc(20rem / 16);
 }
 
 /* Dernière ligne « Idéal pour » */
