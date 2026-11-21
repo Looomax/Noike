@@ -468,19 +468,9 @@
   margin-bottom: var(--gap-xl);
 }
 
-/* Panneau : la phrase d'abord, la citation sourcée repliée */
+/* Panneau : accroche, tableau, puis la source en petite note repliée */
 .cmp {
   gap: var(--gap-l);
-}
-
-.cmp__top {
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: var(--gap-xl);
-  align-items: start;
-}
-
-.cmp__diff {
-  gap: var(--gap-xs);
 }
 
 .cmp__sentence {
@@ -491,47 +481,100 @@
 
 .cmp__says {
   display: block;
-  padding: 0 var(--gap-m);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-panel);
-  background: var(--color-white);
+  padding: 0;
+  border: 0;
+  background: none;
 }
 
 .cmp__says summary {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--gap-s);
+  flex-wrap: wrap;
+  gap: var(--gap-xs) var(--gap-m);
   min-height: var(--control-height);
   list-style: none;
   cursor: pointer;
+  font-size: var(--fs-small);
 }
 
 .cmp__says summary::-webkit-details-marker {
   display: none;
 }
 
+.cmp__more {
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .cmp__says summary::after {
   content: "";
   flex: none;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
+  color: var(--color-text-muted);
   background:
-    linear-gradient(currentColor, currentColor) center / 12px 2px no-repeat,
-    linear-gradient(currentColor, currentColor) center / 2px 12px no-repeat;
+    linear-gradient(currentColor, currentColor) center / 10px 2px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 2px 10px no-repeat;
   transition: background-size var(--duration-base) var(--ease-out);
 }
 
 .cmp__says[open] summary::after {
-  background-size: 12px 2px, 2px 0;
-}
-
-.cmp__says .cmp__src {
-  margin-left: auto;
+  background-size: 10px 2px, 2px 0;
 }
 
 .cmp__says .cmp__quote {
-  padding-bottom: var(--gap-m);
+  padding: var(--gap-xs) 0 var(--gap-s);
+  max-width: 70ch;
+}
+
+/* Pastilles oui / non */
+.yn {
+  display: inline-grid;
+  place-items: center;
+  width: calc(20rem / 16);
+  height: calc(20rem / 16);
+  margin-right: var(--gap-xs);
+  border-radius: 50%;
+  vertical-align: -5px;
+}
+
+.yn .icon {
+  width: 10px;
+  height: 10px;
+}
+
+.yn--yes {
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.is-noike .yn--yes {
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+.yn--no {
+  border: 1.5px solid currentColor;
+  color: var(--color-text-muted);
+}
+
+.is-noike .yn--no {
+  color: var(--color-on-dark-muted);
+}
+
+.compare small {
+  font-size: inherit;
+}
+
+/* Dernière ligne « Idéal pour » */
+.cmp .compare__ideal td,
+.cmp .compare__ideal th {
+  font-weight: 600;
+}
+
+.cmp .compare__ideal td:not(.is-noike) {
+  color: var(--color-ink);
 }
 
 /* Tableau serré, sans défilement horizontal */
@@ -562,21 +605,6 @@
   overflow-x: visible;
 }
 
-/* Cartes « Choisissez… si » serrées */
-.cmp__picks {
-  gap: var(--gap-s);
-}
-
-.pick {
-  gap: var(--gap-xs);
-  padding: var(--gap-m);
-  font-size: var(--fs-body-s);
-}
-
-.pick p {
-  line-height: 1.5;
-}
-
 /* Ce que Noike ne fait pas : bloc plus bas, liste en deux colonnes */
 .nofait {
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
@@ -601,7 +629,6 @@
 }
 
 @media (max-width: 62rem) {
-  .cmp__top,
   .nofait {
     grid-template-columns: 1fr;
     gap: var(--gap-m);
@@ -673,17 +700,6 @@
 
   .cmp .compare td.is-noike::before {
     color: var(--color-on-dark-muted);
-  }
-
-  .cmp__says summary {
-    flex-wrap: wrap;
-    padding-block: var(--gap-xs);
-  }
-
-  .cmp__says .cmp__src {
-    margin-left: 0;
-    width: 100%;
-    order: 3;
   }
 
   .nofait {
