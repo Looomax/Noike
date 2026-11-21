@@ -191,14 +191,21 @@
   color: var(--color-white);
 }
 
-.nofait::before {
-  content: "";
+/* Fond : le visuel du bloc final, très flou (le canvas de verre, ajouté par js/glass.js, le remplace quand WebGL marche) */
+.nofait__bg,
+.nofait__glass {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    radial-gradient(60% 80% at 95% 0%, rgba(116, 140, 188, 0.35), transparent 70%),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 3px, transparent 3px 11px);
+  width: 100%;
+  height: 100%;
+}
+
+.nofait__bg {
+  object-fit: cover;
+  object-position: 50% 60%;
+  filter: blur(28px) brightness(0.8);
+  transform: scale(1.15);
 }
 
 .nofait__head {

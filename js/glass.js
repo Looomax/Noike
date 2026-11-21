@@ -1,13 +1,11 @@
-/* Noike — « Levez le voile » : le verre liquide (WebGL2) recouvre la photo voile-1, puis se retire du haut vers le bas
+/* Noike — verre liquide (WebGL2). Deux usages : « Levez le voile » (bande qui se retire au scroll) et le bloc
+   « Ce que Noike ne fait pas » (bloc fixe sur un fond très flou, mêmes réglages de verre).
+   Pour « Levez le voile » : le verre liquide (WebGL2) recouvre la photo voile-1, puis se retire du haut vers le bas
    pendant le scroll. Les shaders viennent de l'outil Liquid Glass (même code, mêmes formules) ;
    seuls le recadrage « cover » de l'image et la lecture de la progression du scroll (--p) ont été ajoutés.
    Si WebGL ou l'image échoue, la photo seule reste affichée. */
 
 (() => {
-  const voile = document.querySelector("[data-voile]");
-  if (!voile || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const img = voile.querySelector(".voile__layer--1");
-  if (!img) return;
 
   // ---------- Réglages du verre (valeurs choisies dans l'outil, sur 100 → ÷ 100) ----------
   const GLASS = {
@@ -23,14 +21,6 @@
   const STRIP = { x0: 0.222, x1: 0.401 };   // place de la bande, en part de la largeur de la photo
   const OVER = 0.10;   // la bande dépasse de la photo en haut et en bas (part de la hauteur) : on ne voit pas ses bords haut et bas
   const START = 0.05, END = 0.9;   // le verre se retire entre ces deux moments de la progression
-
-  const canvas = document.createElement("canvas");
-  canvas.className = "voile__glass";
-  canvas.setAttribute("aria-hidden", "true");
-  img.after(canvas);
-
-  const gl = canvas.getContext("webgl2", { alpha: false, antialias: false });
-  if (!gl) { canvas.remove(); return; }
 
   const VERT = `#version 300 es
 out vec2 v_uv;
@@ -315,6 +305,12 @@ void main() {
   o = vec4(mix(outside, clamp(col, 0.0, 1.0), a), 1.0);
 }`;
 
+  // Un verre = un canvas, une image, une façon de calculer la place du bloc (geometry) et ce qui le redessine (observe).
+  // bgBlur : si renseigné (part de la largeur de l'image), l'image entière est très floue (fond du bloc « ne fait pas »).
+  function create(img, canvas, opts) {
+  const gl = canvas.getContext("webgl2", { alpha: false, antialias: false });
+  if (!gl) { canvas.remove(); return; }
+
   function compile(type, code) {
     const s = gl.createShader(type);
     gl.shaderSource(s, code);
@@ -374,7 +370,7 @@ void main() {
     const bh = Math.max(1, Math.round((img.naturalHeight * bw) / img.naturalWidth));
     blurA = target(bw, bh);
     blurB = target(bw, bh);
-    const sigma = GLASS.blur * BLUR_MAX_FRACTION * bw;
+    const sigma = (opts.bgBlur || GLASS.blur * BLUR_MAX_FRACTION) * bw;
     gl.useProgram(programs.blur.p);
     gl.uniform1i(programs.blur.u.u_tex, 0);
     gl.uniform1f(programs.blur.u.u_sigma, sigma);
@@ -392,40 +388,20 @@ void main() {
     ready = true;
   }
 
-  function progress() {
-    const p = parseFloat(voile.style.getPropertyValue("--p"));
-    return Number.isFinite(p) ? Math.min(1, Math.max(0, p)) : 0;
-  }
-
   function draw() {
     raf = 0;
     if (!ready) return;
     const w = canvas.width, h = canvas.height;
     if (!w || !h) return;
     const P = programs.main;
-    const g = Math.min(1, Math.max(0, (progress() - START) / (END - START)));
-    // Le verre est une bande verticale posée sur le visage (même place que dans la photo voile-1).
-    // Au départ elle va du haut au bas de la photo ; elle se retire par le haut et disparaît tout en bas.
-    const yTop = -OVER + g * (1 + OVER);    // haut de la bande, en part de la hauteur de la photo (0 = haut) ; part au-dessus de la photo et finit en bas
-
-    // Recadrage « cover » : la photo est cadrée comme avec object-fit: cover et object-position
-    const pos = getComputedStyle(img).objectPosition.split(" ").map((v) => parseFloat(v) / 100);
-    const posX = Number.isFinite(pos[0]) ? pos[0] : 0.5, posY = Number.isFinite(pos[1]) ? pos[1] : 0.5;
-    const ca = w / h, ia = img.naturalWidth / img.naturalHeight;
-    const fx = ca > ia ? 1 : ca / ia, fy = ca > ia ? ia / ca : 1;
-    const ox = (1 - fx) * posX, oy = (1 - fy) * (1 - posY);
-    // coordonnées de la photo (x vers la droite, y vers le bas) → pixels du canvas (y vers le haut)
-    const toX = (u) => ((u - ox) / fx) * w;
-    const toY = (v) => ((1 - v - oy) / fy) * h;
-    const x0 = toX(STRIP.x0), x1 = toX(STRIP.x1);
-    const yHi = toY(yTop), yLo = toY(1 + OVER);
-    let hsx = (x1 - x0) / 2, hsy = (yHi - yLo) / 2;
-    if (hsy < 0.5) { hsx = 0; hsy = 0; }   // verre entièrement retiré
+    const G = opts.geometry(w, h);
+    const fx = G.fx, fy = G.fy, posX = G.posX, posY = G.posY;
+    let hsx = G.hsx, hsy = G.hsy;
 
     gl.bindFramebuffer(gl.FRAMEBUFFER, null);
     gl.viewport(0, 0, w, h);
     gl.useProgram(P.p);
-    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, imgTex);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, opts.bgBlur ? blurB.tex : imgTex);
     gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, blurB.tex);
     gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, glassTex);
     gl.uniform1i(P.u.u_img, 0);
@@ -434,7 +410,7 @@ void main() {
     gl.uniform2f(P.u.u_res, w, h);
     gl.uniform2f(P.u.u_uvs, fx, fy);
     gl.uniform2f(P.u.u_uvo, (1 - fx) * posX, (1 - fy) * (1 - posY));
-    gl.uniform2f(P.u.u_c, (x0 + x1) / 2, (yHi + yLo) / 2);
+    gl.uniform2f(P.u.u_c, G.cx, G.cy);
     gl.uniform2f(P.u.u_hs, hsx, hsy);
     gl.uniform1f(P.u.u_r, GLASS.round * Math.min(hsx, hsy));
     gl.uniform1f(P.u.u_refr, GLASS.refr);
@@ -471,10 +447,80 @@ void main() {
   function start() {
     try { init(); } catch (e) { canvas.remove(); return; }
     new ResizeObserver(resize).observe(canvas);
-    new MutationObserver(schedule).observe(voile, { attributes: true, attributeFilter: ["style"] });
+    if (opts.observe) opts.observe(schedule);
     resize();
-    document.documentElement.classList.add("has-glass");
+    if (opts.flag) document.documentElement.classList.add(opts.flag);
   }
 
   (img.decode ? img.decode() : Promise.resolve()).then(start, () => canvas.remove());
+  }
+
+  // Recadrage « cover » de l'image (comme object-fit: cover + object-position), commun aux deux usages
+  function cover(img, w, h) {
+    const pos = getComputedStyle(img).objectPosition.split(" ").map((v) => parseFloat(v) / 100);
+    const posX = Number.isFinite(pos[0]) ? pos[0] : 0.5, posY = Number.isFinite(pos[1]) ? pos[1] : 0.5;
+    const ca = w / h, ia = img.naturalWidth / img.naturalHeight;
+    const fx = ca > ia ? 1 : ca / ia, fy = ca > ia ? ia / ca : 1;
+    return { fx, fy, posX, posY, ox: (1 - fx) * posX, oy: (1 - fy) * (1 - posY) };
+  }
+
+  // ---------- « Levez le voile » : bande de verre qui se retire par le haut pendant le scroll ----------
+  const voile = document.querySelector("[data-voile]");
+  const voileImg = voile && voile.querySelector(".voile__layer--1");
+  if (voile && voileImg && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const canvas = document.createElement("canvas");
+    canvas.className = "voile__glass";
+    canvas.setAttribute("aria-hidden", "true");
+    voileImg.after(canvas);
+    const progress = () => {
+      const p = parseFloat(voile.style.getPropertyValue("--p"));
+      return Number.isFinite(p) ? Math.min(1, Math.max(0, p)) : 0;
+    };
+    create(voileImg, canvas, {
+      flag: "has-glass",
+      observe: (schedule) => new MutationObserver(schedule).observe(voile, { attributes: true, attributeFilter: ["style"] }),
+      geometry: (w, h) => {
+        const g = Math.min(1, Math.max(0, (progress() - START) / (END - START)));
+        // La bande va du haut au bas de la photo ; elle se retire par le haut et disparaît tout en bas.
+        const yTop = -OVER + g * (1 + OVER);
+        const c = cover(voileImg, w, h);
+        const toX = (u) => ((u - c.ox) / c.fx) * w;
+        const toY = (v) => ((1 - v - c.oy) / c.fy) * h;
+        const x0 = toX(STRIP.x0), x1 = toX(STRIP.x1);
+        const yHi = toY(yTop), yLo = toY(1 + OVER);
+        let hsx = (x1 - x0) / 2, hsy = (yHi - yLo) / 2;
+        if (hsy < 0.5) { hsx = 0; hsy = 0; }   // verre entièrement retiré
+        return { fx: c.fx, fy: c.fy, posX: c.posX, posY: c.posY, cx: (x0 + x1) / 2, cy: (yHi + yLo) / 2, hsx, hsy };
+      },
+    });
+  }
+
+  // ---------- « Ce que Noike ne fait pas » : un bloc de verre fixe derrière le titre, sur un fond très flou ----------
+  const card = document.querySelector("[data-glass-card]");
+  const cardImg = card && card.querySelector(".nofait__bg");
+  const cardHead = card && card.querySelector(".nofait__head");
+  if (card && cardImg && cardHead) {
+    const canvas = document.createElement("canvas");
+    canvas.className = "nofait__glass";
+    canvas.setAttribute("aria-hidden", "true");
+    cardImg.after(canvas);
+    create(cardImg, canvas, {
+      bgBlur: 0.05,
+      observe: (schedule) => {
+        const ro = new ResizeObserver(schedule);
+        ro.observe(card);
+        ro.observe(cardHead);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+      },
+      geometry: (w, h) => {
+        const c = cover(cardImg, w, h);
+        const cr = card.getBoundingClientRect(), hr = cardHead.getBoundingClientRect();
+        const s = w / cr.width;                                   // pixels du canvas par pixel d'écran
+        const pad = 24;                                           // marge du verre autour du titre et du texte
+        const x0 = Math.max(0, (hr.left - cr.left - pad) * s), x1 = Math.min(w, (hr.right - cr.left + pad) * s);
+        const top = Math.max(0, (hr.top - cr.top - pad) * s), bot = Math.min(h, (hr.bottom - cr.top + pad) * s);
+        return { fx: c.fx, fy: c.fy, posX: c.posX, posY: c.posY, cx: (x0 + x1) / 2, cy: h - (top + bot) / 2, hsx: (x1 - x0) / 2, hsy: (bot - top) / 2 };
+      },
+    });
+  }
 })();
