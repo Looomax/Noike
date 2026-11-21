@@ -2274,7 +2274,7 @@
   stroke: var(--color-ink);
 }
 
-/* Les trois étapes : 16 px sous le bloc du guide, et elles en sortent par l'animation ci-dessous */
+/* Les trois étapes : 24 px sous le bloc du guide, et elles en sortent par l'animation ci-dessous */
 .guide {
   z-index: 2;
   /* ombre portée du bloc sur les cartes qui sortent de dessous : elle donne la profondeur */
@@ -2284,7 +2284,7 @@
 .steps2 {
   position: relative;
   z-index: 1;
-  margin-top: var(--gap-s);   /* 16 px entre le bloc du guide et les cartes */
+  margin-top: var(--gap-m);   /* 24 px entre le bloc du guide et les cartes */
 }
 
 .steps2 li {
@@ -2300,7 +2300,7 @@
 .steps2 li:nth-child(3) { --k: 2; }
 
 .js-anim .steps2:not(.is-in) li {
-  transform: translateY(calc(-100% - var(--gap-m)));   /* cachées derrière le bloc du guide */
+  transform: translateY(calc(-100% - var(--gap-l)));   /* cachées derrière le bloc du guide */
 }
 
 @media (prefers-reduced-motion: reduce) {
