@@ -2238,6 +2238,7 @@
     0 24px 48px -24px rgba(17, 17, 17, 0.25);
 }
 
-.steps2 li .picto {
+.steps2 li .icon {
   flex: none;
+  margin-top: 0;
 }
