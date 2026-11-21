@@ -616,7 +616,7 @@
 }
 
 /* Première ligne « En une phrase » : l'intro du tableau, en plus gros, collée aux noms (pas de trait entre les deux) */
-.cmp .compare thead th {
+.cmp table.compare thead th {
   padding-bottom: 0;
   border-bottom: 0;
 }
@@ -625,7 +625,7 @@
   vertical-align: middle;
 }
 
-.cmp .compare__lead td {
+.cmp table.compare .compare__lead td {
   padding-block: 0 var(--gap-l);
   color: var(--color-ink);
   font-size: calc(20rem / 16);
@@ -635,7 +635,7 @@
   vertical-align: middle;
 }
 
-.cmp .compare__lead td.is-noike {
+.cmp table.compare .compare__lead td.is-noike {
   color: var(--color-white);
 }
 
