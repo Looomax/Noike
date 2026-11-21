@@ -1137,9 +1137,6 @@
   grid-template-columns: calc(32rem / 16) minmax(0, 1fr);
   gap: var(--gap-s);
   align-items: start;
-  transition:
-    opacity 600ms var(--ease-out) calc(var(--k) * 180ms + 200ms),
-    transform 600ms var(--ease-out) calc(var(--k) * 180ms + 200ms);
 }
 
 .thread__row--reply {
@@ -1158,11 +1155,6 @@
 
 .thread__bubble .sk {
   width: var(--w);
-}
-
-.js-anim .tile:not(.is-in) .thread__row {
-  opacity: 0;
-  transform: translateY(8px);
 }
 
 /* Tuile « Synthèses » : l'illustration fournie remplace le dessin en barres */
