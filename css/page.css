@@ -677,6 +677,34 @@
   overflow-x: visible;
 }
 
+/* Habillage simple : le tableau dans une carte claire, traits discrets, pied teinté */
+.cmp table.compare {
+  --cmp-line: rgba(31, 29, 30, 0.06);
+}
+
+.cmp .compare__scroll {
+  padding: var(--gap-xs);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius-image) + var(--gap-xs));
+  background: var(--color-white);
+}
+
+.cmp table.compare td:not(.is-noike),
+.cmp table.compare tbody th {
+  border-bottom-color: var(--cmp-line);
+}
+
+@media (min-width: 40.0625rem) {
+  .cmp table.compare .compare__ideal th,
+  .cmp table.compare .compare__ideal td:not(.is-noike) {
+    background: color-mix(in srgb, var(--color-accent) 12%, var(--color-white));
+  }
+
+  .cmp table.compare .compare__ideal th {
+    border-radius: var(--radius-image) 0 0 var(--radius-image);
+  }
+}
+
 /* Ce que Noike ne fait pas : bloc plus bas, liste en deux colonnes */
 .nofait {
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
