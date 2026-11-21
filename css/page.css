@@ -2288,3 +2288,21 @@
 .steps2 li {
   padding-top: calc(var(--gap-m) + var(--gap-l));
 }
+
+/* Animation : les trois cartes glissent de dessous le bloc du guide, l'une après l'autre, quand on arrive dessus */
+.steps2 li {
+  transition: transform 800ms var(--ease-out) calc(var(--k, 0) * 140ms);
+}
+
+.steps2 li:nth-child(2) { --k: 1; }
+.steps2 li:nth-child(3) { --k: 2; }
+
+.js-anim .steps2:not(.is-in) li {
+  transform: translateY(calc(-100% - var(--gap-l)));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steps2 li {
+    transition: none;
+  }
+}
