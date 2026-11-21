@@ -2273,3 +2273,18 @@
   fill: var(--color-ink);
   stroke: var(--color-ink);
 }
+
+/* Les trois étapes sortent de dessous le bloc du guide : elles remontent sous son bord bas */
+.guide {
+  z-index: 2;
+}
+
+.steps2 {
+  position: relative;
+  z-index: 1;
+  margin-top: calc(-1 * var(--gap-l));
+}
+
+.steps2 li {
+  padding-top: calc(var(--gap-m) + var(--gap-l));
+}
