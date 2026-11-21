@@ -2222,21 +2222,15 @@
   font-size: var(--fs-h1);
 }
 
-/* Trois étapes sous le guide : trois petites cartes de verre avec un pictogramme */
+/* Trois étapes sous le guide : trois petites cartes avec un pictogramme (essai : même fond que la page) */
 .steps2 li {
   display: flex;
   align-items: center;
   gap: var(--gap-s);
   padding: var(--gap-m);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-border);
   border-radius: 16px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.4));
-  -webkit-backdrop-filter: blur(22px) saturate(1.3);
-  backdrop-filter: blur(22px) saturate(1.3);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 24px 48px -24px rgba(17, 17, 17, 0.25);
+  background: var(--color-bg);
 }
 
 .steps2 li .picto {
