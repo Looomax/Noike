@@ -2222,55 +2222,48 @@
   font-size: var(--fs-h1);
 }
 
-/* Trois étapes sous le guide : le trait du haut devient une jauge (rainure, trait bleu lumineux, bille noire)
-   qui se remplit au scroll, l'une après l'autre */
+/* Trois étapes sous le guide : un grand numéro gris clair derrière chaque phrase, la flèche n'apparaît qu'au survol */
+.steps2 {
+  counter-reset: step;
+}
+
 .steps2 li {
   position: relative;
-  padding-top: var(--gap-l);
-  border-top: 0;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  min-height: calc(120rem / 16);
+  counter-increment: step;
 }
 
-.steps2 li::before,
 .steps2 li::after {
-  content: "";
+  content: counter(step, decimal-leading-zero);
   position: absolute;
-  left: 0;
-}
-
-.steps2 li::before {
-  top: 0;
+  z-index: -1;
   right: 0;
-  height: 6px;
-  border-radius: 99px;
-  background: rgba(17, 17, 17, 0.08);
-  box-shadow: inset 0 1px 2px rgba(17, 17, 17, 0.12);
+  bottom: 0;
+  color: rgba(17, 17, 17, 0.06);
+  font-size: calc(104rem / 16);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  pointer-events: none;
 }
 
-.steps2 li::after {
-  top: -5px;
-  width: 100%;
-  height: 16px;
-  border-radius: 99px;
-  background:
-    radial-gradient(circle 8px at calc(100% - 8px) 50%, #5b5b5b 0, #111 62%, transparent 66%),
-    linear-gradient(var(--color-accent), var(--color-accent)) center / 100% 6px no-repeat;
-  filter: drop-shadow(0 0 6px rgba(116, 140, 188, 0.7));
-  transition: width 1200ms var(--ease-out) calc(200ms + var(--k, 0) * 300ms);
+.steps2 .icon {
+  flex: none;
+  width: 0;
+  margin-right: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: width var(--duration-base) var(--ease-out), margin-right var(--duration-base) var(--ease-out), opacity var(--duration-base) var(--ease-out);
 }
 
-.steps2 li:nth-child(2) { --k: 1; }
-.steps2 li:nth-child(3) { --k: 2; }
-
-.js-anim .steps2 li::after {
-  width: 16px;
-}
-
-.js-anim .steps2.is-in li::after {
-  width: 100%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .steps2 li::after {
-    transition: none;
+@media (hover: hover) {
+  .steps2 li:hover .icon {
+    width: calc(24rem / 16);
+    margin-right: var(--gap-s);
+    opacity: 1;
   }
 }
