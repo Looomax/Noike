@@ -528,51 +528,6 @@
   max-width: 70ch;
 }
 
-/* Pastilles oui / non */
-.compare .v {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--gap-xs);
-}
-
-.yn {
-  display: inline-grid;
-  flex: none;
-  place-items: center;
-  width: calc(20rem / 16);
-  height: calc(20rem / 16);
-  border-radius: 50%;
-}
-
-.yn .icon {
-  width: 10px;
-  height: 10px;
-}
-
-.yn--yes {
-  background: var(--color-ink);
-  color: var(--color-white);
-}
-
-.is-noike .yn--yes {
-  background: var(--color-white);
-  color: var(--color-ink);
-}
-
-.yn--no {
-  border: 1.5px solid currentColor;
-  color: var(--color-text-muted);
-}
-
-.is-noike .yn--no {
-  color: var(--color-on-dark-muted);
-}
-
-.compare small {
-  font-size: inherit;
-  line-height: calc(20rem / 16);
-}
-
 /* Dernière ligne « Idéal pour » */
 .cmp .compare__ideal td,
 .cmp .compare__ideal th {
