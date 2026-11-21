@@ -2216,3 +2216,8 @@
     border-radius: 0;
   }
 }
+
+/* « Levez le voile » : le titre a la même taille que le H1 du hero */
+.voile__title {
+  font-size: var(--fs-h1);
+}
