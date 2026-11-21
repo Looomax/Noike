@@ -20,7 +20,7 @@
   const TINT_MAX = 0.8;
   const STRIP = { x0: 0.222, x1: 0.401 };   // place de la bande, en part de la largeur de la photo
   const OVER = 0.10;   // la bande dépasse de la photo en haut et en bas (part de la hauteur) : on ne voit pas ses bords haut et bas
-  const START = 0.05, END = 0.9;   // le verre se retire entre ces deux moments de la progression
+  const START = 0.38, END = 0.9;   // le verre se retire entre ces deux moments de la progression (0,38 = juste après l apparition du titre)
 
   const VERT = `#version 300 es
 out vec2 v_uv;
