@@ -2271,4 +2271,5 @@
 
 .guide__links circle.is-linked {
   fill: var(--color-primary-100);
+  stroke: var(--color-primary-100);
 }
