@@ -2228,7 +2228,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--color-grey-600);
+  color: var(--color-grey-500);
   gap: var(--gap-s);
   padding: var(--gap-m);
   border: 0;
