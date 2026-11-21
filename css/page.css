@@ -626,7 +626,7 @@
 }
 
 .cmp table.compare .compare__lead td {
-  padding-block: 0 var(--gap-l);
+  padding-block: 0 var(--gap-m);
   color: var(--color-ink);
   font-size: calc(20rem / 16);
   font-weight: 600;
