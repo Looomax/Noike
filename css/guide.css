@@ -1334,7 +1334,7 @@ button.pill-btn[aria-pressed="true"] {
 }
 
 .site-footer {
-  padding-block: var(--gap-2xl) var(--gap-xl);
+  padding-block: var(--gap-2xl) 0;   /* le grand logo coupé touche le bas de la page */
 }
 
 @media (max-width: 53.75rem) {
