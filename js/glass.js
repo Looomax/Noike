@@ -505,7 +505,7 @@ void main() {
     canvas.setAttribute("aria-hidden", "true");
     cardImg.after(canvas);
     create(cardImg, canvas, {
-      bgBlur: 0.02,
+      bgBlur: 0.04,
       observe: (schedule) => {
         const ro = new ResizeObserver(schedule);
         ro.observe(card);
