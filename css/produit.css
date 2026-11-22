@@ -22,31 +22,97 @@
   font-size: var(--fs-body-s);
 }
 
-/* ---------- 2. Sept étapes ---------- */
+/* ---------- 2. Sept étapes : timeline animée au scroll ---------- */
 .etapes,
 .fcles {
   padding-block: var(--section-gap) 0;
 }
 
+.timeline {
+  --node: calc(56rem / 16);
+  position: relative;
+}
+
+/* Le trait gris, et son remplissage noir qui descend avec le scroll (--fill, en px, posé par js/produit.js) */
+.timeline__track {
+  position: absolute;
+  top: calc(var(--node) / 2);
+  bottom: calc(var(--node) / 2);
+  left: calc(var(--node) / 2 - 1px);
+  width: 2px;
+  border-radius: 2px;
+  background: var(--color-grey-300);
+}
+
+.timeline__fill {
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--fill, 0px);
+  border-radius: 2px;
+  background: var(--color-ink);
+}
+
+/* La tête du trait brille doucement */
+.timeline__fill::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: calc(10rem / 16);
+  height: calc(10rem / 16);
+  translate: -50% 50%;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 calc(6rem / 16) rgba(116, 140, 188, 0.25), 0 0 calc(18rem / 16) var(--color-accent);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.timeline.is-moving .timeline__fill::after {
+  opacity: 1;
+}
+
 .etapes__list {
-  list-style: none;
+  position: relative;
+  display: grid;
+  gap: var(--gap-xl);
   margin: 0;
   padding: 0;
-  border-bottom: 1px solid var(--color-border);
+  list-style: none;
 }
 
 .etape {
   display: grid;
-  grid-template-columns: calc(56rem / 16) minmax(0, 4fr) minmax(0, 8fr);
-  gap: var(--gap-m) var(--gap-xl);
+  grid-template-columns: var(--node) minmax(0, 1fr);
+  gap: var(--gap-l);
   align-items: start;
-  padding-block: var(--gap-xl);
-  border-top: 1px solid var(--color-border);
 }
 
-.etape__num {
-  padding-top: calc(10rem / 16);
-  color: var(--color-accent-strong);
+.etape__node {
+  display: grid;
+  place-items: center;
+  width: var(--node);
+  height: var(--node);
+  border: 1px solid var(--color-grey-300);
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-grey-600);
+  transition: background var(--duration-slow) var(--ease-out), color var(--duration-slow) var(--ease-out),
+    border-color var(--duration-slow) var(--ease-out), scale var(--duration-slow) var(--ease-out);
+}
+
+.etape__card {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: var(--gap-m) var(--gap-xl);
+  align-items: start;
+  padding: var(--gap-l);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-image);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  transition: opacity var(--duration-slow) var(--ease-out), translate var(--duration-slow) var(--ease-out),
+    box-shadow var(--duration-slow) var(--ease-out);
 }
 
 .etape__title {
@@ -92,9 +158,30 @@
   padding: calc(6rem / 16) calc(14rem / 16);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
-  background: var(--color-white);
+  background: var(--color-bg);
   font-size: var(--fs-body-s);
   color: var(--color-text-muted);
+}
+
+/* États : seulement si le script tourne (sans JS ou « animations réduites », tout reste lisible et allumé) */
+.js-anim .etape:not(.is-done) .etape__card {
+  opacity: 0.38;
+  translate: 0 calc(14rem / 16);
+  box-shadow: none;
+}
+
+.etape.is-done .etape__node {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.etape.is-current .etape__node {
+  scale: 1.12;
+}
+
+.etape.is-current .etape__card {
+  box-shadow: var(--shadow-lift);
 }
 
 /* ---------- 3. Fonctionnalités clés ---------- */
@@ -146,13 +233,17 @@
 }
 
 @media (max-width: 53.75rem) {
+  .timeline {
+    --node: calc(40rem / 16);
+  }
+
   .etape {
-    grid-template-columns: minmax(0, 1fr);
     gap: var(--gap-s);
   }
 
-  .etape__num {
-    padding-top: 0;
+  .etape__card {
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--gap-m);
   }
 
   .etape__body > div {
