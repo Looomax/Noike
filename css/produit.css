@@ -51,6 +51,7 @@ html.is-dark body {
   --e-chip-bg: var(--color-white);
   --e-done-bg: var(--color-ink);
   --e-done-fg: var(--color-white);
+  --e-halo: var(--color-input-over-b80);
 }
 
 html.is-dark .etapes {
@@ -65,6 +66,7 @@ html.is-dark .etapes {
   --e-chip-bg: var(--color-on-dark-surface);
   --e-done-bg: var(--color-grey-400);
   --e-done-fg: var(--color-ink);
+  --e-halo: var(--color-on-dark-line);
 }
 
 .etapes .display,
@@ -261,7 +263,7 @@ html.is-dark .etapes {
 
   .rail__btn.is-active .rail__dot {
     scale: 1.18;
-    box-shadow: 0 0 0 calc(6rem / 16) rgba(116, 140, 188, 0.28);
+    box-shadow: 0 0 0 calc(6rem / 16) var(--e-halo);
   }
 
   .rail__btn.is-active .rail__name {
