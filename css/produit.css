@@ -69,7 +69,7 @@ html.is-dark .etapes {
   --e-done-bg: var(--color-grey-200);
   --e-done-fg: var(--color-ink);
   --e-active: var(--color-grey-200);
-  --e-dim: var(--color-grey-600);
+  --e-dim: var(--color-grey-700);
   --e-dimmer: var(--color-grey-700);
 }
 
