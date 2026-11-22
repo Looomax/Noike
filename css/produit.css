@@ -23,44 +23,8 @@
 }
 
 /* ---------- 2. Sept étapes : section sur fond noir ---------- */
-/* Couleurs de la section : clair par défaut ; quand la page passe au noir (classe is-dark sur <html>,
-   posée par js/produit.js), elles basculent et le fond de la page fond vers le noir en 1 s. */
-html,
-body {
-  transition: background-color 1s ease;
-}
-
-html {
-  background-color: var(--color-bg);
-}
-
-html.is-dark,
-html.is-dark body {
-  background-color: var(--color-ink);
-}
-
+/* Couleurs de la section : toujours sur fond noir (image de fond + voile, réglés plus bas). */
 .etapes {
-  --e-fg: var(--color-ink);
-  --e-muted: var(--color-text-muted);
-  --e-faint: var(--color-grey-600);
-  --e-line: var(--color-grey-300);
-  --e-border: var(--color-border);
-  --e-bg: var(--color-bg);
-  --e-num: var(--color-grey-300);
-  --e-accent: var(--color-accent-strong);
-  --e-chip-bg: var(--color-white);
-  --e-done-bg: var(--color-ink);
-  --e-done-fg: var(--color-white);
-  --e-active: var(--color-ink);
-  --e-dim: var(--color-grey-500);
-  --e-dimmer: var(--color-grey-400);
-  --e-glass-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.42));
-  --e-glass-line: rgba(255, 255, 255, 0.7);
-  --e-glass-hi: rgba(255, 255, 255, 0.9);
-  --e-glass-shadow: rgba(17, 17, 17, 0.35);
-}
-
-html.is-dark .etapes {
   --e-fg: var(--color-white);
   --e-muted: var(--color-on-dark-muted);
   --e-faint: var(--color-on-dark-muted);
@@ -79,9 +43,12 @@ html.is-dark .etapes {
   --e-glass-line: rgba(255, 255, 255, 0.28);
   --e-glass-hi: rgba(255, 255, 255, 0.3);
   --e-glass-shadow: rgba(0, 0, 0, 0.65);
+  background: var(--color-ink);
+  padding-block: var(--section-gap);
 }
 
-/* Fond : une image du site, floue et assombrie, fixe derrière la section ; elle apparaît avec le noir.
+
+/* Fond : une image du site, floue et assombrie, fixe derrière la section.
    clip-path garde l'image à l'intérieur de la section (elle ne déborde pas sur le reste de la page). */
 .etapes {
   position: relative;
@@ -103,8 +70,6 @@ html.is-dark .etapes {
   z-index: -1;
   background: url("../assets/img/mec-diffuse-prisme.jpg") center / cover no-repeat;
   filter: blur(calc(var(--fond-flou) * 1500px)) brightness(calc(1 - var(--fond-voile)));   /* secours sans WebGL : mêmes réglages */
-  opacity: 0;
-  transition: opacity 1s ease;
   pointer-events: none;
 }
 
@@ -125,10 +90,6 @@ html.has-stage-glass.js-anim .panel__body::before {
   display: none;
 }
 
-html.is-dark .etapes__bg {
-  opacity: 1;
-}
-
 .etapes .display,
 .panel__title,
 .panel__body dd {
@@ -147,7 +108,6 @@ html.is-dark .etapes__bg {
 .etapes .dims2__lead { color: var(--e-muted); }
 
 /* ---------- Sept étapes : section épinglée, le contenu se remplace au scroll ---------- */
-.etapes,
 .fcles {
   padding-block: var(--section-gap) 0;
 }

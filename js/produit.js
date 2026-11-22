@@ -1,28 +1,6 @@
 /* Noike — page Produit : les sept étapes.
    Écran large : la scène est épinglée ; la progression du scroll (de 0 à 1) choisit l'étape affichée et remplit la rail.
    Mobile, sans JavaScript ou avec « animations réduites » : les étapes se lisent à la suite, rien n'est épinglé. */
-/* Fond de la page : noir tant que la section des étapes occupe le milieu de l'écran */
-(() => {
-  const sec = document.querySelector(".etapes");
-  if (!sec) return;
-  let ticking = false;
-  const check = () => {
-    ticking = false;
-    const r = sec.getBoundingClientRect();
-    const mid = window.innerHeight * 0.5;
-    document.documentElement.classList.toggle("is-dark", r.top < mid && r.bottom > mid);
-  };
-  const on = () => {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(check);
-    }
-  };
-  window.addEventListener("scroll", on, { passive: true });
-  window.addEventListener("resize", on);
-  check();
-})();
-
 (() => {
   const tl = document.querySelector("[data-timeline]");
   const wide = window.matchMedia("(min-width: 53.8125rem)");
