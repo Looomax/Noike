@@ -22,130 +22,72 @@
   font-size: var(--fs-body-s);
 }
 
-/* ---------- 2. Sept étapes : timeline animée au scroll ---------- */
+/* ---------- 2. Sept étapes : section épinglée, le contenu se remplace au scroll ---------- */
 .etapes,
 .fcles {
   padding-block: var(--section-gap) 0;
 }
 
-.timeline {
-  --node: calc(56rem / 16);
-  position: relative;
+/* Par défaut (mobile, sans JavaScript, « animations réduites ») : les sept étapes se lisent à la suite */
+.rail {
+  display: none;
 }
 
-/* Le trait gris, et son remplissage noir qui descend avec le scroll (--fill, en px, posé par js/produit.js) */
-.timeline__track {
-  position: absolute;
-  top: calc(var(--node) / 2);
-  bottom: calc(var(--node) / 2);
-  left: calc(var(--node) / 2 - 1px);
-  width: 2px;
-  border-radius: 2px;
-  background: var(--color-grey-300);
-}
-
-.timeline__fill {
-  position: absolute;
-  inset: 0 0 auto;
-  height: var(--fill, 0px);
-  border-radius: 2px;
-  background: var(--color-ink);
-}
-
-/* La tête du trait brille doucement */
-.timeline__fill::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: calc(10rem / 16);
-  height: calc(10rem / 16);
-  translate: -50% 50%;
-  border-radius: 50%;
-  background: var(--color-accent);
-  box-shadow: 0 0 0 calc(6rem / 16) rgba(116, 140, 188, 0.25), 0 0 calc(18rem / 16) var(--color-accent);
-  opacity: 0;
-  transition: opacity var(--duration-base) var(--ease-out);
-}
-
-.timeline.is-moving .timeline__fill::after {
-  opacity: 1;
-}
-
-.etapes__list {
-  position: relative;
+.panels {
   display: grid;
-  gap: var(--gap-xl);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.etape {
+.panel {
   display: grid;
-  grid-template-columns: var(--node) minmax(0, 1fr);
-  gap: var(--gap-l);
-  align-items: start;
+  gap: var(--gap-m);
+  padding-block: var(--gap-xl);
+  border-top: 1px solid var(--color-border);
 }
 
-.etape__node {
-  display: grid;
-  place-items: center;
-  width: var(--node);
-  height: var(--node);
-  border: 1px solid var(--color-grey-300);
-  border-radius: 50%;
-  background: var(--color-bg);
-  color: var(--color-grey-600);
-  transition: background var(--duration-slow) var(--ease-out), color var(--duration-slow) var(--ease-out),
-    border-color var(--duration-slow) var(--ease-out), scale var(--duration-slow) var(--ease-out);
+.panels .panel:last-child {
+  border-bottom: 1px solid var(--color-border);
 }
 
-.etape__card {
-  display: grid;
-  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-  gap: var(--gap-m) var(--gap-xl);
-  align-items: start;
-  padding: var(--gap-l);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-image);
-  background: var(--color-white);
-  box-shadow: var(--shadow-card);
-  transition: opacity var(--duration-slow) var(--ease-out), translate var(--duration-slow) var(--ease-out),
-    box-shadow var(--duration-slow) var(--ease-out);
+.panel__num {
+  margin-bottom: var(--gap-xs);
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  color: var(--color-accent-strong);
 }
 
-.etape__title {
+.panel__title {
   font-size: var(--fs-h2-sub);
   font-weight: 600;
   line-height: var(--lh-tight);
   letter-spacing: -0.02em;
 }
 
-.etape__body {
+.panel__body {
   display: grid;
   gap: var(--gap-m);
   margin: 0;
 }
 
-.etape__body > div {
+.panel__body > div {
   display: grid;
-  grid-template-columns: calc(130rem / 16) minmax(0, 1fr);
-  gap: var(--gap-m);
-  align-items: baseline;
+  gap: var(--gap-xs);
 }
 
-.etape__body dt {
+.panel__body dt {
   color: var(--color-grey-600);
 }
 
-.etape__body dd {
+.panel__body dd {
   margin: 0;
   max-width: 38rem;
-  color: var(--color-text);
 }
 
-.etape__chips {
+.panel__chips {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap-xs);
@@ -154,34 +96,171 @@
   list-style: none;
 }
 
-.etape__chips li {
+.panel__chips li {
   padding: calc(6rem / 16) calc(14rem / 16);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
-  background: var(--color-bg);
+  background: var(--color-white);
   font-size: var(--fs-body-s);
   color: var(--color-text-muted);
 }
 
-/* États : seulement si le script tourne (sans JS ou « animations réduites », tout reste lisible et allumé) */
-.js-anim .etape:not(.is-done) .etape__card {
-  opacity: 0.38;
-  translate: 0 calc(14rem / 16);
-  box-shadow: none;
-}
+/* Écran large, avec JavaScript : la scène reste épinglée, la rail se remplit, le contenu change sur place */
+@media (min-width: 53.8125rem) {
+  .js-anim .timeline {
+    --steps: 7;
+    height: calc(100vh + var(--steps) * 55vh);
+  }
 
-.etape.is-done .etape__node {
-  border-color: var(--color-ink);
-  background: var(--color-ink);
-  color: var(--color-white);
-}
+  .js-anim .timeline__stage {
+    position: sticky;
+    top: 0;
+    display: grid;
+    align-content: center;
+    gap: var(--gap-2xl);
+    min-height: 100vh;
+  }
 
-.etape.is-current .etape__node {
-  scale: 1.12;
-}
+  /* La rail : un trait, sept pastilles, le trait se remplit avec le scroll (--fill de 0 à 1) */
+  .js-anim .rail {
+    position: relative;
+    display: block;
+  }
 
-.etape.is-current .etape__card {
-  box-shadow: var(--shadow-lift);
+  .rail__line {
+    position: absolute;
+    top: calc(20rem / 16 - 1px);
+    left: calc(100% / 14);
+    right: calc(100% / 14);
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-grey-300);
+  }
+
+  .rail__fill {
+    position: absolute;
+    inset: 0;
+    border-radius: 2px;
+    background: var(--color-ink);
+    transform: scaleX(var(--fill, 0));
+    transform-origin: left;
+  }
+
+  .rail__list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rail__btn {
+    display: grid;
+    justify-items: center;
+    gap: var(--gap-s);
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-grey-600);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .rail__dot {
+    display: grid;
+    place-items: center;
+    width: calc(40rem / 16);
+    height: calc(40rem / 16);
+    border: 1px solid var(--color-grey-300);
+    border-radius: 50%;
+    background: var(--color-bg);
+    color: var(--color-grey-600);
+    transition: background var(--duration-slow) var(--ease-out), color var(--duration-slow) var(--ease-out),
+      border-color var(--duration-slow) var(--ease-out), scale var(--duration-slow) var(--ease-out),
+      box-shadow var(--duration-slow) var(--ease-out);
+  }
+
+  .rail__name {
+    max-width: 9em;
+    font-size: var(--fs-body-s);
+    line-height: var(--lh-snug);
+    text-align: center;
+    transition: color var(--duration-base) var(--ease-out);
+  }
+
+  .rail__btn.is-done .rail__dot {
+    border-color: var(--color-ink);
+    background: var(--color-ink);
+    color: var(--color-white);
+  }
+
+  .rail__btn.is-active .rail__dot {
+    scale: 1.18;
+    box-shadow: 0 0 0 calc(6rem / 16) rgba(116, 140, 188, 0.28);
+  }
+
+  .rail__btn.is-active .rail__name {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  .rail__btn:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-offset);
+    border-radius: var(--radius-panel);
+  }
+
+  /* Les panneaux se superposent : un seul est visible, les autres passent du flou au net à leur tour */
+  .js-anim .panels {
+    min-height: calc(380rem / 16);
+  }
+
+  .js-anim .panels .panel {
+    grid-area: 1 / 1;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-content: center;
+    gap: var(--gap-xl);
+    padding-block: 0;
+    border: 0;
+    opacity: 0;
+    filter: blur(10px);
+    translate: 0 calc(18rem / 16);
+    pointer-events: none;
+    transition: opacity var(--duration-slow) var(--ease-out), filter var(--duration-slow) var(--ease-out),
+      translate var(--duration-slow) var(--ease-out);
+  }
+
+  .js-anim .panels .panel.is-past {
+    translate: 0 calc(-18rem / 16);
+  }
+
+  .js-anim .panels .panel.is-active {
+    opacity: 1;
+    filter: none;
+    translate: 0 0;
+    pointer-events: auto;
+  }
+
+  .js-anim .panel__num {
+    margin-bottom: var(--gap-s);
+    font-size: clamp(5rem, 11vw, calc(168rem / 16));
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--color-grey-300);
+  }
+
+  .js-anim .panel__title {
+    font-size: var(--fs-h2);
+  }
+
+  .js-anim .panel__body > div {
+    grid-template-columns: calc(130rem / 16) minmax(0, 1fr);
+    gap: var(--gap-m);
+    align-items: baseline;
+  }
 }
 
 /* ---------- 3. Fonctionnalités clés ---------- */
@@ -233,24 +312,6 @@
 }
 
 @media (max-width: 53.75rem) {
-  .timeline {
-    --node: calc(40rem / 16);
-  }
-
-  .etape {
-    gap: var(--gap-s);
-  }
-
-  .etape__card {
-    grid-template-columns: minmax(0, 1fr);
-    padding: var(--gap-m);
-  }
-
-  .etape__body > div {
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--gap-xs);
-  }
-
   .fcles__grid {
     grid-template-columns: minmax(0, 1fr);
   }

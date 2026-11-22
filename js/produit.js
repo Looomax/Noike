@@ -1,42 +1,36 @@
-/* Noike — page Produit : la timeline des sept étapes.
-   Un repère à mi-hauteur d'écran : le trait noir descend jusqu'à lui, les pastilles qu'il a dépassées s'allument.
-   Sans JavaScript ou avec « animations réduites », rien n'est masqué ni animé. */
+/* Noike — page Produit : les sept étapes.
+   Écran large : la scène est épinglée ; la progression du scroll (de 0 à 1) choisit l'étape affichée et remplit la rail.
+   Mobile, sans JavaScript ou avec « animations réduites » : les étapes se lisent à la suite, rien n'est épinglé. */
 (() => {
   const tl = document.querySelector("[data-timeline]");
-  if (!tl || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const wide = window.matchMedia("(min-width: 53.8125rem)");
+  if (!tl || !document.documentElement.classList.contains("js-anim")) return;
 
-  const steps = [...tl.querySelectorAll(".etape")];
-  const nodes = steps.map((s) => s.querySelector(".etape__node"));
+  const stage = tl.querySelector(".timeline__stage");
+  const btns = [...tl.querySelectorAll(".rail__btn")];
+  const panels = [...tl.querySelectorAll(".panel")];
+  const n = panels.length;
   let ticking = false;
-  let lastY = window.scrollY;
-  let stopTimer;
+
+  const range = () => tl.offsetHeight - stage.offsetHeight;
 
   const update = () => {
     ticking = false;
-    const mark = window.innerHeight * 0.55;
-    const centers = nodes.map((n) => {
-      const r = n.getBoundingClientRect();
-      return r.top + r.height / 2;
+    if (!wide.matches) return;
+    const p = Math.min(1, Math.max(0, -tl.getBoundingClientRect().top / range()));
+    const f = p * n;
+    const idx = Math.min(n - 1, Math.floor(f));
+    tl.style.setProperty("--fill", Math.min(1, f / (n - 1)).toFixed(4));
+    btns.forEach((b, i) => {
+      b.classList.toggle("is-done", i <= idx);
+      b.classList.toggle("is-active", i === idx);
+      if (i === idx) b.setAttribute("aria-current", "step");
+      else b.removeAttribute("aria-current");
     });
-    const span = centers[centers.length - 1] - centers[0];
-    const fill = Math.min(Math.max(mark - centers[0], 0), span);
-    tl.style.setProperty("--fill", `${fill}px`);
-
-    let current = -1;
-    centers.forEach((c, i) => {
-      const done = c <= mark;
-      steps[i].classList.toggle("is-done", done);
-      if (done) current = i;
+    panels.forEach((el, i) => {
+      el.classList.toggle("is-active", i === idx);
+      el.classList.toggle("is-past", i < idx);
     });
-    steps.forEach((s, i) => s.classList.toggle("is-current", i === current));
-
-    /* la tête du trait ne brille que pendant le scroll */
-    if (Math.abs(window.scrollY - lastY) > 0) {
-      tl.classList.add("is-moving");
-      clearTimeout(stopTimer);
-      stopTimer = setTimeout(() => tl.classList.remove("is-moving"), 400);
-    }
-    lastY = window.scrollY;
   };
 
   const onScroll = () => {
@@ -46,13 +40,16 @@
     }
   };
 
-  /* Au clavier, l'étape qui reçoit le focus s'allume */
-  tl.addEventListener("focusin", (e) => {
-    const li = e.target.closest(".etape");
-    if (li) li.classList.add("is-done");
+  /* Un clic sur une pastille amène à l'étape */
+  btns.forEach((b, i) => {
+    b.addEventListener("click", () => {
+      const top = tl.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: top + ((i + 0.5) / n) * range(), behavior: "smooth" });
+    });
   });
 
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
+  wide.addEventListener("change", onScroll);
   update();
 })();

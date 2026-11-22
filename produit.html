@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/guide.css?v=4">
   <link rel="stylesheet" href="css/page.css?v=68">
-  <link rel="stylesheet" href="css/produit.css?v=3">
+  <link rel="stylesheet" href="css/produit.css?v=4">
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -90,7 +90,7 @@
 
 
 
-  <!-- 2. Les 7 étapes : une seule section, timeline animée au scroll -->
+  <!-- 2. Les 7 étapes : une seule section épinglée, le contenu se remplace au scroll -->
   <section class="etapes" aria-labelledby="t-etapes">
     <div class="container">
       <div class="dims2__head">
@@ -98,86 +98,99 @@
         <p class="dims2__lead">Noike rassemble ce qui sert à décider. Pour le reste, gardez vos outils : diffusez où vous voulez, collez votre lien.</p>
       </div>
       <div class="timeline" data-timeline>
-        <span class="timeline__track" aria-hidden="true"><i class="timeline__fill"></i></span>
-        <ol class="etapes__list">
-        <li class="etape">
-          <span class="etape__node label" aria-hidden="true">01</span>
-          <div class="etape__card">
-            <h3 class="etape__title">Définir le poste</h3>
-            <dl class="etape__body">
-              <div><dt class="label">Objectif</dt><dd>Créez le poste, puis son profil cible.</dd></div>
-              <div><dt class="label">Avec Noike</dt><dd>Seul, ou avec le manager et l’équipe par un tri de cartes, sans compte à créer pour eux.</dd></div>
-              <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Profil cible à plusieurs voix</li><li>Tri de cartes sans compte</li><li>Accords et désaccords signalés</li></ul></dd></div>
-            </dl>
-          </div>
-        </li>
-        <li class="etape">
-          <span class="etape__node label" aria-hidden="true">02</span>
-          <div class="etape__card">
-            <h3 class="etape__title">Diffuser l’offre</h3>
-            <dl class="etape__body">
-              <div><dt class="label">Objectif</dt><dd>Diffusez votre annonce où vous voulez.</dd></div>
-              <div><dt class="label">Avec Noike</dt><dd>Collez votre lien Noike : chaque poste a son lien de candidature.</dd></div>
-              <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Un lien de candidature par poste</li></ul></dd></div>
-            </dl>
-          </div>
-        </li>
-        <li class="etape">
-          <span class="etape__node label" aria-hidden="true">03</span>
-          <div class="etape__card">
-            <h3 class="etape__title">Recevoir et suivre</h3>
-            <dl class="etape__body">
-              <div><dt class="label">Objectif</dt><dd>Les candidatures arrivent dans le pipeline du poste.</dd></div>
-              <div><dt class="label">Avec Noike</dt><dd>Vous faites avancer chaque candidat, puis le retrouvez dans votre vivier.</dd></div>
-              <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Pipeline du poste</li><li>Vivier</li></ul></dd></div>
-            </dl>
-          </div>
-        </li>
-        <li class="etape">
-          <span class="etape__node label" aria-hidden="true">04</span>
-          <div class="etape__card">
-            <h3 class="etape__title">Évaluer</h3>
-            <dl class="etape__body">
-              <div><dt class="label">Objectif</dt><dd>Personnalité, motivations, raisonnement.</dd></div>
-              <div><dt class="label">Avec Noike</dt><dd>Le candidat reçoit une invitation par email, passe les tests quand il le souhaite et reçoit sa propre restitution.</dd></div>
-              <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Invitation par email</li><li>Trois dimensions</li><li>Restitution au candidat</li></ul></dd></div>
-            </dl>
-          </div>
-        </li>
-        <li class="etape">
-          <span class="etape__node label" aria-hidden="true">05</span>
-          <div class="etape__card">
-            <h3 class="etape__title">Préparer l’entretien</h3>
-            <dl class="etape__body">
-              <div><dt class="label">Objectif</dt><dd>Pour chaque candidat, les points à creuser et des questions à poser, dimension par dimension.</dd></div>
-              <div><dt class="label">Avec Noike</dt><dd>Un guide d’entretien, pas un verdict.</dd></div>
-              <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Guide d’entretien</li><li>Points à creuser</li><li>Questions à poser</li></ul></dd></div>
-            </dl>
-          </div>
-        </li>
-        <li class="etape">
-          <span class="etape__node label" aria-hidden="true">06</span>
-          <div class="etape__card">
-            <h3 class="etape__title">Décider à plusieurs</h3>
-            <dl class="etape__body">
-              <div><dt class="label">Objectif</dt><dd>Comparez chaque candidat au profil cible.</dd></div>
-              <div><dt class="label">Avec Noike</dt><dd>À plusieurs recruteurs, voyez l’avis de chacun et échangez en commentaires sur sa fiche.</dd></div>
-              <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Comparaison au profil cible</li><li>Avis de chaque recruteur</li><li>Commentaires sur la fiche</li></ul></dd></div>
-            </dl>
-          </div>
-        </li>
-        <li class="etape">
-          <span class="etape__node label" aria-hidden="true">07</span>
-          <div class="etape__card">
-            <h3 class="etape__title">Rendre compte</h3>
-            <dl class="etape__body">
-              <div><dt class="label">Objectif</dt><dd>Une synthèse par candidat, relue et validée par vous.</dd></div>
-              <div><dt class="label">Avec Noike</dt><dd>Un espace client à votre marque, révocable à tout moment.</dd></div>
-              <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Synthèse par candidat</li><li>Espace client</li><li>Lien révocable</li></ul></dd></div>
-            </dl>
-          </div>
-        </li>
-        </ol>
+        <div class="timeline__stage">
+          <nav class="rail" aria-label="Aller à une étape">
+            <span class="rail__line" aria-hidden="true"><i class="rail__fill"></i></span>
+            <ol class="rail__list">
+            <li><button class="rail__btn" type="button" data-go="0" aria-label="Étape 1 : Définir le poste"><span class="rail__dot label" aria-hidden="true">01</span><span class="rail__name" aria-hidden="true">Définir le poste</span></button></li>
+            <li><button class="rail__btn" type="button" data-go="1" aria-label="Étape 2 : Diffuser l’offre"><span class="rail__dot label" aria-hidden="true">02</span><span class="rail__name" aria-hidden="true">Diffuser l’offre</span></button></li>
+            <li><button class="rail__btn" type="button" data-go="2" aria-label="Étape 3 : Recevoir et suivre"><span class="rail__dot label" aria-hidden="true">03</span><span class="rail__name" aria-hidden="true">Recevoir et suivre</span></button></li>
+            <li><button class="rail__btn" type="button" data-go="3" aria-label="Étape 4 : Évaluer"><span class="rail__dot label" aria-hidden="true">04</span><span class="rail__name" aria-hidden="true">Évaluer</span></button></li>
+            <li><button class="rail__btn" type="button" data-go="4" aria-label="Étape 5 : Préparer l’entretien"><span class="rail__dot label" aria-hidden="true">05</span><span class="rail__name" aria-hidden="true">Préparer l’entretien</span></button></li>
+            <li><button class="rail__btn" type="button" data-go="5" aria-label="Étape 6 : Décider à plusieurs"><span class="rail__dot label" aria-hidden="true">06</span><span class="rail__name" aria-hidden="true">Décider à plusieurs</span></button></li>
+            <li><button class="rail__btn" type="button" data-go="6" aria-label="Étape 7 : Rendre compte"><span class="rail__dot label" aria-hidden="true">07</span><span class="rail__name" aria-hidden="true">Rendre compte</span></button></li>
+            </ol>
+          </nav>
+          <ol class="panels">
+            <li class="panel">
+              <div class="panel__head">
+                <p class="panel__num" aria-hidden="true">01</p>
+                <h3 class="panel__title">Définir le poste</h3>
+              </div>
+              <dl class="panel__body">
+                <div><dt class="label">Objectif</dt><dd>Créez le poste, puis son profil cible.</dd></div>
+                <div><dt class="label">Avec Noike</dt><dd>Seul, ou avec le manager et l’équipe par un tri de cartes, sans compte à créer pour eux.</dd></div>
+                <div><dt class="label">Fonctionnalités</dt><dd><ul class="panel__chips"><li>Profil cible à plusieurs voix</li><li>Tri de cartes sans compte</li><li>Accords et désaccords signalés</li></ul></dd></div>
+              </dl>
+            </li>
+            <li class="panel">
+              <div class="panel__head">
+                <p class="panel__num" aria-hidden="true">02</p>
+                <h3 class="panel__title">Diffuser l’offre</h3>
+              </div>
+              <dl class="panel__body">
+                <div><dt class="label">Objectif</dt><dd>Diffusez votre annonce où vous voulez.</dd></div>
+                <div><dt class="label">Avec Noike</dt><dd>Collez votre lien Noike : chaque poste a son lien de candidature.</dd></div>
+                <div><dt class="label">Fonctionnalités</dt><dd><ul class="panel__chips"><li>Un lien de candidature par poste</li></ul></dd></div>
+              </dl>
+            </li>
+            <li class="panel">
+              <div class="panel__head">
+                <p class="panel__num" aria-hidden="true">03</p>
+                <h3 class="panel__title">Recevoir et suivre</h3>
+              </div>
+              <dl class="panel__body">
+                <div><dt class="label">Objectif</dt><dd>Les candidatures arrivent dans le pipeline du poste.</dd></div>
+                <div><dt class="label">Avec Noike</dt><dd>Vous faites avancer chaque candidat, puis le retrouvez dans votre vivier.</dd></div>
+                <div><dt class="label">Fonctionnalités</dt><dd><ul class="panel__chips"><li>Pipeline du poste</li><li>Vivier</li></ul></dd></div>
+              </dl>
+            </li>
+            <li class="panel">
+              <div class="panel__head">
+                <p class="panel__num" aria-hidden="true">04</p>
+                <h3 class="panel__title">Évaluer</h3>
+              </div>
+              <dl class="panel__body">
+                <div><dt class="label">Objectif</dt><dd>Personnalité, motivations, raisonnement.</dd></div>
+                <div><dt class="label">Avec Noike</dt><dd>Le candidat reçoit une invitation par email, passe les tests quand il le souhaite et reçoit sa propre restitution.</dd></div>
+                <div><dt class="label">Fonctionnalités</dt><dd><ul class="panel__chips"><li>Invitation par email</li><li>Trois dimensions</li><li>Restitution au candidat</li></ul></dd></div>
+              </dl>
+            </li>
+            <li class="panel">
+              <div class="panel__head">
+                <p class="panel__num" aria-hidden="true">05</p>
+                <h3 class="panel__title">Préparer l’entretien</h3>
+              </div>
+              <dl class="panel__body">
+                <div><dt class="label">Objectif</dt><dd>Pour chaque candidat, les points à creuser et des questions à poser, dimension par dimension.</dd></div>
+                <div><dt class="label">Avec Noike</dt><dd>Un guide d’entretien, pas un verdict.</dd></div>
+                <div><dt class="label">Fonctionnalités</dt><dd><ul class="panel__chips"><li>Guide d’entretien</li><li>Points à creuser</li><li>Questions à poser</li></ul></dd></div>
+              </dl>
+            </li>
+            <li class="panel">
+              <div class="panel__head">
+                <p class="panel__num" aria-hidden="true">06</p>
+                <h3 class="panel__title">Décider à plusieurs</h3>
+              </div>
+              <dl class="panel__body">
+                <div><dt class="label">Objectif</dt><dd>Comparez chaque candidat au profil cible.</dd></div>
+                <div><dt class="label">Avec Noike</dt><dd>À plusieurs recruteurs, voyez l’avis de chacun et échangez en commentaires sur sa fiche.</dd></div>
+                <div><dt class="label">Fonctionnalités</dt><dd><ul class="panel__chips"><li>Comparaison au profil cible</li><li>Avis de chaque recruteur</li><li>Commentaires sur la fiche</li></ul></dd></div>
+              </dl>
+            </li>
+            <li class="panel">
+              <div class="panel__head">
+                <p class="panel__num" aria-hidden="true">07</p>
+                <h3 class="panel__title">Rendre compte</h3>
+              </div>
+              <dl class="panel__body">
+                <div><dt class="label">Objectif</dt><dd>Une synthèse par candidat, relue et validée par vous.</dd></div>
+                <div><dt class="label">Avec Noike</dt><dd>Un espace client à votre marque, révocable à tout moment.</dd></div>
+                <div><dt class="label">Fonctionnalités</dt><dd><ul class="panel__chips"><li>Synthèse par candidat</li><li>Espace client</li><li>Lien révocable</li></ul></dd></div>
+              </dl>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
@@ -298,6 +311,6 @@
 <script src="js/main.js?v=2" defer></script>
 <script src="js/guide.js" defer></script>
 <script src="js/page.js?v=4" defer></script>
-<script src="js/produit.js" defer></script>
+<script src="js/produit.js?v=2" defer></script>
 </body>
 </html>
