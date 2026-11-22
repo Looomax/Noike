@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/guide.css?v=4">
   <link rel="stylesheet" href="css/page.css?v=68">
-  <link rel="stylesheet" href="css/produit.css">
+  <link rel="stylesheet" href="css/produit.css?v=2">
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -57,7 +57,7 @@
       <ul class="nav__list">
         <li><a class="nav__link" href="produit.html" aria-current="page">Produit</a></li>
         <li><a class="nav__link" href="#">Méthode</a></li>
-        <li><a class="nav__link" href="#tarifs">Tarifs</a></li>
+        <li><a class="nav__link" href="index.html#tarifs">Tarifs</a></li>
         <li><a class="nav__link" href="#">Candidats</a></li>
       </ul>
       <a class="btn btn--primary" href="#">Inscription gratuite</a>
@@ -76,9 +76,11 @@
         <div class="hero__content">
           <h1 class="hero__title" id="t-hero"><span class="w" style="--i:0">Tout</span> <span class="w" style="--i:1">pour</span> <span class="w" style="--i:2">décider</span> <span class="w" style="--i:3">d’un</span> <span class="w" style="--i:4">recrutement,</span> <span class="w" style="--i:5">du</span> <span class="w" style="--i:6">poste</span> <span class="w" style="--i:7">à</span> <span class="w" style="--i:8">la</span> <span class="w" style="--i:9">décision.</span></h1>
           <p class="hero__text">Personnalité, motivations, raisonnement. Noike établit un profil lisible, avec des instruments publics de la recherche, et le transforme en guide d’entretien. Vous menez la conversation. Vous décidez.</p>
+          <ul class="hero__dims" aria-label="Les trois dimensions évaluées">
+            <li>Personnalité</li><li>Motivations</li><li>Raisonnement</li>
+          </ul>
           <div class="hero__actions">
             <a class="btn btn--light" href="#">Créer un compte gratuitement</a>
-            <a class="btn btn--ghost-light" href="#">Voir un profil de démo</a>
           </div>
           <p class="hero__note">Free : le profil complet · 5 candidats à vie · sans carte bancaire.</p>
         </div>
@@ -87,59 +89,8 @@
   </section>
 
 
-  <!-- 2. Trois dimensions : triptyque de verre, texte toujours visible -->
-  <section class="dims2" aria-labelledby="t-dims">
-    <div class="container">
-      <div class="dims2__head">
-        <h2 class="display" id="t-dims">Trois angles pour comprendre une personne, pas la classer.</h2>
-      </div>
 
-      <div class="tri">
-        <article class="tri__panel" style="--bgx:0%" data-reveal>
-          <div class="tri__photo" aria-hidden="true"></div>
-          <div class="tri__card">
-            <p class="tri__num label">01 · Comportement</p>
-            <h3 class="tri__name">Personnalité</h3>
-            <p class="tri__text">Comment la personne travaille, coopère et réagit sous pression.</p>
-            <div class="scale tri__scales" role="img" aria-label="Illustration : échelles de lecture">
-              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:64%;--k:0"></i><i class="scale__dot" style="--pos:64%;--k:0"></i></span></div>
-              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:34%;--k:1"></i><i class="scale__dot" style="--pos:34%;--k:1"></i></span></div>
-              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:72%;--k:2"></i><i class="scale__dot" style="--pos:72%;--k:2"></i></span></div>
-            </div>
-          </div>
-        </article>
-        <article class="tri__panel" style="--bgx:50%" data-reveal>
-          <div class="tri__photo" aria-hidden="true"></div>
-          <div class="tri__card">
-            <p class="tri__num label">02 · Moteurs</p>
-            <h3 class="tri__name">Motivations</h3>
-            <p class="tri__text">Ce qui l’engage durablement, et ce qui l’éteint.</p>
-            <div class="scale tri__scales" role="img" aria-label="Illustration : échelles de lecture">
-              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:26%;--k:0"></i><i class="scale__dot" style="--pos:26%;--k:0"></i></span></div>
-              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:72%;--k:1"></i><i class="scale__dot" style="--pos:72%;--k:1"></i></span></div>
-              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:58%;--k:2"></i><i class="scale__dot" style="--pos:58%;--k:2"></i></span></div>
-            </div>
-          </div>
-        </article>
-        <article class="tri__panel" style="--bgx:100%" data-reveal>
-          <div class="tri__photo" aria-hidden="true"></div>
-          <div class="tri__card">
-            <p class="tri__num label">03 · Raisonnement</p>
-            <h3 class="tri__name">Raisonnement</h3>
-            <p class="tri__text">Comment elle résout un problème nouveau, verbal comme logique.</p>
-            <div class="scale tri__scales" role="img" aria-label="Illustration : échelles de lecture">
-              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:68%;--k:0"></i><i class="scale__dot" style="--pos:68%;--k:0"></i></span></div>
-              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:40%;--k:1"></i><i class="scale__dot" style="--pos:40%;--k:1"></i></span></div>
-              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:60%;--k:2"></i><i class="scale__dot" style="--pos:60%;--k:2"></i></span></div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- 2. Les 7 étapes : une seule section, textes de noike.fr -->
+  <!-- 2. Les 7 étapes : une seule section -->
   <section class="etapes" aria-labelledby="t-etapes">
     <div class="container">
       <div class="dims2__head">
@@ -150,161 +101,122 @@
         <li class="etape">
           <span class="etape__num label">01</span>
           <h3 class="etape__title">Définir le poste</h3>
-          <p class="etape__text">Créez le poste, puis son profil cible : seul, ou avec le manager et l’équipe par un tri de cartes, sans compte à créer pour eux.</p>
+          <dl class="etape__body">
+            <div><dt class="label">Objectif</dt><dd>Créez le poste, puis son profil cible.</dd></div>
+            <div><dt class="label">Avec Noike</dt><dd>Seul, ou avec le manager et l’équipe par un tri de cartes, sans compte à créer pour eux.</dd></div>
+            <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Profil cible à plusieurs voix</li><li>Tri de cartes sans compte</li><li>Accords et désaccords signalés</li></ul></dd></div>
+          </dl>
         </li>
         <li class="etape">
           <span class="etape__num label">02</span>
           <h3 class="etape__title">Diffuser l’offre</h3>
-          <p class="etape__text">Diffusez votre annonce où vous voulez, collez votre lien Noike : chaque poste a son lien de candidature.</p>
+          <dl class="etape__body">
+            <div><dt class="label">Objectif</dt><dd>Diffusez votre annonce où vous voulez.</dd></div>
+            <div><dt class="label">Avec Noike</dt><dd>Collez votre lien Noike : chaque poste a son lien de candidature.</dd></div>
+            <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Un lien de candidature par poste</li></ul></dd></div>
+          </dl>
         </li>
         <li class="etape">
           <span class="etape__num label">03</span>
           <h3 class="etape__title">Recevoir et suivre</h3>
-          <p class="etape__text">Les candidatures arrivent dans le pipeline du poste. Vous faites avancer chaque candidat, puis le retrouvez dans votre vivier.</p>
+          <dl class="etape__body">
+            <div><dt class="label">Objectif</dt><dd>Les candidatures arrivent dans le pipeline du poste.</dd></div>
+            <div><dt class="label">Avec Noike</dt><dd>Vous faites avancer chaque candidat, puis le retrouvez dans votre vivier.</dd></div>
+            <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Pipeline du poste</li><li>Vivier</li></ul></dd></div>
+          </dl>
         </li>
         <li class="etape">
           <span class="etape__num label">04</span>
           <h3 class="etape__title">Évaluer</h3>
-          <p class="etape__text">Personnalité, motivations, raisonnement : le candidat reçoit une invitation par email, passe les tests quand il le souhaite et reçoit sa propre restitution.</p>
+          <dl class="etape__body">
+            <div><dt class="label">Objectif</dt><dd>Personnalité, motivations, raisonnement.</dd></div>
+            <div><dt class="label">Avec Noike</dt><dd>Le candidat reçoit une invitation par email, passe les tests quand il le souhaite et reçoit sa propre restitution.</dd></div>
+            <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Invitation par email</li><li>Trois dimensions</li><li>Restitution au candidat</li></ul></dd></div>
+          </dl>
         </li>
         <li class="etape">
           <span class="etape__num label">05</span>
           <h3 class="etape__title">Préparer l’entretien</h3>
-          <p class="etape__text">Pour chaque candidat, les points à creuser et des questions à poser, dimension par dimension.</p>
+          <dl class="etape__body">
+            <div><dt class="label">Objectif</dt><dd>Pour chaque candidat, les points à creuser et des questions à poser, dimension par dimension.</dd></div>
+            <div><dt class="label">Avec Noike</dt><dd>Un guide d’entretien, pas un verdict.</dd></div>
+            <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Guide d’entretien</li><li>Points à creuser</li><li>Questions à poser</li></ul></dd></div>
+          </dl>
         </li>
         <li class="etape">
           <span class="etape__num label">06</span>
           <h3 class="etape__title">Décider à plusieurs</h3>
-          <p class="etape__text">Comparez chaque candidat au profil cible. À plusieurs recruteurs, voyez l’avis de chacun et échangez en commentaires sur sa fiche.</p>
+          <dl class="etape__body">
+            <div><dt class="label">Objectif</dt><dd>Comparez chaque candidat au profil cible.</dd></div>
+            <div><dt class="label">Avec Noike</dt><dd>À plusieurs recruteurs, voyez l’avis de chacun et échangez en commentaires sur sa fiche.</dd></div>
+            <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Comparaison au profil cible</li><li>Avis de chaque recruteur</li><li>Commentaires sur la fiche</li></ul></dd></div>
+          </dl>
         </li>
         <li class="etape">
           <span class="etape__num label">07</span>
           <h3 class="etape__title">Rendre compte</h3>
-          <p class="etape__text">Une synthèse par candidat, relue et validée par vous, et un espace client à votre marque, révocable à tout moment.</p>
+          <dl class="etape__body">
+            <div><dt class="label">Objectif</dt><dd>Une synthèse par candidat, relue et validée par vous.</dd></div>
+            <div><dt class="label">Avec Noike</dt><dd>Un espace client à votre marque, révocable à tout moment.</dd></div>
+            <div><dt class="label">Fonctionnalités</dt><dd><ul class="etape__chips"><li>Synthèse par candidat</li><li>Espace client</li><li>Lien révocable</li></ul></dd></div>
+          </dl>
         </li>
       </ol>
     </div>
   </section>
 
 
-  <!-- 4. Le portrait candidat comme guide d'entretien : on voit le lien entre un trait et une question -->
-  <section class="guide-sec" aria-labelledby="t-portrait">
+
+  <!-- 3. Les fonctionnalités clés -->
+  <section class="fcles" aria-labelledby="t-feat">
     <div class="container">
-      <div class="guide-sec__head">
-        <h2 class="display" id="t-portrait">Le portrait candidat comme guide d’entretien.</h2>
-        <div class="guide-sec__texts">
-          <p>Noike ne tranche pas à votre place. Il transforme le profil en questions concrètes à poser, et vous laisse juger la personne en face de vous.</p>
-          <a class="btn btn--primary" href="#">Évaluez un candidat</a>
-        </div>
+      <div class="dims2__head">
+        <h2 class="display" id="t-feat">Noike ne s’arrête pas au profil.</h2>
+        <p class="dims2__lead">Définir le poste, restituer, partager : Noike outille chaque étape du recrutement, dans le même esprit. Noike décrit, vous décidez.</p>
       </div>
-
-      <div class="guide" data-guide data-reveal>
-        <div class="guide__grid">
-          <svg class="guide__links" aria-hidden="true"></svg>
-          <article class="gcard gcard--portrait" aria-label="Illustration : portrait candidat">
-            <header class="gcard__head">
-              <span class="avatar avatar--photo" aria-hidden="true"></span>
-              <div class="gcard__who"><p class="label">Portrait candidat</p><p class="gcard__title">Profil relationnel ancré dans la stabilité.</p></div>
-            </header>
-            <div class="pgroups">
-              <div class="pgroup" data-pair="1"><p class="pgroup__label">Acquis</p><ul class="pchips"><li>curiosité</li><li>sociabilité</li><li>indépendance</li><li>aisance avec les chiffres et les données</li></ul></div>
-              <div class="pgroup" data-pair="2"><p class="pgroup__label">À explorer</p><ul class="pchips"><li>stabilité émotionnelle</li><li>réussite</li></ul></div>
-              <div class="pgroup" data-pair="3"><p class="pgroup__label">Écarts critiques</p><ul class="pchips"><li>coopération</li><li>reconnaissance</li></ul></div>
-            </div>
-          </article>
-          <div class="guide__gap" aria-hidden="true"></div>
-          <article class="gcard gcard--ask" aria-label="Illustration : questions à poser">
-            <p class="label">Questions concrètes à poser</p>
-            <ol class="asks">
-              <li class="ask" data-ask="1"><span class="ask__tag">Ce sur quoi compter</span><i class="sk" style="--w:92%"></i><i class="sk" style="--w:68%"></i></li>
-              <li class="ask" data-ask="2"><span class="ask__tag">Ce qu'il faut creuser</span><i class="sk" style="--w:92%"></i><i class="sk" style="--w:68%"></i></li>
-              <li class="ask" data-ask="3"><span class="ask__tag">Ce qu'il faut confronter</span><i class="sk" style="--w:92%"></i><i class="sk" style="--w:68%"></i></li>
-            </ol>
-          </article>
-        </div>
-      </div>
-
-      <ul class="steps2" data-reveal>
-        <li><span>Identifier les points à explorer</span></li>
-        <li><span>Préparer des questions pertinentes</span></li>
-        <li><span>Enrichir les échanges</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 6. Des fonctionnalités agiles : cinq tuiles qui montrent le produit -->
-  <section class="feat2" aria-labelledby="t-feat">
-    <div class="container">
-      <div class="feat2__head">
-        <h2 class="display" id="t-feat">Des fonctionnalités agiles</h2>
-      </div>
-
-      <div class="bento">
-        <article class="tile tile--a on-dark" data-reveal>
-          <div>
-            <h3 class="tile__title">Construction collaborative du profil cible</h3>
-            <p class="tile__text">Avant d’évaluer un seul candidat, Noike vous aide à écrire ce que le poste demande vraiment, avec le manager et l’équipe, sans compte à créer pour eux.</p>
-          </div>
-          <div class="tile__vis" role="img" aria-label="Illustration : le manager, le titulaire et un pair placent chacun leur avis sur une même échelle, et leurs avis se rejoignent dans une zone commune">
-            <div class="agree" aria-hidden="true">
-              <i class="agree__zone"></i>
-              <div class="agree__row"><span class="agree__who"><i class="agree__av">M</i>Manager</span><span class="agree__track"><i class="agree__dot" style="--from:8%;--to:58%;--k:0"></i></span></div>
-              <div class="agree__row"><span class="agree__who"><i class="agree__av">T</i>Titulaire</span><span class="agree__track"><i class="agree__dot" style="--from:92%;--to:66%;--k:1"></i></span></div>
-              <div class="agree__row"><span class="agree__who"><i class="agree__av">P</i>Pair</span><span class="agree__track"><i class="agree__dot" style="--from:30%;--to:62%;--k:2"></i></span></div>
-            </div>
-          </div>
+      <div class="fcles__grid">
+        <article class="fcard">
+          
+          <p class="label fcard__num">01</p>
+          <h3 class="fcard__title">Construction collaborative du profil cible</h3>
+          <p class="fcard__text">Avant d’évaluer un seul candidat, Noike vous aide à écrire ce que le poste demande vraiment, avec le manager et l’équipe, sans compte à créer pour eux.</p>
         </article>
-
-        <article class="tile tile--b tile--glass flutes" data-reveal>
-        <div class="glass">
-          <div>
-            <h3 class="tile__title">Visualisation des accords et désaccords entre évaluateurs</h3>
-            <p class="tile__text">À plusieurs recruteurs, voyez l'avis de chacun et échangez en commentaires sur sa fiche.</p>
-          </div>
-          <div class="tile__vis" role="img" aria-label="Illustration : trois recruteurs donnent leur avis sur la fiche d’un candidat et échangent en commentaires ; un désaccord est signalé">
-            <div class="thread" aria-hidden="true">
-              <div class="thread__row" style="--k:0"><span class="who__avatar">A</span><div class="thread__bubble"><i class="sk sk--ink" style="--w:34%"></i><i class="sk" style="--w:88%"></i></div></div>
-              <div class="thread__row thread__row--parent" style="--k:1"><span class="who__avatar">B</span><div class="thread__bubble"><span class="badge">Désaccord</span><i class="sk" style="--w:76%"></i></div></div>
-              <div class="thread__row thread__row--reply" style="--k:2"><span class="who__avatar">C</span><div class="thread__bubble"><i class="sk" style="--w:62%"></i><i class="sk" style="--w:40%"></i></div></div>
-            </div>
-          </div>
-        </div>
+        <article class="fcard">
+          
+          <p class="label fcard__num">02</p>
+          <h3 class="fcard__title">Évaluation des candidats sur trois dimensions</h3>
+          <p class="fcard__text">Personnalité, motivations, raisonnement : trois angles pour comprendre une personne, pas la classer.</p>
         </article>
-
-        <article class="tile tile--c" data-reveal>
-          <div>
-            <h3 class="tile__title">Synthèses individuelles et de campagne automatisées</h3>
-            <p class="tile__text">Deux synthèses prêtes à partager, que vous n’avez pas à rédiger : une par candidat, une par campagne. Vous ajustez, vous validez.</p>
-          </div>
-          <div class="tile__vis tile__vis--shot">
-            <img src="assets/img/syntheses.png" width="1672" height="941" alt="Aperçu de deux synthèses sur des panneaux de verre : la synthèse d’un candidat, avec son portrait et trois indicateurs, et la synthèse de la campagne d’un poste, avec le nombre de candidatures, la shortlist et les entretiens.">
-          </div>
+        <article class="fcard fcard--img">
+          <img class="fcard__img" src="assets/img/syntheses.png" width="1672" height="941" alt="" loading="lazy">
+          <p class="label fcard__num">03</p>
+          <h3 class="fcard__title">Synthèses individuelles et de campagne</h3>
+          <p class="fcard__text">Deux synthèses prêtes à partager, que vous n’avez pas à rédiger : une par candidat, une par campagne. Vous ajustez, vous validez.</p>
         </article>
-
-        <article class="tile tile--d" data-reveal>
-          <div>
-            <h3 class="tile__title">Espace client personnalisé</h3>
-            <p class="tile__text">Un lien à envoyer à votre client - aucun compte, rien à installer.</p>
-          </div>
-          <div class="tile__vis tile__vis--shot">
-            <img src="assets/img/espace-client.jpg" width="1800" height="520" alt="Aperçu : un lien d’espace client, avec un champ et un bouton flèche, sur un panneau de verre dépoli.">
-          </div>
+        <article class="fcard">
+          
+          <p class="label fcard__num">04</p>
+          <h3 class="fcard__title">Comparaison des profils</h3>
+          <p class="fcard__text">Comparez chaque candidat au profil cible. À plusieurs recruteurs, voyez l’avis de chacun et échangez en commentaires sur sa fiche.</p>
         </article>
-
-        <article class="tile tile--e" data-reveal>
-          <div>
-            <h3 class="tile__title">Partage sécurisé et révocable des résultats</h3>
-            <p class="tile__text">Le lien est révocable en un clic, et vous savez quand il a été consulté. Rien n’est partagé sans votre accord.</p>
-          </div>
-          <div class="tile__vis tile__vis--shot">
-            <img src="assets/img/partage-securise-revocable2.jpg" width="2690" height="520" alt="Aperçu : deux réglages de partage sur un panneau de verre dépoli, un lien et un cadenas, chacun avec un interrupteur.">
-          </div>
+        <article class="fcard fcard--img">
+          <img class="fcard__img" src="assets/img/guide-entretien.jpg" width="2720" height="1320" alt="" loading="lazy">
+          <p class="label fcard__num">05</p>
+          <h3 class="fcard__title">Guide d’entretien personnalisé</h3>
+          <p class="fcard__text">Noike ne tranche pas à votre place. Il transforme le profil en questions concrètes à poser, et vous laisse juger la personne en face de vous.</p>
+        </article>
+        <article class="fcard fcard--img">
+          <img class="fcard__img" src="assets/img/espace-client.jpg" width="1800" height="520" alt="" loading="lazy">
+          <p class="label fcard__num">06</p>
+          <h3 class="fcard__title">Espace client et partage sécurisé des résultats</h3>
+          <p class="fcard__text">Un lien à envoyer à votre client, aucun compte, rien à installer. Le lien est révocable en un clic, et vous savez quand il a été consulté.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 8. L'expérience candidat : le portrait se garde et se partage -->
+
+  <!-- 4. L'expérience candidat : le portrait se garde et se partage -->
   <section class="candidat" aria-labelledby="t-cand">
     <div class="container cand">
       <div class="cand__visual">
@@ -332,81 +244,18 @@
     </div>
   </section>
 
-  <!-- Prix affichés : textes et tarifs repris de noike.fr (juillet 2026) -->
-  <section class="tarifs" id="tarifs" aria-labelledby="t-tarifs">
-    <div class="container">
-      <div class="dims2__head">
-        <h2 class="display" id="t-tarifs">Un profil complet, quel que soit votre palier.</h2>
-        <p class="dims2__lead">Toutes les fonctions. Vous choisissez le nombre de candidats que vous évaluez et le nombre de recruteurs – et vous résiliez en un clic.</p>
-      </div>
-      <div class="tarifs__stage">
-        <div class="plans" data-reveal>
-        <article class="plan">
-          
-          <div class="plan__id"><h3 class="plan__name">Free</h3><p class="plan__for"></p></div>
-          <p class="plan__price"><span>0&nbsp;€</span></p>
-          <div class="plan__cap">
-            <div class="cap__bar" aria-hidden="true"><i style="--w:9%"></i></div>
-            <p class="cap__label">5 candidats à vie</p>
-            <p class="cap__extra">1 recruteur</p>
-          </div>
-          <a class="btn btn--outline" href="#">Créer un compte Free</a>
-        </article>
-        <article class="plan">
-          
-          <div class="plan__id"><h3 class="plan__name">Solo</h3><p class="plan__for">RH solo</p></div>
-          <p class="plan__price"><span>590&nbsp;€</span><span class="plan__per">/an</span></p>
-          <div class="plan__cap">
-            <div class="cap__bar" aria-hidden="true"><i style="--w:32%"></i></div>
-            <p class="cap__label">60 candidats/an</p>
-            
-          </div>
-          <a class="btn btn--outline" href="#">Choisir Solo</a>
-        </article>
-        <article class="plan plan--pro">
-          <span class="badge badge--dark plan__badge">Recommandé</span>
-          <div class="plan__id"><h3 class="plan__name">Pro</h3><p class="plan__for">PME, cabinets</p></div>
-          <p class="plan__price"><span>1&nbsp;190&nbsp;€</span><span class="plan__per">/an</span></p>
-          <div class="plan__cap">
-            <div class="cap__bar" aria-hidden="true"><i style="--w:58%"></i></div>
-            <p class="cap__label">200 candidats/an</p>
-            
-          </div>
-          <a class="btn btn--light" href="#">Choisir Pro</a>
-        </article>
-        <article class="plan">
-          
-          <div class="plan__id"><h3 class="plan__name">Équipe</h3><p class="plan__for">Équipes</p></div>
-          <p class="plan__price"><span>2&nbsp;490&nbsp;€</span><span class="plan__per">/an</span></p>
-          <div class="plan__cap">
-            <div class="cap__bar" aria-hidden="true"><i style="--w:100%"></i></div>
-            <p class="cap__label">600 candidats/an</p>
-            <p class="cap__extra">5 recruteurs</p>
-          </div>
-          <a class="btn btn--outline" href="#">Choisir Équipe</a>
-        </article>
-      </div>
-      <div class="plan-wide">
-        <div class="plan-wide__id"><h3 class="plan__name">Enterprise</h3><p class="plan__for">Multi-entités · sur mesure</p></div>
-        <p class="plan__price plan__price--wide"><span>dès&nbsp;4&nbsp;900&nbsp;€</span><span class="plan__per">/an</span></p>
-        <a class="btn btn--primary" href="#">Nous contacter</a>
-      </div>
-      </div>
-    </div>
-  </section>
 
-
-  <!-- CTA final -->
+  <!-- 5. CTA final -->
   <section class="cta" aria-labelledby="t-cta">
     <div class="container">
       <div class="cta__card on-dark">
         <img class="cta__img" src="assets/img/cta-podium.jpg" alt="" width="2640" height="1237" loading="lazy">
         <div class="cta__content">
-          <h2 class="cta__title" id="t-cta">Commencez quand vous voulez.</h2>
+          <h2 class="cta__title" id="t-cta">Mieux comprendre les personnes pour mieux recruter.</h2>
           <p class="cta__text">Le plan Free suffit pour évaluer vos premiers candidats avec Noike. Sans carte bancaire, sans engagement.</p>
           <div class="cta__actions">
             <a class="btn btn--light" href="#">Créer un compte gratuitement</a>
-            <a class="link link--underlined" href="#tarifs">Offres et tarifs <svg class="icon" width="22" height="10" viewBox="0 0 21.5 9.5" aria-hidden="true"><use href="#arrow"/></svg></a>
+            <a class="link link--underlined" href="index.html#tarifs">Offres et tarifs <svg class="icon" width="22" height="10" viewBox="0 0 21.5 9.5" aria-hidden="true"><use href="#arrow"/></svg></a>
           </div>
         </div>
       </div>
@@ -422,7 +271,7 @@
       <nav class="site-footer__links" aria-label="Pied de page">
         <a class="nav__link" href="produit.html" aria-current="page">Produit</a>
         <a class="nav__link" href="#">Méthode</a>
-        <a class="nav__link" href="#tarifs">Tarifs</a>
+        <a class="nav__link" href="index.html#tarifs">Tarifs</a>
         <a class="nav__link" href="#">Candidats</a>
       </nav>
     </div>

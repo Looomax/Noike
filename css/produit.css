@@ -1,9 +1,30 @@
 /* ==========================================================================
-   Noike — page Produit : seule la section « Sept étapes » est propre à cette page.
+   Noike — page Produit : sections propres à cette page (étapes, fonctionnalités clés).
    Le reste réutilise les styles de l'accueil. Tout vient de tokens.css.
    ========================================================================== */
 
-.etapes {
+/* ---------- Hero : les trois dimensions ---------- */
+.hero__dims {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero__dims li {
+  padding: calc(8rem / 16) var(--gap-s);
+  border: 1px solid var(--color-on-dark-line);
+  border-radius: var(--radius-pill);
+  background: var(--color-on-dark-surface);
+  font-family: var(--font-ui);
+  font-size: var(--fs-body-s);
+}
+
+/* ---------- 2. Sept étapes ---------- */
+.etapes,
+.fcles {
   padding-block: var(--section-gap) 0;
 }
 
@@ -16,14 +37,15 @@
 
 .etape {
   display: grid;
-  grid-template-columns: calc(72rem / 16) minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-columns: calc(56rem / 16) minmax(0, 4fr) minmax(0, 8fr);
   gap: var(--gap-m) var(--gap-xl);
-  align-items: baseline;
-  padding-block: var(--gap-l);
+  align-items: start;
+  padding-block: var(--gap-xl);
   border-top: 1px solid var(--color-border);
 }
 
 .etape__num {
+  padding-top: calc(10rem / 16);
   color: var(--color-accent-strong);
 }
 
@@ -34,14 +56,111 @@
   letter-spacing: -0.02em;
 }
 
-.etape__text {
+.etape__body {
+  display: grid;
+  gap: var(--gap-m);
+  margin: 0;
+}
+
+.etape__body > div {
+  display: grid;
+  grid-template-columns: calc(130rem / 16) minmax(0, 1fr);
+  gap: var(--gap-m);
+  align-items: baseline;
+}
+
+.etape__body dt {
+  color: var(--color-grey-600);
+}
+
+.etape__body dd {
+  margin: 0;
   max-width: 38rem;
+  color: var(--color-text);
+}
+
+.etape__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.etape__chips li {
+  padding: calc(6rem / 16) calc(14rem / 16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  font-size: var(--fs-body-s);
   color: var(--color-text-muted);
+}
+
+/* ---------- 3. Fonctionnalités clés ---------- */
+.fcles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap-m);
+}
+
+.fcard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+  padding: var(--gap-l);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-image);
+  background: var(--color-white);
+}
+
+.fcard__img {
+  order: 3;
+  width: 100%;
+  height: auto;
+  margin-top: auto;
+  border-radius: var(--radius-panel);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.fcard__num {
+  color: var(--color-accent-strong);
+}
+
+.fcard__title {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.015em;
+}
+
+.fcard__text {
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 70rem) {
+  .fcles__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 53.75rem) {
   .etape {
     grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-s);
+  }
+
+  .etape__num {
+    padding-top: 0;
+  }
+
+  .etape__body > div {
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--gap-xs);
+  }
+
+  .fcles__grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
