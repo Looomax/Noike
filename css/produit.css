@@ -212,7 +212,9 @@
     border-radius: var(--radius-panel);
   }
 
-  /* Les panneaux se superposent : un seul est visible, les autres passent du flou au net à leur tour */
+  /* Les panneaux se superposent, rien ne bouge : le contenu se remplace sur place.
+     Sortie : tout s'efface vite. Entrée : le titre passe du flou au net mot à mot (comme le H1 du hero),
+     le reste apparaît en fondu, décalé les uns des autres. */
   .js-anim .panels {
     min-height: calc(380rem / 16);
   }
@@ -224,24 +226,45 @@
     gap: var(--gap-xl);
     padding-block: 0;
     border: 0;
-    opacity: 0;
-    filter: blur(10px);
-    translate: 0 calc(18rem / 16);
     pointer-events: none;
-    transition: opacity var(--duration-slow) var(--ease-out), filter var(--duration-slow) var(--ease-out),
-      translate var(--duration-slow) var(--ease-out);
-  }
-
-  .js-anim .panels .panel.is-past {
-    translate: 0 calc(-18rem / 16);
   }
 
   .js-anim .panels .panel.is-active {
-    opacity: 1;
-    filter: none;
-    translate: 0 0;
     pointer-events: auto;
   }
+
+  .js-anim .panel__title .w {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(14px);
+    transition: opacity 180ms ease, filter 180ms ease;
+  }
+
+  .js-anim .panel__num,
+  .js-anim .panel__body > div {
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+
+  .js-anim .panel.is-active .panel__title .w {
+    opacity: 1;
+    filter: blur(0);
+    transition: opacity 800ms var(--ease-out) calc(220ms + var(--i) * 80ms),
+      filter 800ms var(--ease-out) calc(220ms + var(--i) * 80ms);
+  }
+
+  .js-anim .panel.is-active .panel__num {
+    opacity: 1;
+    transition: opacity 600ms var(--ease-out) 220ms;
+  }
+
+  .js-anim .panel.is-active .panel__body > div {
+    opacity: 1;
+    transition: opacity 600ms var(--ease-out) calc(520ms + var(--k, 0) * 160ms);
+  }
+
+  .js-anim .panel__body > div:nth-child(2) { --k: 1; }
+  .js-anim .panel__body > div:nth-child(3) { --k: 2; }
 
   .js-anim .panel__num {
     margin-bottom: var(--gap-s);

@@ -29,7 +29,6 @@
     });
     panels.forEach((el, i) => {
       el.classList.toggle("is-active", i === idx);
-      el.classList.toggle("is-past", i < idx);
     });
   };
 
