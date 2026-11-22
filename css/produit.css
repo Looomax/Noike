@@ -53,6 +53,7 @@ html.is-dark body {
   --e-done-fg: var(--color-white);
   --e-active: var(--color-ink);
   --e-dim: var(--color-grey-500);
+  --e-dimmer: var(--color-grey-400);
 }
 
 html.is-dark .etapes {
@@ -69,6 +70,7 @@ html.is-dark .etapes {
   --e-done-fg: var(--color-ink);
   --e-active: var(--color-grey-400);
   --e-dim: var(--color-grey-600);
+  --e-dimmer: var(--color-grey-700);
 }
 
 .etapes .display,
@@ -229,7 +231,7 @@ html.is-dark .etapes {
     padding: 0;
     border: 0;
     background: none;
-    color: var(--e-faint);
+    color: var(--e-dim);
     font: inherit;
     cursor: pointer;
   }
@@ -242,7 +244,7 @@ html.is-dark .etapes {
     border: 1px solid var(--e-line);
     border-radius: 50%;
     background: var(--e-bg);
-    color: var(--e-dim);
+    color: var(--e-dimmer);
     transition: background var(--duration-slow) var(--ease-out), color var(--duration-slow) var(--ease-out),
       border-color var(--duration-slow) var(--ease-out), scale var(--duration-slow) var(--ease-out),
       box-shadow var(--duration-slow) var(--ease-out);
@@ -257,9 +259,15 @@ html.is-dark .etapes {
     transition: color 1s ease;
   }
 
+  /* À gauche de l'actif (faites) : claires. À droite (à venir) : baissées. Le contraste fait lire la progression. */
+  .rail__btn.is-done {
+    color: var(--e-muted);
+  }
+
   .rail__btn.is-done .rail__dot {
     border-color: var(--e-done-bg);
     background: var(--e-bg);   /* pas de rond plein : bordure seule (le fond masque le trait derrière) */
+    color: var(--e-done-bg);
   }
 
   .rail__btn.is-active .rail__dot {
