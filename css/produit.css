@@ -51,6 +51,7 @@ html.is-dark body {
   --e-chip-bg: var(--color-white);
   --e-done-bg: var(--color-ink);
   --e-done-fg: var(--color-white);
+  --e-active: var(--color-ink);
 }
 
 html.is-dark .etapes {
@@ -65,6 +66,7 @@ html.is-dark .etapes {
   --e-chip-bg: var(--color-on-dark-surface);
   --e-done-bg: var(--color-grey-400);
   --e-done-fg: var(--color-ink);
+  --e-active: var(--color-grey-400);
 }
 
 .etapes .display,
@@ -203,7 +205,7 @@ html.is-dark .etapes {
     position: absolute;
     inset: 0;
     border-radius: 2px;
-    background: var(--e-fg);
+    background: var(--e-active);
     transform: scaleX(var(--fill, 0));
     transform-origin: left;
   }
@@ -265,7 +267,7 @@ html.is-dark .etapes {
   }
 
   .rail__btn.is-active .rail__name {
-    color: var(--e-fg);
+    color: var(--e-active);
     font-weight: 600;
   }
 
