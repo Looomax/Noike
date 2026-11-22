@@ -87,7 +87,7 @@
   /* Image de fond de la version blanche : la même que la noire, avec un voile blanc */
   /* flou : le même réglage que la version noire (--fond-flou de .etapes) */
   --fond-voile-couleur: 255, 255, 255;
-  --fond-voile: 0.5;
+  --fond-voile: 0.75;
 }
 
 .etapes--clair .etapes__bg {
