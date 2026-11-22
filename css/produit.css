@@ -213,7 +213,8 @@
   }
 
   /* Les panneaux se superposent, rien ne bouge : le contenu se remplace sur place.
-     Sortie : tout s'efface vite. Entrée : le titre passe du flou au net mot à mot (comme le H1 du hero),
+     Sortie et entrée se chevauchent : l'ancien contenu s'efface dans le même ordre qu'il est arrivé,
+     pendant que le nouveau commence déjà. Entrée : le titre passe du flou au net mot à mot (comme le H1 du hero),
      le reste apparaît en fondu, décalé les uns des autres. */
   .js-anim .panels {
     min-height: calc(380rem / 16);
@@ -237,30 +238,30 @@
     display: inline-block;
     opacity: 0;
     filter: blur(14px);
-    transition: opacity 180ms ease, filter 180ms ease;
+    transition: opacity 450ms ease calc(var(--i) * 50ms), filter 450ms ease calc(var(--i) * 50ms);
   }
 
   .js-anim .panel__num,
   .js-anim .panel__body > div {
     opacity: 0;
-    transition: opacity 180ms ease;
+    transition: opacity 400ms ease calc(var(--k, 0) * 90ms);
   }
 
   .js-anim .panel.is-active .panel__title .w {
     opacity: 1;
     filter: blur(0);
-    transition: opacity 800ms var(--ease-out) calc(220ms + var(--i) * 80ms),
-      filter 800ms var(--ease-out) calc(220ms + var(--i) * 80ms);
+    transition: opacity 800ms var(--ease-out) calc(200ms + var(--i) * 80ms),
+      filter 800ms var(--ease-out) calc(200ms + var(--i) * 80ms);
   }
 
   .js-anim .panel.is-active .panel__num {
     opacity: 1;
-    transition: opacity 600ms var(--ease-out) 220ms;
+    transition: opacity 600ms var(--ease-out) 200ms;
   }
 
   .js-anim .panel.is-active .panel__body > div {
     opacity: 1;
-    transition: opacity 600ms var(--ease-out) calc(520ms + var(--k, 0) * 160ms);
+    transition: opacity 600ms var(--ease-out) calc(400ms + var(--k, 0) * 140ms);
   }
 
   .js-anim .panel__body > div:nth-child(2) { --k: 1; }
