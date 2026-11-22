@@ -257,8 +257,8 @@ html.is-dark .etapes {
 
   .rail__btn.is-done .rail__dot {
     border-color: var(--e-done-bg);
-    background: var(--e-done-bg);
-    color: var(--e-done-fg);
+    background: var(--e-bg);   /* pas de rond plein : bordure seule (le fond masque le trait derrière) */
+    color: var(--e-done-bg);
   }
 
   .rail__btn.is-active .rail__dot {
