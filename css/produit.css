@@ -89,8 +89,8 @@ html.is-dark .etapes {
   clip-path: inset(0);
 
   /* ===== RÉGLAGES DE L'IMAGE DE FOND (à modifier ici, puis enregistrer et recharger) ===== */
-  --fond-flou: 0.04;    /* flou : 0 = net, plus grand = plus flou (0.04 actuel) */
-  --fond-voile: 0.7;    /* voile noir : 0 = image d'origine, 1 = tout noir (0.7 actuel) */
+  --fond-flou: 0.002;    /* flou : 0 = net, plus grand = plus flou (0.04 actuel) */
+  --fond-voile: 0.80;    /* voile noir : 0 = image d'origine, 1 = tout noir (0.7 actuel) */
 }
 
 .etapes__img {
