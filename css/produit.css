@@ -426,6 +426,7 @@ html.is-dark .etapes__bg {
 
   .js-anim .panel__num {
     margin-bottom: var(--gap-xs);
+    margin-left: -0.02em;   /* aligne le dessin du « 0 » sur celui de la première lettre du titre */
     font-family: var(--font-text);
     font-size: clamp(5rem, 11vw, calc(168rem / 16));
     font-weight: 600;
