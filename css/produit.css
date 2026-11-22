@@ -60,7 +60,7 @@ html.is-dark .etapes {
   --e-line: var(--color-on-dark-line);
   --e-border: var(--color-on-dark-line);
   --e-bg: var(--color-ink);
-  --e-num: var(--color-ink-soft);
+  --e-num: var(--color-grey-900);
   --e-accent: var(--color-accent);
   --e-chip-bg: var(--color-on-dark-surface);
   --e-done-bg: var(--color-grey-400);
@@ -285,7 +285,7 @@ html.is-dark .etapes {
   .js-anim .panels .panel {
     grid-area: 1 / 1;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    align-content: center;
+    align-content: start;
     gap: var(--gap-xl);
     padding-block: 0;
     border: 0;
