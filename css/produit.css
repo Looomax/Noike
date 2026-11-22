@@ -60,6 +60,30 @@
   --fond-voile: 0.80;    /* voile noir : 0 = image d'origine, 1 = tout noir (0.7 actuel) */
 }
 
+/* ===== ESSAI : version blanche de la timeline (sous la version noire) =====
+   Mêmes composants, seule la palette change. Verre simple en CSS (pas de WebGL). */
+.etapes--clair {
+  --e-fg: var(--color-ink);
+  --e-muted: var(--color-text-muted);
+  --e-faint: var(--color-grey-600);
+  --e-line: var(--color-grey-300);
+  --e-border: var(--color-border);
+  --e-bg: transparent;
+  --e-num: var(--color-grey-300);
+  --e-accent: var(--color-accent-strong);
+  --e-chip-bg: var(--color-white);
+  --e-done-bg: var(--color-ink);
+  --e-done-fg: var(--color-white);
+  --e-active: var(--color-ink);
+  --e-dim: var(--color-grey-500);
+  --e-dimmer: var(--color-grey-400);
+  --e-glass-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.42));
+  --e-glass-line: rgba(255, 255, 255, 0.7);
+  --e-glass-hi: rgba(255, 255, 255, 0.9);
+  --e-glass-shadow: rgba(17, 17, 17, 0.35);
+  background: var(--color-bg);
+}
+
 .etapes__img {
   display: none;   /* sert seulement de source d'image pour le verre (js/glass.js) */
 }
@@ -86,7 +110,7 @@ html.has-stage-glass .etapes__bg {
   height: 100%;
 }
 
-html.has-stage-glass.js-anim .panel__body::before {
+html.has-stage-glass.js-anim .etapes:not(.etapes--clair) .panel__body::before {
   display: none;
 }
 
