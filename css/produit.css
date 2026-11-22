@@ -285,7 +285,7 @@ html.is-dark .etapes {
   .js-anim .panels .panel {
     grid-area: 1 / 1;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    align-content: start;
+    align-content: center;
     gap: var(--gap-xl);
     padding-block: 0;
     border: 0;
