@@ -73,6 +73,29 @@ html.is-dark .etapes {
   --e-dimmer: var(--color-grey-700);
 }
 
+/* Fond : une image du site, floue et assombrie, fixe derrière la section ; elle apparaît avec le noir.
+   clip-path garde l'image à l'intérieur de la section (elle ne déborde pas sur le reste de la page). */
+.etapes {
+  position: relative;
+  isolation: isolate;
+  clip-path: inset(0);
+}
+
+.etapes__bg {
+  position: fixed;
+  inset: -10%;
+  z-index: -1;
+  background: url("../assets/img/mec-diffuse-prisme.jpg") center / cover no-repeat;
+  filter: blur(60px) brightness(0.3);
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+html.is-dark .etapes__bg {
+  opacity: 1;
+}
+
 .etapes .display,
 .panel__title,
 .panel__body dd {
