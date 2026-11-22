@@ -54,6 +54,8 @@ html.is-dark body {
   --e-active: var(--color-ink);
   --e-dim: var(--color-grey-500);
   --e-dimmer: var(--color-grey-400);
+  --e-glass-bg: var(--color-glass);
+  --e-glass-line: var(--color-glass-line);
 }
 
 html.is-dark .etapes {
@@ -71,6 +73,8 @@ html.is-dark .etapes {
   --e-active: var(--color-grey-200);
   --e-dim: var(--color-grey-700);
   --e-dimmer: var(--color-grey-700);
+  --e-glass-bg: var(--color-on-dark-surface);
+  --e-glass-line: var(--color-on-dark-line);
 }
 
 /* Fond : une image du site, floue et assombrie, fixe derrière la section ; elle apparaît avec le noir.
@@ -407,6 +411,26 @@ html.is-dark .etapes__bg {
 
   .js-anim .panel__title {
     font-size: var(--fs-h2);
+  }
+
+  /* Bloc en verre derrière les trois entrées : il n'apparaît (et ne floute) que pour l'étape affichée */
+  .js-anim .panel__body {
+    gap: var(--gap-s);
+    padding: var(--gap-l);
+    border: 1px solid transparent;
+    border-radius: var(--radius-image);
+    background: transparent;
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    transition: background-color 600ms ease, border-color 600ms ease, -webkit-backdrop-filter 600ms ease,
+      backdrop-filter 600ms ease;
+  }
+
+  .js-anim .panel.is-active .panel__body {
+    border-color: var(--e-glass-line);
+    background: var(--e-glass-bg);
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
   }
 
   .js-anim .panel__body > div {
