@@ -60,10 +60,10 @@ html.is-dark .etapes {
   --e-line: var(--color-on-dark-line);
   --e-border: var(--color-on-dark-line);
   --e-bg: var(--color-ink);
-  --e-num: var(--color-grey-800);
+  --e-num: var(--color-ink-soft);
   --e-accent: var(--color-accent);
   --e-chip-bg: var(--color-on-dark-surface);
-  --e-done-bg: var(--color-white);
+  --e-done-bg: var(--color-grey-400);
   --e-done-fg: var(--color-ink);
 }
 
@@ -348,7 +348,8 @@ html.is-dark .etapes {
   .js-anim .panel__body > div:nth-child(3) { --k: 2; }
 
   .js-anim .panel__num {
-    margin-bottom: var(--gap-s);
+    margin-bottom: var(--gap-xs);
+    font-family: var(--font-text);
     font-size: clamp(5rem, 11vw, calc(168rem / 16));
     font-weight: 600;
     line-height: 0.9;
