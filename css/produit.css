@@ -261,7 +261,7 @@ html.is-dark .etapes {
 
   /* À gauche de l'actif (faites) : claires. À droite (à venir) : baissées. Le contraste fait lire la progression. */
   .rail__btn.is-done {
-    color: var(--e-muted);
+    color: var(--e-done-bg);
   }
 
   .rail__btn.is-done .rail__dot {
