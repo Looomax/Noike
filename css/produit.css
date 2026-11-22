@@ -85,7 +85,7 @@
   background: var(--color-bg);
 
   /* Image de fond de la version blanche : verre cannelé, voile blanc */
-  --fond-flou: 0.03;
+  /* flou : le même réglage que la version noire (--fond-flou de .etapes) */
   --fond-voile-couleur: 255, 255, 255;
   --fond-voile: 0.5;
 }
