@@ -84,14 +84,13 @@
   --e-glass-shadow: rgba(17, 17, 17, 0.35);
   background: var(--color-bg);
 
-  /* Image de fond de la version blanche : verre cannelé, voile blanc */
+  /* Image de fond de la version blanche : la même que la noire, avec un voile blanc */
   /* flou : le même réglage que la version noire (--fond-flou de .etapes) */
   --fond-voile-couleur: 255, 255, 255;
   --fond-voile: 0.5;
 }
 
 .etapes--clair .etapes__bg {
-  background-image: url("../assets/img/verre-cannele.jpg");
   filter: blur(calc(var(--fond-flou) * 1500px)) brightness(calc(1 + var(--fond-voile)));   /* secours sans WebGL */
 }
 
