@@ -62,8 +62,8 @@ html.is-dark .etapes {
   --e-faint: var(--color-on-dark-muted);
   --e-line: var(--color-on-dark-line);
   --e-border: var(--color-on-dark-line);
-  --e-bg: var(--color-ink);
-  --e-num: var(--color-grey-900);
+  --e-bg: transparent;   /* ronds sans fond : l'image passe au travers */
+  --e-num: var(--color-on-dark-line);
   --e-accent: var(--color-accent);
   --e-chip-bg: var(--color-on-dark-surface);
   --e-done-bg: var(--color-grey-200);
@@ -226,6 +226,9 @@ html.is-dark .etapes__bg {
     height: 1px;
     border-radius: 1px;
     background: var(--e-line);
+    /* trait interrompu autour de chaque rond (30 px de chaque côté de leur centre) */
+    -webkit-mask-image: repeating-linear-gradient(90deg, transparent 0 calc(30rem / 16), #000 calc(30rem / 16) calc(100% / 6 - 30rem / 16), transparent calc(100% / 6 - 30rem / 16) calc(100% / 6));
+    mask-image: repeating-linear-gradient(90deg, transparent 0 calc(30rem / 16), #000 calc(30rem / 16) calc(100% / 6 - 30rem / 16), transparent calc(100% / 6 - 30rem / 16) calc(100% / 6));
   }
 
   .rail__fill {
@@ -352,6 +355,10 @@ html.is-dark .etapes__bg {
   }
 
   /* Gros chiffre : le 0 reste en place, seul le second chiffre change (fondu léger) */
+  .js-anim .panels .panel:not(:first-child) .panel__zero {
+    visibility: hidden;   /* un seul 0 : sinon les copies translucides superposées s'additionnent */
+  }
+
   .js-anim .panel__digit {
     display: inline-block;
     opacity: 0;
