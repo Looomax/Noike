@@ -57,6 +57,7 @@
 
   /* ===== RÉGLAGES DE L'IMAGE DE FOND (à modifier ici, puis enregistrer et recharger) ===== */
   --fond-flou: 0.002;    /* flou : 0 = net, plus grand = plus flou (0.04 actuel) */
+  --fond-voile-couleur: 0, 0, 0;   /* couleur du voile (rouge, vert, bleu) : 0, 0, 0 = noir, 255, 255, 255 = blanc */
   --fond-voile: 0.80;    /* voile noir : 0 = image d'origine, 1 = tout noir (0.7 actuel) */
 }
 
@@ -69,7 +70,7 @@
   --e-line: var(--color-grey-300);
   --e-border: var(--color-border);
   --e-bg: transparent;
-  --e-num: var(--color-grey-300);
+  --e-num: var(--color-grey-400);
   --e-accent: var(--color-accent-strong);
   --e-chip-bg: var(--color-white);
   --e-done-bg: var(--color-ink);
@@ -82,6 +83,16 @@
   --e-glass-hi: rgba(255, 255, 255, 0.9);
   --e-glass-shadow: rgba(17, 17, 17, 0.35);
   background: var(--color-bg);
+
+  /* Image de fond de la version blanche : verre cannelé, voile blanc */
+  --fond-flou: 0.03;
+  --fond-voile-couleur: 255, 255, 255;
+  --fond-voile: 0.5;
+}
+
+.etapes--clair .etapes__bg {
+  background-image: url("../assets/img/verre-cannele.jpg");
+  filter: blur(calc(var(--fond-flou) * 1500px)) brightness(calc(1 + var(--fond-voile)));   /* secours sans WebGL */
 }
 
 .etapes__img {
@@ -98,7 +109,7 @@
 }
 
 /* Verre liquide actif (WebGL) : le canvas dessine lui-même le fond flou et le bloc de verre */
-html.has-stage-glass .etapes__bg {
+.etapes.has-stage-glass .etapes__bg {
   inset: 0;
   background: none;
   filter: none;
@@ -110,7 +121,7 @@ html.has-stage-glass .etapes__bg {
   height: 100%;
 }
 
-html.has-stage-glass.js-anim .etapes:not(.etapes--clair) .panel__body::before {
+.js-anim .etapes.has-stage-glass .panel__body::before {
   display: none;
 }
 

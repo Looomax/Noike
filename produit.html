@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/guide.css?v=4">
   <link rel="stylesheet" href="css/page.css?v=68">
-  <link rel="stylesheet" href="css/produit.css?v=39">
+  <link rel="stylesheet" href="css/produit.css?v=41">
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -200,7 +200,9 @@
 
 
   <!-- 2 bis. ESSAI : les 7 étapes en version blanche (même contenu, sous la version noire) -->
-  <section class="etapes etapes--clair" aria-labelledby="t-etapes-clair">
+  <section class="etapes etapes--clair" data-glass-stage aria-labelledby="t-etapes-clair">
+    <div class="etapes__bg" aria-hidden="true"></div>
+    <img class="etapes__img" src="assets/img/verre-cannele.jpg" alt="" width="1097" height="626">
     <div class="container">
       <div class="dims2__head">
         <h2 class="display" id="t-etapes-clair">Sept étapes, un seul outil.</h2>
@@ -421,6 +423,6 @@
 <script src="js/guide.js" defer></script>
 <script src="js/page.js?v=4" defer></script>
 <script src="js/produit.js?v=7" defer></script>
-<script src="js/glass.js?v=9" defer></script>
+<script src="js/glass.js?v=10" defer></script>
 </body>
 </html>

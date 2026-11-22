@@ -449,7 +449,7 @@ void main() {
     new ResizeObserver(resize).observe(canvas);
     if (opts.observe) opts.observe(schedule);
     resize();
-    if (opts.flag) document.documentElement.classList.add(opts.flag);
+    if (opts.flag) (opts.flagTarget || document.documentElement).classList.add(opts.flag);
   }
 
   (img.decode ? img.decode() : Promise.resolve()).then(start, () => canvas.remove());
@@ -525,13 +525,13 @@ void main() {
     });
   }
 
-  // ---------- Page Produit : fond très flou et un seul bloc de verre derrière les trois entrées des étapes ----------
+  // ---------- Page Produit : fond très flou et un seul bloc de verre derrière les trois entrées des étapes (une fois par section) ----------
   // Même verre que « Ce que Noike ne fait pas ». Le bloc couvre la zone des trois entrées (la plus haute des sept étapes),
   // il ne change donc jamais de taille d'une étape à l'autre. Sans WebGL, la CSS garde un fond flou et un verre simple.
-  const stage = document.querySelector("[data-glass-stage]");
-  const stageSrc = stage && stage.querySelector(".etapes__img");
-  const stageHolder = stage && stage.querySelector(".etapes__bg");
-  if (stage && stageSrc && stageHolder) {
+  document.querySelectorAll("[data-glass-stage]").forEach((stage) => {
+  const stageSrc = stage.querySelector(".etapes__img");
+  const stageHolder = stage.querySelector(".etapes__bg");
+  if (stageSrc && stageHolder) {
     // Flou et voile du fond : réglés dans css/produit.css (--fond-flou, --fond-voile)
     const reglage = (nom, defaut) => {
       const v = parseFloat(getComputedStyle(stage).getPropertyValue(nom));
@@ -539,6 +539,7 @@ void main() {
     };
     const FOND_FLOU = reglage("--fond-flou", 0.04);
     const FOND_VOILE = reglage("--fond-voile", 0.7);
+    const FOND_COULEUR = (getComputedStyle(stage).getPropertyValue("--fond-voile-couleur").trim() || "0, 0, 0");
     const wide = window.matchMedia("(min-width: 53.8125rem)");
     const bodies = [...stage.querySelectorAll(".panel__body")];
     const start = () => {
@@ -548,7 +549,7 @@ void main() {
       c2.height = stageSrc.naturalHeight;
       const cx = c2.getContext("2d");
       cx.drawImage(stageSrc, 0, 0);
-      cx.fillStyle = `rgba(0, 0, 0, ${FOND_VOILE})`;
+      cx.fillStyle = `rgba(${FOND_COULEUR}, ${FOND_VOILE})`;
       cx.fillRect(0, 0, c2.width, c2.height);
       c2.toBlob((blob) => {
         if (!blob) return;
@@ -565,6 +566,7 @@ void main() {
           bgBlur: FOND_FLOU,
           maxDpr: 1,
           flag: "has-stage-glass",
+          flagTarget: stage,
           observe: (schedule) => {
             const near = () => {
               const r = stage.getBoundingClientRect();
@@ -595,4 +597,5 @@ void main() {
     if (stageSrc.complete && stageSrc.naturalWidth) start();
     else stageSrc.addEventListener("load", start, { once: true });
   }
+  });
 })();
