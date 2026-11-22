@@ -532,6 +532,13 @@ void main() {
   const stageSrc = stage && stage.querySelector(".etapes__img");
   const stageHolder = stage && stage.querySelector(".etapes__bg");
   if (stage && stageSrc && stageHolder) {
+    // Flou et voile du fond : réglés dans css/produit.css (--fond-flou, --fond-voile)
+    const reglage = (nom, defaut) => {
+      const v = parseFloat(getComputedStyle(stage).getPropertyValue(nom));
+      return Number.isFinite(v) ? v : defaut;
+    };
+    const FOND_FLOU = reglage("--fond-flou", 0.04);
+    const FOND_VOILE = reglage("--fond-voile", 0.7);
     const wide = window.matchMedia("(min-width: 53.8125rem)");
     const bodies = [...stage.querySelectorAll(".panel__body")];
     const start = () => {
@@ -541,7 +548,7 @@ void main() {
       c2.height = stageSrc.naturalHeight;
       const cx = c2.getContext("2d");
       cx.drawImage(stageSrc, 0, 0);
-      cx.fillStyle = "rgba(0, 0, 0, 0.7)";
+      cx.fillStyle = `rgba(0, 0, 0, ${FOND_VOILE})`;
       cx.fillRect(0, 0, c2.width, c2.height);
       c2.toBlob((blob) => {
         if (!blob) return;
@@ -555,7 +562,7 @@ void main() {
         canvas.setAttribute("aria-hidden", "true");
         stageHolder.append(canvas);
         create(dark, canvas, {
-          bgBlur: 0.04,
+          bgBlur: FOND_FLOU,
           maxDpr: 1,
           flag: "has-stage-glass",
           observe: (schedule) => {

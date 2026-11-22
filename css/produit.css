@@ -87,6 +87,10 @@ html.is-dark .etapes {
   position: relative;
   isolation: isolate;
   clip-path: inset(0);
+
+  /* ===== RÉGLAGES DE L'IMAGE DE FOND (à modifier ici, puis enregistrer et recharger) ===== */
+  --fond-flou: 0.04;    /* flou : 0 = net, plus grand = plus flou (0.04 actuel) */
+  --fond-voile: 0.7;    /* voile noir : 0 = image d'origine, 1 = tout noir (0.7 actuel) */
 }
 
 .etapes__img {
@@ -98,7 +102,7 @@ html.is-dark .etapes {
   inset: -10%;
   z-index: -1;
   background: url("../assets/img/mec-diffuse-prisme.jpg") center / cover no-repeat;
-  filter: blur(60px) brightness(0.3);
+  filter: blur(calc(var(--fond-flou) * 1500px)) brightness(calc(1 - var(--fond-voile)));   /* secours sans WebGL : mêmes réglages */
   opacity: 0;
   transition: opacity 1s ease;
   pointer-events: none;
