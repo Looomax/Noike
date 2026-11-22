@@ -69,8 +69,8 @@
 
   /* Pendants sur fond clair : le noir à la même opacité que le blanc des surfaces sombres */
   --color-on-light-muted: rgba(17, 17, 17, 0.74);
-  --color-on-light-line: rgba(17, 17, 17, 0.16);
-  --color-on-light-surface: rgba(17, 17, 17, 0.06);
+  --color-on-light-line: rgba(17, 17, 17, 0.26);
+  --color-on-light-surface: rgba(17, 17, 17, 0.12);
 
   /* Tailles de texte (maquette ÷ 16) */
   --fs-h1: clamp(calc(40rem / 16), 4.45vw, calc(64rem / 16));

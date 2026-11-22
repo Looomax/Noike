@@ -91,7 +91,18 @@
 }
 
 .etapes--clair .etapes__bg {
-  filter: blur(calc(var(--fond-flou) * 1500px)) brightness(calc(1 + var(--fond-voile)));   /* secours sans WebGL */
+  filter: blur(calc(var(--fond-flou) * 1500px));   /* secours sans WebGL : flou + voile blanc ci-dessous */
+}
+
+.etapes--clair .etapes__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--fond-voile-couleur), var(--fond-voile));
+}
+
+.etapes--clair.has-stage-glass .etapes__bg::after {
+  display: none;   /* le verre WebGL applique déjà le voile */
 }
 
 .etapes__img {
