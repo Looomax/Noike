@@ -67,6 +67,11 @@
   --color-on-dark-line: rgba(255, 255, 255, 0.16);
   --color-on-dark-surface: rgba(255, 255, 255, 0.06);
 
+  /* Pendants sur fond clair : le noir à la même opacité que le blanc des surfaces sombres */
+  --color-on-light-muted: rgba(17, 17, 17, 0.74);
+  --color-on-light-line: rgba(17, 17, 17, 0.16);
+  --color-on-light-surface: rgba(17, 17, 17, 0.06);
+
   /* Tailles de texte (maquette ÷ 16) */
   --fs-h1: clamp(calc(40rem / 16), 4.45vw, calc(64rem / 16));
   --fs-h2-display: clamp(calc(34rem / 16), 3.6vw, calc(52rem / 16));

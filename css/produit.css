@@ -65,14 +65,14 @@
    Mêmes composants, seule la palette change. Verre simple en CSS (pas de WebGL). */
 .etapes--clair {
   --e-fg: var(--color-ink);
-  --e-muted: var(--color-text-muted);
-  --e-faint: var(--color-grey-600);
-  --e-line: var(--color-grey-300);
-  --e-border: var(--color-border);
+  --e-muted: var(--color-on-light-muted);
+  --e-faint: var(--color-on-light-muted);
+  --e-line: var(--color-on-light-line);
+  --e-border: var(--color-on-light-line);
   --e-bg: transparent;
-  --e-num: var(--color-grey-400);
+  --e-num: var(--color-on-light-line);
   --e-accent: var(--color-accent-strong);
-  --e-chip-bg: var(--color-white);
+  --e-chip-bg: var(--color-on-light-surface);
   --e-done-bg: var(--color-ink);
   --e-done-fg: var(--color-white);
   --e-active: var(--color-ink);
