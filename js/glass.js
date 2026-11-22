@@ -437,7 +437,7 @@ void main() {
   const schedule = () => { if (!raf) raf = requestAnimationFrame(draw); };
 
   function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, opts.maxDpr || 2);
     const w = Math.max(1, Math.round(canvas.clientWidth * dpr));
     const h = Math.max(1, Math.round(canvas.clientHeight * dpr));
     if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
@@ -523,5 +523,69 @@ void main() {
         return { fx: c.fx, fy: c.fy, posX: c.posX, posY: c.posY, cx: (x0 + x1) / 2, cy: h - (top + bot) / 2, hsx: (x1 - x0) / 2, hsy: (bot - top) / 2, r: 6 * s };
       },
     });
+  }
+
+  // ---------- Page Produit : fond très flou et un seul bloc de verre derrière les trois entrées des étapes ----------
+  // Même verre que « Ce que Noike ne fait pas ». Le bloc couvre la zone des trois entrées (la plus haute des sept étapes),
+  // il ne change donc jamais de taille d'une étape à l'autre. Sans WebGL, la CSS garde un fond flou et un verre simple.
+  const stage = document.querySelector("[data-glass-stage]");
+  const stageSrc = stage && stage.querySelector(".etapes__img");
+  const stageHolder = stage && stage.querySelector(".etapes__bg");
+  if (stage && stageSrc && stageHolder) {
+    const wide = window.matchMedia("(min-width: 53.8125rem)");
+    const bodies = [...stage.querySelectorAll(".panel__body")];
+    const start = () => {
+      // L'image est assombrie avant d'être envoyée au verre (le verre reste, lui, clair)
+      const c2 = document.createElement("canvas");
+      c2.width = stageSrc.naturalWidth;
+      c2.height = stageSrc.naturalHeight;
+      const cx = c2.getContext("2d");
+      cx.drawImage(stageSrc, 0, 0);
+      cx.fillStyle = "rgba(0, 0, 0, 0.7)";
+      cx.fillRect(0, 0, c2.width, c2.height);
+      c2.toBlob((blob) => {
+        if (!blob) return;
+        const dark = new Image();
+        dark.className = "etapes__img";
+        dark.alt = "";
+        dark.src = URL.createObjectURL(blob);
+        stageHolder.after(dark);
+        const canvas = document.createElement("canvas");
+        canvas.className = "etapes__glass";
+        canvas.setAttribute("aria-hidden", "true");
+        stageHolder.append(canvas);
+        create(dark, canvas, {
+          bgBlur: 0.04,
+          maxDpr: 1,
+          flag: "has-stage-glass",
+          observe: (schedule) => {
+            const near = () => {
+              const r = stage.getBoundingClientRect();
+              return r.bottom > 0 && r.top < window.innerHeight;
+            };
+            window.addEventListener("scroll", () => { if (near()) schedule(); }, { passive: true });
+            const ro = new ResizeObserver(schedule);
+            ro.observe(stage);
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+          },
+          geometry: (w, h) => {
+            const c = cover(dark, w, h);
+            const base = { fx: c.fx, fy: c.fy, posX: c.posX, posY: c.posY, cx: 0, cy: 0, hsx: 0, hsy: 0 };
+            if (!wide.matches || !document.documentElement.classList.contains("js-anim")) return base;
+            const s = w / canvas.clientWidth;
+            let l = Infinity, t = Infinity, r = -Infinity, b = -Infinity;
+            bodies.forEach((el) => {
+              const q = el.getBoundingClientRect();
+              l = Math.min(l, q.left); t = Math.min(t, q.top); r = Math.max(r, q.right); b = Math.max(b, q.bottom);
+            });
+            if (!Number.isFinite(l)) return base;
+            const x0 = l * s, x1 = r * s, top = t * s, bot = b * s;
+            return { ...base, cx: (x0 + x1) / 2, cy: h - (top + bot) / 2, hsx: (x1 - x0) / 2, hsy: (bot - top) / 2, r: 6 * s };
+          },
+        });
+      });
+    };
+    if (stageSrc.complete && stageSrc.naturalWidth) start();
+    else stageSrc.addEventListener("load", start, { once: true });
   }
 })();

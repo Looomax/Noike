@@ -89,6 +89,10 @@ html.is-dark .etapes {
   clip-path: inset(0);
 }
 
+.etapes__img {
+  display: none;   /* sert seulement de source d'image pour le verre (js/glass.js) */
+}
+
 .etapes__bg {
   position: fixed;
   inset: -10%;
@@ -98,6 +102,23 @@ html.is-dark .etapes {
   opacity: 0;
   transition: opacity 1s ease;
   pointer-events: none;
+}
+
+/* Verre liquide actif (WebGL) : le canvas dessine lui-même le fond flou et le bloc de verre */
+html.has-stage-glass .etapes__bg {
+  inset: 0;
+  background: none;
+  filter: none;
+}
+
+.etapes__glass {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+html.has-stage-glass .js-anim .panel__body::before {
+  display: none;
 }
 
 html.is-dark .etapes__bg {
