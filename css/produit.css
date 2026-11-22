@@ -246,6 +246,7 @@ html.is-dark .etapes {
 
   .rail__name {
     max-width: 9em;
+    min-height: calc(2em * var(--lh-snug));   /* deux lignes réservées : la rail ne change jamais de hauteur */
     font-size: var(--fs-body-s);
     line-height: var(--lh-snug);
     text-align: center;
