@@ -25,6 +25,9 @@
   --font-text: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-ui: "SUSE", var(--font-text);
 
+  /* Graisses */
+  --fw-semibold: 600;
+
   /* Couleurs — maquette */
   --color-ink: #111111;
   --color-ink-soft: #1f1d1e;

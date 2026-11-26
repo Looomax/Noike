@@ -184,14 +184,14 @@
   margin-bottom: var(--gap-xs);
   font-family: var(--font-ui);
   font-size: var(--fs-label);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   letter-spacing: var(--tracking-label);
   color: var(--e-accent);
 }
 
 .panel__title {
   font-size: var(--fs-h2-sub);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: var(--lh-tight);
   letter-spacing: -0.02em;
 }
@@ -347,7 +347,7 @@
 
   .rail__btn.is-active .rail__name {
     color: var(--e-active);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
   }
 
   .rail__btn:focus-visible {
@@ -439,7 +439,7 @@
     margin-left: -0.02em;   /* aligne le dessin du « 0 » sur celui de la première lettre du titre */
     font-family: var(--font-text);
     font-size: clamp(5rem, 11vw, calc(168rem / 16));
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     line-height: 0.9;
     letter-spacing: -0.04em;
     color: var(--e-num);
@@ -528,7 +528,7 @@
 
 .fcard__title {
   font-size: var(--fs-h3);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: var(--lh-snug);
   letter-spacing: -0.015em;
 }

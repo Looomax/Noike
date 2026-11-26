@@ -41,7 +41,7 @@
   color: var(--color-ink);
   font-family: var(--font-ui);
   font-size: var(--fs-button);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   cursor: pointer;
   transition:
     background-color var(--duration-fast) var(--ease-out),
@@ -100,7 +100,7 @@
 .cmp__src {
   font-family: var(--font-ui);
   font-size: var(--fs-micro);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--color-accent-strong);
 }
 
@@ -120,7 +120,7 @@
   max-width: 32ch;
   color: var(--color-ink);
   font-size: var(--fs-h2-sub);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.2;
   letter-spacing: -0.01em;
 }
@@ -216,7 +216,7 @@
 .nofait__title {
   color: var(--color-white);
   font-size: var(--fs-h2-sub);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.1;
 }
 
@@ -233,7 +233,7 @@
   padding: var(--gap-m) 0;
   border-bottom: 1px solid var(--color-on-dark-line);
   font-size: calc(22rem / 16);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.2;
 }
 
@@ -274,7 +274,7 @@
 
 .plan__name {
   font-size: var(--fs-h3);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.2;
 }
 
@@ -291,7 +291,7 @@
   gap: 6px;
   color: var(--color-ink);
   font-size: clamp(calc(36rem / 16), 3.3vw, calc(48rem / 16));
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   letter-spacing: -0.03em;
   line-height: 1;
   white-space: nowrap;
@@ -331,7 +331,7 @@
 
 .cap__label {
   color: var(--color-ink);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
 }
 
 .cap__extra {
@@ -511,7 +511,7 @@
   border-radius: 50%;
   font-family: var(--font-ui);
   font-size: calc(14rem / 16);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1;
 }
 
@@ -636,7 +636,7 @@
   padding-block: 0 var(--gap-m);
   color: var(--color-ink);
   font-size: calc(20rem / 16);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.25;
   letter-spacing: -0.01em;
   vertical-align: top;
@@ -649,7 +649,7 @@
 /* Dernière ligne « Idéal pour » */
 .cmp .compare__ideal td,
 .cmp .compare__ideal th {
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
 }
 
 .cmp .compare__ideal td:not(.is-noike) {
@@ -834,7 +834,7 @@
     color: var(--color-text-muted);
     font-family: var(--font-ui);
     font-size: var(--fs-micro);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     line-height: 1.5;
   }
 
@@ -891,7 +891,7 @@
   align-items: start;
   color: var(--color-text);
   font-size: clamp(calc(18rem / 16), 1.4vw, calc(20rem / 16));
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.8;
 }
 
@@ -960,7 +960,7 @@
 
 .tri__name {
   font-size: var(--fs-h2-sub);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.1;
 }
 
@@ -1042,7 +1042,7 @@
   gap: var(--gap-xs);
   color: var(--color-on-dark);
   font-size: var(--fs-body-s);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
 }
 
 .agree__av {
@@ -1057,7 +1057,7 @@
   font-family: var(--font-ui);
   font-size: var(--fs-micro);
   font-style: normal;
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
 }
 
 .agree__track {
@@ -1348,7 +1348,7 @@
 .gcard__title {
   color: var(--color-ink);
   font-size: calc(18rem / 16);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.25;
 }
 
@@ -1377,7 +1377,7 @@
   color: var(--color-ink);
   font-family: var(--font-ui);
   font-size: var(--fs-label);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }

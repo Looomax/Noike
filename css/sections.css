@@ -54,7 +54,7 @@ main > section:first-child {
   min-height: var(--control-height);
   font-family: var(--font-ui);
   font-size: var(--fs-button);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: var(--lh-snug);
   color: var(--color-ink);
   text-decoration: none;
@@ -90,7 +90,7 @@ main > section:first-child {
   background: var(--color-white);
   font-family: var(--font-ui);
   font-size: var(--fs-button);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   cursor: pointer;
 }
 
@@ -229,7 +229,7 @@ main > section:first-child {
 .dim__title {
   margin-top: var(--gap-xs);
   font-size: var(--fs-h3);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: var(--lh-snug);
 }
 
@@ -275,7 +275,7 @@ main > section:first-child {
 
 .split__title {
   font-size: var(--fs-h2);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.05;
 }
 
@@ -331,7 +331,7 @@ main > section:first-child {
 }
 
 .checks__item--strong {
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
 }
 
 .limits {
@@ -523,7 +523,7 @@ main > section:first-child {
 .voile__title {
   color: var(--color-on-dark);
   font-size: var(--fs-h2-display);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: var(--lh-tight);
 }
 
@@ -555,7 +555,7 @@ main > section:first-child {
   margin-bottom: 2px;
   font-family: var(--font-ui);
   font-size: var(--fs-micro);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-on-dark);
@@ -653,7 +653,7 @@ main > section:first-child {
   justify-content: space-between;
   gap: var(--gap-s);
   color: var(--color-text-muted);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: var(--lh-snug);
   transition: color var(--duration-fast) var(--ease-out);
 }
@@ -770,7 +770,7 @@ main > section:first-child {
   color: var(--color-ink);
   font-family: var(--font-ui);
   font-size: var(--fs-small);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
 }
 
 .who .scale__track {
@@ -857,7 +857,7 @@ main > section:first-child {
 .status {
   font-family: var(--font-ui);
   font-size: var(--fs-micro);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--color-text-muted);
 }
 
@@ -875,7 +875,7 @@ main > section:first-child {
   background: var(--color-white);
   font-family: var(--font-ui);
   font-size: var(--fs-micro);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   cursor: default;
 }
 
@@ -923,7 +923,7 @@ main > section:first-child {
   padding-block: var(--gap-m);
   font-family: var(--font-ui);
   font-size: var(--fs-label);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-ink);
@@ -933,7 +933,7 @@ main > section:first-child {
   width: 22%;
   color: var(--color-ink);
   font-size: var(--fs-body-s);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
 }
 
 .compare .is-noike {
@@ -993,7 +993,7 @@ main > section:first-child {
   color: var(--color-text-muted);
   font-family: var(--font-ui);
   font-size: var(--fs-small);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   text-align: center;
   padding: var(--gap-l);
 }
@@ -1025,7 +1025,7 @@ main > section:first-child {
 
 .cand__title {
   font-size: var(--fs-h2);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.05;
 }
 
@@ -1107,7 +1107,7 @@ main > section:first-child {
 .cta__title {
   color: var(--color-on-dark);
   font-size: var(--fs-h2-display);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: var(--lh-tight);
 }
 
@@ -1178,7 +1178,7 @@ main > section:first-child {
 
 .compare-section .split__title {
   font-size: var(--fs-h2);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   line-height: 1.05;
 }
 
