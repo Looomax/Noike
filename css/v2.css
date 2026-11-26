@@ -1,0 +1,128 @@
+/* V2 alternative : « Levez le voile » devient le hero, la navbar flotte par-dessus.
+   Tout est limité à body.v2 : l'original (index.html) n'est pas touché. */
+
+/* ---------- Navbar flottante en verre sombre (lisible sur la photo comme sur les sections claires) ---------- */
+.v2 .site-header {
+  position: fixed;
+  top: var(--gap-s);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.v2 .site-header__bar {
+  pointer-events: auto;
+  width: min(100% - 2 * var(--page-pad), var(--container-max));
+  max-width: none;
+  min-height: calc(64rem / 16);
+  margin-inline: auto;
+  padding: 0 var(--gap-xs) 0 var(--gap-m);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-pill);
+  background: rgba(17, 17, 17, 0.62);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 12px 32px -12px rgba(0, 0, 0, 0.5);
+}
+
+.v2 .logo,
+.v2 .nav__link {
+  color: var(--color-on-dark);
+}
+
+.v2 .nav-toggle {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-on-dark);
+}
+
+.v2 .site-header :focus-visible {
+  outline: var(--focus-ring-on-dark);
+  outline-offset: var(--focus-offset);
+}
+
+@media (max-width: 53.75rem) {
+  .v2 .nav {
+    top: calc(100% + var(--gap-xs));
+    left: 0;
+    right: 0;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 24px;
+    background: rgba(17, 17, 17, 0.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(20px) saturate(1.4);
+  }
+
+  .v2 .nav__link {
+    border-bottom-color: rgba(255, 255, 255, 0.16);
+  }
+}
+
+/* ---------- Hero : « Levez le voile » en plein écran, épinglé dès le chargement ---------- */
+.v2 .voile {
+  --voile-h: 100vh;
+}
+
+@supports (height: 100svh) {
+  .v2 .voile {
+    --voile-h: 100svh;
+  }
+}
+
+.v2 .voile__sticky > .container {
+  width: 100%;
+  max-width: none;
+  padding-inline: 0;
+}
+
+.v2 .voile__card {
+  min-height: var(--voile-h);
+  border-radius: 0;
+}
+
+/* Titre, texte et bouton visibles dès le chargement ; seules les trois cartes arrivent au scroll */
+.v2 .voile__content .btn {
+  order: 2;
+}
+
+.v2 .reads {
+  order: 3;
+}
+
+.v2 .voile__title .w {
+  display: inline-block;
+  animation: focus-in 900ms var(--ease-out) both;
+  animation-delay: calc(var(--i) * 80ms + 150ms);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .v2 .voile {
+    height: calc(var(--voile-h) + 160vh);
+  }
+
+  .v2 .voile__sticky {
+    position: sticky;
+    top: 0;
+  }
+}
+
+/* Mobile : le hero reste épinglé aussi ; les trois cartes sont masquées (pas la place) */
+@media (max-width: 56.1875rem) {
+  .v2 .reads {
+    display: none;
+  }
+
+  .v2 .voile__layer,
+  .v2 .voile__glass {
+    height: 100%;
+  }
+
+  .v2 .voile__card::after {
+    background: linear-gradient(180deg, rgba(10, 12, 18, 0) 0, rgba(10, 12, 18, 0) 35%, rgba(10, 12, 18, 0.92) 78%);
+  }
+
+  .v2 .voile__content {
+    padding-top: 0;
+  }
+}

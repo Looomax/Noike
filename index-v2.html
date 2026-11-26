@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noike (V2) — Mieux comprendre les personnes pour mieux recruter</title>
+  <meta name="description" content="Noike accompagne les recruteurs dans l'évaluation des candidats à travers trois dimensions complémentaires : personnalité, motivations et raisonnement.">
+  <meta name="theme-color" content="#f7f7f7">
+  <script>
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("js-anim");
+    }
+  </script>
+  <link rel="preload" href="assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/suse-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css?v=3">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/guide.css?v=4">
+  <link rel="stylesheet" href="css/page.css?v=72">
+  <link rel="stylesheet" href="css/v2.css">
+</head>
+<body class="v2">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="close24" viewBox="0 0 24 24"><g>
+<path d="M16.4697 6.46973C16.7626 6.17683 17.2374 6.17683 17.5303 6.46973C17.8232 6.76262 17.8232 7.23738 17.5303 7.53027L13.0605 12L17.5303 16.4697L17.582 16.5264C17.8223 16.8209 17.8049 17.2557 17.5303 17.5303C17.2557 17.8049 16.8209 17.8223 16.5264 17.582L16.4697 17.5303L12 13.0605L7.53027 17.5303C7.23738 17.8232 6.76262 17.8232 6.46973 17.5303C6.17683 17.2374 6.17683 16.7626 6.46973 16.4697L10.9395 12L6.46973 7.53027L6.41797 7.47363C6.17766 7.17905 6.19512 6.74433 6.46973 6.46973C6.74433 6.19512 7.17905 6.17766 7.47363 6.41797L7.53027 6.46973L12 10.9395L16.4697 6.46973Z" fill="currentColor"/>
+</g></symbol>
+<symbol id="seencheck24" viewBox="0 0 24 24"><g>
+<g>
+<path d="M14.5576 9.38768C14.8578 9.08743 15.3451 9.08774 15.6455 9.38768C15.9459 9.68808 15.9459 10.1752 15.6455 10.4756L11.5097 14.6123C11.2094 14.9123 10.7222 14.9123 10.4219 14.6123L8.35448 12.5439C8.05408 12.2435 8.05408 11.7564 8.35448 11.456C8.6549 11.156 9.14208 11.1558 9.44237 11.456L10.9658 12.9795L14.5576 9.38768Z" fill="currentColor"/>
+<path d="M9.20701 3.0283C10.8164 1.65719 13.1836 1.6572 14.793 3.0283C15.2362 3.40598 15.7877 3.63521 16.3681 3.68162C18.476 3.84993 20.15 5.52394 20.3183 7.63182C20.3648 8.21226 20.594 8.76381 20.9717 9.20701C22.3428 10.8164 22.3428 13.1835 20.9717 14.793C20.594 15.2362 20.3648 15.7877 20.3183 16.3681C20.15 18.476 18.476 20.15 16.3681 20.3183C15.7877 20.3648 15.2362 20.594 14.793 20.9717C13.1835 22.3428 10.8164 22.3428 9.20701 20.9717C8.76381 20.594 8.21226 20.3648 7.63182 20.3183C5.52394 20.15 3.84993 18.476 3.68162 16.3681C3.63521 15.7877 3.40598 15.2362 3.0283 14.793C1.6572 13.1836 1.65719 10.8164 3.0283 9.20701C3.40598 8.7638 3.63521 8.21226 3.68162 7.63182C3.84994 5.52395 5.52395 3.84994 7.63182 3.68162C8.21226 3.63521 8.7638 3.40598 9.20701 3.0283ZM13.7959 4.1992C12.7614 3.31776 11.2386 3.31775 10.2041 4.1992C9.51445 4.78684 8.65706 5.14269 7.75389 5.21483C6.39919 5.32309 5.32309 6.39919 5.21483 7.75389C5.14269 8.65706 4.78684 9.51445 4.1992 10.2041C3.31775 11.2386 3.31776 12.7614 4.1992 13.7959C4.78684 14.4855 5.14269 15.3429 5.21483 16.2461C5.32308 17.6008 6.39918 18.6769 7.75389 18.7851C8.65706 18.8573 9.51445 19.2131 10.2041 19.8008C11.2386 20.6822 12.7614 20.6822 13.7959 19.8008C14.4855 19.2131 15.3429 18.8573 16.2461 18.7851C17.6008 18.6769 18.6769 17.6008 18.7851 16.2461C18.8573 15.3429 19.2131 14.4855 19.8008 13.7959C20.6822 12.7614 20.6822 11.2386 19.8008 10.2041C19.2131 9.51445 18.8573 8.65706 18.7851 7.75389C18.6769 6.39918 17.6008 5.32308 16.2461 5.21483C15.3429 5.14269 14.4855 4.78684 13.7959 4.1992Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"/>
+</g>
+</g></symbol>
+<symbol id="logo" viewBox="0 0 76.8401 28.97"><g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M24.4987 8.48455C25.1866 8.48456 25.8747 8.54844 26.5626 8.67584C27.2759 8.80322 27.9383 9.03239 28.5496 9.36352C29.1612 9.69475 29.6964 10.1282 30.155 10.6633C30.6391 11.1729 31.0215 11.746 31.3018 12.383C31.6075 12.9945 31.811 13.657 31.913 14.3705C32.0404 15.0584 32.1042 15.7465 32.1042 16.4344V21.0206C32.1042 21.7085 32.0404 22.4094 31.913 23.1228C31.811 23.8106 31.6074 24.473 31.3018 25.1098C31.0215 25.7213 30.6391 26.2949 30.155 26.83C29.6964 27.3395 29.1611 27.7598 28.5496 28.091C27.9382 28.4222 27.276 28.6518 26.5626 28.7792C25.8747 28.9066 25.1866 28.97 24.4987 28.97C23.8107 28.97 23.1098 28.9066 22.3964 28.7792C21.7085 28.6518 21.0587 28.4222 20.4472 28.091C19.8358 27.7598 19.2881 27.3395 18.804 26.83C18.3454 26.2949 17.963 25.7213 17.6573 25.1098C17.3771 24.473 17.1735 23.8106 17.0461 23.1228C16.9442 22.4094 16.8931 21.7085 16.8931 21.0206V16.4344C16.8931 15.7465 16.9442 15.0584 17.0461 14.3705C17.1735 13.657 17.377 12.9945 17.6573 12.383C17.963 11.746 18.3454 11.1729 18.804 10.6633C19.2881 10.1283 19.8357 9.69475 20.4472 9.36352C21.0586 9.03232 21.7085 8.80324 22.3964 8.67584C23.1098 8.54844 23.8107 8.48455 24.4987 8.48455ZM24.4987 12.1539C23.9891 12.1539 23.4922 12.2684 23.008 12.4978C22.5494 12.7271 22.167 13.0584 21.8613 13.4915C21.5811 13.9246 21.3903 14.3961 21.2884 14.9056C21.1865 15.4152 21.1353 15.9249 21.1353 16.4344V21.0206C21.1353 21.5302 21.1864 22.0398 21.2884 22.5494C21.3903 23.059 21.581 23.5304 21.8613 23.9635C22.167 24.3967 22.5494 24.7279 23.008 24.9573C23.4922 25.1866 23.9891 25.3011 24.4987 25.3011C25.0082 25.3011 25.4924 25.1866 25.951 24.9573C26.4351 24.7279 26.8175 24.3967 27.0978 23.9635C27.4035 23.5304 27.607 23.059 27.7089 22.5494C27.8109 22.0398 27.862 21.5302 27.862 21.0206V16.4344C27.862 15.9249 27.8108 15.4152 27.7089 14.9056C27.607 14.3961 27.4034 13.9246 27.0978 13.4915C26.8175 13.0584 26.4351 12.7271 25.951 12.4978C25.4924 12.2684 25.0082 12.1539 24.4987 12.1539Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M69.2345 8.48455C69.8715 8.48455 70.4958 8.52289 71.1073 8.59932C71.7442 8.67576 72.3557 8.82864 72.9417 9.05794C73.5277 9.28725 74.0757 9.59297 74.5853 9.97516C75.0949 10.3573 75.5152 10.8032 75.8464 11.3127C76.2031 11.8223 76.4582 12.3959 76.6111 13.0329C76.7639 13.6443 76.8401 14.2559 76.8401 14.8673C76.8401 15.5043 76.7639 16.1286 76.6111 16.74C76.4582 17.3515 76.1903 17.9119 75.8081 18.4215C75.4514 18.9056 75.0056 19.3263 74.4706 19.683C73.961 20.0397 73.4129 20.3199 72.8269 20.5237C72.241 20.7275 71.6294 20.8676 70.9925 20.9441C70.381 21.0205 69.7695 21.0588 69.158 21.0588H65.9095C65.9095 21.5684 65.9606 22.0781 66.0625 22.5877C66.1644 23.0972 66.3552 23.5687 66.6354 24.0018C66.9157 24.4095 67.2853 24.7279 67.7439 24.9573C68.228 25.1866 68.725 25.3011 69.2345 25.3011C69.6167 25.3011 69.9991 25.2628 70.3813 25.1863C70.7634 25.1099 71.1072 24.9697 71.4128 24.766C71.7441 24.5367 71.9991 24.2437 72.1775 23.887C72.3813 23.5303 72.4959 23.1607 72.5213 22.7785H76.7636C76.7636 23.39 76.6746 23.9891 76.4963 24.5752C76.3179 25.1611 76.05 25.7088 75.6934 26.2183C75.3367 26.7279 74.9036 27.161 74.394 27.5177C73.91 27.8743 73.3751 28.1678 72.7891 28.3971C72.2286 28.6264 71.6422 28.7793 71.0307 28.8557C70.4448 28.9321 69.846 28.97 69.2345 28.97C68.5211 28.97 67.8202 28.9066 67.1323 28.7792C66.4444 28.6518 65.7945 28.4222 65.1831 28.091C64.5717 27.7598 64.024 27.3395 63.5399 26.83C63.0813 26.2949 62.6989 25.709 62.3932 25.072C62.1129 24.4351 61.9094 23.7724 61.782 23.0846C61.6801 22.3966 61.629 21.7085 61.629 21.0206V16.4344C61.629 15.7465 61.6801 15.0584 61.782 14.3705C61.9094 13.657 62.1129 12.9945 62.3932 12.383C62.6989 11.746 63.0941 11.1729 63.5782 10.6633C64.0623 10.1283 64.6099 9.69475 65.2213 9.36352C65.8328 9.03231 66.4827 8.80324 67.1706 8.67584C67.8585 8.54844 68.5466 8.48455 69.2345 8.48455ZM69.2728 12.1539C68.7377 12.1539 68.228 12.2684 67.7439 12.4978C67.2853 12.7271 66.9029 13.0584 66.5972 13.4915C66.317 13.9246 66.1262 14.3961 66.0243 14.9056C65.9224 15.4152 65.8712 15.9249 65.8712 16.4344V17.3899H69.158C69.5657 17.3899 69.9609 17.3644 70.3431 17.3134C70.7506 17.237 71.1199 17.0968 71.4511 16.8931C71.8078 16.6637 72.0884 16.3703 72.2923 16.0136C72.496 15.657 72.5978 15.2749 72.5979 14.8673C72.5979 14.4597 72.5084 14.0645 72.3301 13.6823C72.1517 13.3002 71.897 12.9944 71.5659 12.7651C71.2347 12.5358 70.865 12.3829 70.4574 12.3065C70.0498 12.2046 69.6549 12.1539 69.2728 12.1539Z" fill="currentColor"/>
+<path d="M9.13445 8.48455C9.74591 8.48455 10.3319 8.5868 10.8924 8.79061C11.4784 8.99444 11.9881 9.31294 12.4212 9.74609C12.8799 10.1538 13.2495 10.6251 13.5298 11.1602C13.81 11.6952 14.0268 12.2556 14.1796 12.8416C14.358 13.4276 14.4725 14.0263 14.5235 14.6378C14.5744 15.2238 14.6 15.8229 14.6 16.4344V28.6644H10.3577V16.4344C10.3577 16.1033 10.3322 15.7719 10.2812 15.4407C10.2557 15.1095 10.1918 14.791 10.0899 14.4852C10.0135 14.1541 9.88614 13.8482 9.70783 13.568C9.55495 13.2877 9.35099 13.0327 9.09619 12.8033C8.8669 12.5741 8.58667 12.4084 8.25548 12.3065C7.94974 12.2046 7.63122 12.1539 7.3 12.1539C6.96877 12.1539 6.63749 12.2046 6.30626 12.3065C6.00055 12.4084 5.72032 12.5741 5.46555 12.8033C5.23624 13.0327 5.03227 13.2877 4.85392 13.568C4.70108 13.8482 4.57372 14.1541 4.47182 14.4852C4.39539 14.7909 4.33149 15.1095 4.28053 15.4407C4.25506 15.7719 4.24228 16.1033 4.24228 16.4344V28.6644H0V8.79061H4.24228V12.8033C4.44609 12.2938 4.68846 11.2239 4.96869 10.7398C5.27444 10.2557 5.63126 9.84778 6.03894 9.51655C6.47205 9.15989 6.95627 8.90521 7.49128 8.75235C8.02629 8.57403 8.57397 8.48456 9.13445 8.48455Z" fill="currentColor"/>
+<path d="M49.4559 17.0456C49.9145 16.6379 50.348 16.2433 50.7557 15.8611C51.1888 15.4789 51.6091 15.0837 52.0168 14.676C52.4499 14.243 52.8574 13.8098 53.2396 13.3767C53.6218 12.9436 53.9786 12.485 54.3098 12.0009C54.6411 11.5168 54.934 11.0071 55.1888 10.472C55.4436 9.93702 55.5713 9.37657 55.5714 8.79061H59.8136C59.8136 9.35109 59.7114 9.91154 59.5076 10.472C59.3038 11.0071 59.0491 11.5168 58.7434 12.0009C58.4376 12.485 58.1064 12.9564 57.7497 13.415C57.3929 13.8481 57.0233 14.2812 56.6411 14.7143C56.259 15.122 55.8643 15.5299 55.4566 15.9376C55.0489 16.3198 54.641 16.7017 54.2333 17.0839C54.6664 17.6699 55.0872 18.2686 55.4948 18.8801C55.928 19.4661 56.3482 20.0652 56.7559 20.6767C57.1636 21.2882 57.546 21.9125 57.9027 22.5494C58.2848 23.1609 58.6289 23.798 58.9347 24.4604C59.2404 25.1228 59.5078 25.8106 59.7371 26.5239C59.9919 27.2119 60.1192 27.9255 60.1192 28.6644H55.8769C55.8769 28.0784 55.7875 27.518 55.6092 26.983C55.4563 26.4225 55.2655 25.8744 55.0362 25.3394C54.8069 24.8043 54.5646 24.2946 54.3098 23.8105C54.055 23.3009 53.7749 22.804 53.4691 22.3199C53.1889 21.8103 52.8959 21.3134 52.5901 20.8293C52.2844 20.3452 51.9659 19.861 51.6347 19.3769C51.278 19.6827 50.9211 19.9889 50.5644 20.2946C50.2077 20.6003 49.8381 20.9061 49.4559 21.2119V27.2312C49.4559 28.0227 48.8142 28.6644 48.0227 28.6644H42.2324C41.7228 28.6644 41.2132 28.6261 40.7036 28.5496C40.194 28.4732 39.7098 28.3331 39.2512 28.1293C38.7926 27.9 38.3595 27.6198 37.9519 27.2886C37.5697 26.9319 37.2512 26.5367 36.9964 26.1036C36.7671 25.645 36.6015 25.1608 36.4995 24.6512C36.4231 24.1417 36.3848 23.6323 36.3848 23.1228V12.4595H34.0535V8.79061H40.6271V23.1228C40.6271 23.352 40.6526 23.5813 40.7036 23.8105C40.7545 24.0398 40.8563 24.2566 41.0091 24.4604C41.162 24.6387 41.3405 24.7788 41.5443 24.8807C41.7736 24.9572 42.0031 24.9955 42.2324 24.9955H45.2136V8.78561H49.4559V17.0456Z" fill="currentColor"/>
+<path d="M38.5253 0C38.9329 1.89808e-05 39.3405 0.0639044 39.7481 0.191283C40.1557 0.318675 40.4998 0.522213 40.7801 0.802454C41.0603 1.08272 41.2643 1.42678 41.3917 1.83445C41.5191 2.24212 41.5825 2.65005 41.5825 3.05772C41.5825 3.46531 41.5191 3.87295 41.3917 4.28053C41.2643 4.6882 41.0604 5.03225 40.7801 5.31253C40.4998 5.5928 40.1558 5.79677 39.7481 5.92417C39.3405 6.05153 38.9329 6.11496 38.5253 6.11498C38.1176 6.11498 37.7097 6.05156 37.302 5.92417C36.8943 5.79677 36.5375 5.5928 36.2317 5.31253C35.9515 5.03227 35.748 4.68816 35.6206 4.28053C35.5187 3.87292 35.4676 3.46533 35.4675 3.05772C35.4675 2.65005 35.5187 2.24212 35.6206 1.83445C35.748 1.42683 35.9515 1.0827 36.2317 0.802454C36.5375 0.52221 36.8944 0.318684 37.302 0.191283C37.7097 0.0638854 38.1176 0 38.5253 0Z" fill="currentColor"/>
+</g></symbol>
+<symbol id="close" viewBox="0 0 11.5002 11.5002"><path d="M10.2198 0.219844C10.5127 -0.0730497 10.9875 -0.0730497 11.2804 0.219844C11.5733 0.512737 11.5733 0.987497 11.2804 1.28039L6.81066 5.75012L11.2804 10.2198L11.3321 10.2765C11.5725 10.5711 11.555 11.0058 11.2804 11.2804C11.0058 11.555 10.5711 11.5725 10.2765 11.3321L10.2198 11.2804L5.75012 6.81066L1.28039 11.2804C0.987497 11.5733 0.512737 11.5733 0.219844 11.2804C-0.0730497 10.9875 -0.0730497 10.5127 0.219844 10.2198L4.68957 5.75012L0.219844 1.28039L0.168086 1.22375C-0.0722232 0.929168 -0.0547602 0.494447 0.219844 0.219844C0.494447 -0.0547602 0.929168 -0.0722232 1.22375 0.168086L1.28039 0.219844L5.75012 4.68957L10.2198 0.219844Z" fill="currentColor"/></symbol>
+<symbol id="arrow" viewBox="0 0 21.5 9.49983"><g transform="translate(21.5 0) scale(-1 1)"><path d="M4.21973 0.21967C4.51262 -0.0732232 4.98738 -0.0732233 5.28027 0.21967C5.57311 0.512567 5.57315 0.987342 5.28027 1.28022L2.56055 3.99994H20.75C21.1642 3.99994 21.5 4.33573 21.5 4.74994C21.4999 5.1641 21.1642 5.49994 20.75 5.49994H2.56055L5.28027 8.21967C5.57311 8.51257 5.57315 8.98734 5.28027 9.28022C4.98739 9.57303 4.5126 9.57304 4.21973 9.28022L0.219727 5.28022C0.187725 5.24822 0.159774 5.21355 0.134766 5.17768C0.10404 5.13358 0.0774343 5.08639 0.0566406 5.03608C0.0359035 4.9858 0.0210549 4.93369 0.0117188 4.8808C0.00422834 4.83829 6.86267e-06 4.7946 0 4.74994C0 4.70466 0.00402909 4.6602 0.0117188 4.61713C0.0208109 4.5663 0.0350561 4.51616 0.0546875 4.46772L0.0585938 4.45795C0.0793663 4.4088 0.105452 4.36241 0.135742 4.31928C0.145973 4.30472 0.156581 4.29027 0.167969 4.27631L0.219727 4.21967L4.21973 0.21967Z" fill="currentColor"/></g></symbol>
+<symbol id="check" viewBox="0 0 11 11"><g>
+<path d="M8.47335 2.73797C8.8224 2.42051 9.38881 2.42084 9.73808 2.73797C10.0873 3.05559 10.0873 3.57061 9.73808 3.88823L4.93008 8.26208C4.58092 8.57929 4.01449 8.57933 3.66535 8.26208L1.26192 6.07515C0.912693 5.75753 0.912693 5.24252 1.26192 4.9249C1.61118 4.60765 2.17755 4.6074 2.52665 4.9249L4.29772 6.53567L8.47335 2.73797Z" fill="currentColor"/>
+</g></symbol>
+</svg>
+
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a class="logo" href="#" aria-label="Noike — accueil"><svg viewBox="0 0 76.8401 28.97" aria-hidden="true"><use href="#logo"/></svg></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav class="nav" id="menu" aria-label="Navigation principale">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="produit.html">Produit</a></li>
+        <li><a class="nav__link" href="#">Méthode</a></li>
+        <li><a class="nav__link" href="#tarifs">Tarifs</a></li>
+        <li><a class="nav__link" href="#">Candidats</a></li>
+      </ul>
+      <a class="btn btn--light" href="#">Inscription gratuite</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <!-- V2 : « Levez le voile » devient le hero (plein écran, navbar par-dessus) -->
+  <section class="voile" id="hero" data-voile data-voile-delay="0.15" aria-labelledby="t-voile">
+    <div class="voile__sticky">
+      <div class="container">
+        <div class="voile__card on-dark">
+          <!-- Photo lever-voile (personne nette) ; le verre liquide (canvas ajouté par js/glass.js) la recouvre puis se retire pendant le scroll -->
+          <img class="voile__layer voile__layer--1" src="assets/img/lever-voile.jpg" alt="" width="2613" height="1254">
+          <div class="voile__content">
+            <h1 class="voile__title" id="t-voile"><span class="w" style="--i:0">Levez</span> <span class="w" style="--i:1">le</span> <span class="w" style="--i:2">voile</span> <span class="w" style="--i:3">sur</span> <span class="w" style="--i:4">vos</span> <span class="w" style="--i:5">candidats</span></h1>
+            <p class="voile__text">Trois angles pour comprendre une personne, trois lectures, jamais de score.</p>
+            <div class="reads" role="img" aria-label="Aperçu : trois cartes de lecture, personnalité, motivations et raisonnement, dont une signale un désaccord entre évaluateurs">
+              <div class="read rv" style="--s:.44;--d:.18" aria-hidden="true">
+                <p class="read__label">Personnalité</p>
+                <div class="sk-row"><i class="sk sk--dark" style="--w:62%"></i><i class="sk sk--lit" style="--w:24%"></i></div>
+                <div class="sk-row"><i class="sk sk--dark" style="--w:38%"></i><i class="sk sk--lit" style="--w:30%"></i></div>
+                <div class="sk-row"><i class="sk sk--dark" style="--w:70%"></i><i class="sk sk--lit" style="--w:18%"></i></div>
+                <span class="badge badge--dark">Désaccord</span>
+                <div class="sk-row"><i class="sk sk--dark" style="--w:55%"></i><i class="sk sk--lit" style="--w:28%"></i></div>
+              </div>
+              <div class="read rv" style="--s:.54;--d:.18" aria-hidden="true">
+                <p class="read__label">Motivations</p>
+                <div class="sk-row"><i class="sk sk--dark" style="--w:48%"></i><i class="sk sk--lit" style="--w:34%"></i></div>
+                <div class="sk-row"><i class="sk sk--dark" style="--w:66%"></i><i class="sk sk--lit" style="--w:20%"></i></div>
+                <div class="sk-row"><i class="sk sk--dark" style="--w:40%"></i><i class="sk sk--lit" style="--w:32%"></i></div>
+              </div>
+              <div class="read rv" style="--s:.64;--d:.18" aria-hidden="true">
+                <p class="read__label">Raisonnement</p>
+                <div class="sk-row"><i class="sk sk--dark" style="--w:58%"></i><i class="sk sk--lit" style="--w:26%"></i></div>
+                <div class="sk-row"><i class="sk sk--dark" style="--w:44%"></i><i class="sk sk--lit" style="--w:30%"></i></div>
+              </div>
+            </div>
+            <a class="btn btn--light" href="#">Essayez maintenant</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Trois dimensions : triptyque de verre, texte toujours visible -->
+  <section class="dims2" aria-labelledby="t-dims">
+    <div class="container">
+      <div class="dims2__head">
+        <h2 class="display" id="t-dims">Trois dimensions pour mieux comprendre chaque candidat.</h2>
+      </div>
+
+      <div class="tri">
+        <article class="tri__panel" style="--bgx:0%" data-reveal>
+          <div class="tri__photo" aria-hidden="true"></div>
+          <div class="tri__card">
+            <p class="tri__num label">01 · Comportement</p>
+            <h3 class="tri__name">Personnalité</h3>
+            <p class="tri__text">Comment la personne travaille, coopère et réagit sous pression.</p>
+            <div class="scale tri__scales" role="img" aria-label="Illustration : échelles de lecture">
+              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:64%;--k:0"></i><i class="scale__dot" style="--pos:64%;--k:0"></i></span></div>
+              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:34%;--k:1"></i><i class="scale__dot" style="--pos:34%;--k:1"></i></span></div>
+              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:72%;--k:2"></i><i class="scale__dot" style="--pos:72%;--k:2"></i></span></div>
+            </div>
+          </div>
+        </article>
+        <article class="tri__panel" style="--bgx:50%" data-reveal>
+          <div class="tri__photo" aria-hidden="true"></div>
+          <div class="tri__card">
+            <p class="tri__num label">02 · Moteurs</p>
+            <h3 class="tri__name">Motivations</h3>
+            <p class="tri__text">Ce qui l’engage durablement, et ce qui l’éteint.</p>
+            <div class="scale tri__scales" role="img" aria-label="Illustration : échelles de lecture">
+              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:26%;--k:0"></i><i class="scale__dot" style="--pos:26%;--k:0"></i></span></div>
+              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:72%;--k:1"></i><i class="scale__dot" style="--pos:72%;--k:1"></i></span></div>
+              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:58%;--k:2"></i><i class="scale__dot" style="--pos:58%;--k:2"></i></span></div>
+            </div>
+          </div>
+        </article>
+        <article class="tri__panel" style="--bgx:100%" data-reveal>
+          <div class="tri__photo" aria-hidden="true"></div>
+          <div class="tri__card">
+            <p class="tri__num label">03 · Raisonnement</p>
+            <h3 class="tri__name">Raisonnement</h3>
+            <p class="tri__text">Comment elle résout un problème nouveau, verbal comme logique.</p>
+            <div class="scale tri__scales" role="img" aria-label="Illustration : échelles de lecture">
+              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:68%;--k:0"></i><i class="scale__dot" style="--pos:68%;--k:0"></i></span></div>
+              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:40%;--k:1"></i><i class="scale__dot" style="--pos:40%;--k:1"></i></span></div>
+              <div class="scale__row" aria-hidden="true"><span class="scale__track"><i class="scale__fill" style="--pos:60%;--k:2"></i><i class="scale__dot" style="--pos:60%;--k:2"></i></span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Noike décrit. Vous décidez. : maquette Figma (nœud 2035:194) -->
+  <section class="decrit3" aria-labelledby="t-decrit">
+    <div class="container split">
+      <div class="split__head">
+        <h2 class="split__title" id="t-decrit">Noike décrit, vous décidez.</h2>
+        <p class="split__note">Instruments et sources détaillés sur la <a class="link link--underlined" href="#"><strong>page Méthode</strong> <svg class="icon" width="22" height="10" viewBox="0 0 21.5 9.5" aria-hidden="true"><use href="#arrow"/></svg></a></p>
+      </div>
+      <div class="split__body">
+        <p class="lead">Pas de test maison, pas de boîte noire. Nos instruments sont documentés : on sait d’où viennent les questions et comment les résultats sont construits. Et chaque profil dit aussi ce qu’il ne mesure pas.</p>
+        <ul class="statements">
+          <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#close24"/></svg>Pas de jargon.</li>
+          <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#close24"/></svg>Pas de promesse miracle.</li>
+          <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#close24"/></svg>Pas de classement automatique.</li>
+          <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#seencheck24"/></svg>Juste ce qu’il faut pour décider, et la décision reste la vôtre.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Le portrait candidat comme guide d'entretien : on voit le lien entre un trait et une question -->
+  <section class="guide-sec" aria-labelledby="t-portrait">
+    <div class="container">
+      <div class="guide-sec__head">
+        <h2 class="display" id="t-portrait">Le portrait candidat comme guide d’entretien.</h2>
+        <div class="guide-sec__texts">
+          <p>Noike ne tranche pas à votre place. Il transforme le profil en questions concrètes à poser, et vous laisse juger la personne en face de vous.</p>
+          <a class="btn btn--primary" href="#">Évaluez un candidat</a>
+        </div>
+      </div>
+
+      <div class="guide" data-guide data-reveal>
+        <div class="guide__grid">
+          <svg class="guide__links" aria-hidden="true"></svg>
+          <article class="gcard gcard--portrait" aria-label="Illustration : portrait candidat">
+            <header class="gcard__head">
+              <span class="avatar avatar--photo" aria-hidden="true"></span>
+              <div class="gcard__who"><p class="label">Portrait candidat</p><p class="gcard__title">Profil relationnel ancré dans la stabilité.</p></div>
+            </header>
+            <div class="pgroups">
+              <div class="pgroup" data-pair="1"><p class="pgroup__label">Acquis</p><ul class="pchips"><li>curiosité</li><li>sociabilité</li><li>indépendance</li><li>aisance avec les chiffres et les données</li></ul></div>
+              <div class="pgroup" data-pair="2"><p class="pgroup__label">À explorer</p><ul class="pchips"><li>stabilité émotionnelle</li><li>réussite</li></ul></div>
+              <div class="pgroup" data-pair="3"><p class="pgroup__label">Écarts critiques</p><ul class="pchips"><li>coopération</li><li>reconnaissance</li></ul></div>
+            </div>
+          </article>
+          <div class="guide__gap" aria-hidden="true"></div>
+          <article class="gcard gcard--ask" aria-label="Illustration : questions à poser">
+            <p class="label">Questions concrètes à poser</p>
+            <ol class="asks">
+              <li class="ask" data-ask="1"><span class="ask__tag">Ce sur quoi compter</span><i class="sk" style="--w:92%"></i><i class="sk" style="--w:68%"></i></li>
+              <li class="ask" data-ask="2"><span class="ask__tag">Ce qu'il faut creuser</span><i class="sk" style="--w:92%"></i><i class="sk" style="--w:68%"></i></li>
+              <li class="ask" data-ask="3"><span class="ask__tag">Ce qu'il faut confronter</span><i class="sk" style="--w:92%"></i><i class="sk" style="--w:68%"></i></li>
+            </ol>
+          </article>
+        </div>
+      </div>
+
+      <ul class="steps2" data-reveal>
+        <li><span>Identifier les points à explorer</span></li>
+        <li><span>Préparer des questions pertinentes</span></li>
+        <li><span>Enrichir les échanges</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. Des fonctionnalités agiles : cinq tuiles qui montrent le produit -->
+  <section class="feat2" aria-labelledby="t-feat">
+    <div class="container">
+      <div class="feat2__head">
+        <h2 class="display" id="t-feat">Des fonctionnalités agiles</h2>
+      </div>
+
+      <div class="bento">
+        <article class="tile tile--a on-dark" data-reveal>
+          <div>
+            <h3 class="tile__title">Construction collaborative du profil cible</h3>
+            <p class="tile__text">Avant d’évaluer un seul candidat, Noike vous aide à écrire ce que le poste demande vraiment, avec le manager et l’équipe, sans compte à créer pour eux.</p>
+          </div>
+          <div class="tile__vis" role="img" aria-label="Illustration : le manager, le titulaire et un pair placent chacun leur avis sur une même échelle, et leurs avis se rejoignent dans une zone commune">
+            <div class="agree" aria-hidden="true">
+              <i class="agree__zone"></i>
+              <div class="agree__row"><span class="agree__who"><i class="agree__av">M</i>Manager</span><span class="agree__track"><i class="agree__dot" style="--from:8%;--to:58%;--k:0"></i></span></div>
+              <div class="agree__row"><span class="agree__who"><i class="agree__av">T</i>Titulaire</span><span class="agree__track"><i class="agree__dot" style="--from:92%;--to:66%;--k:1"></i></span></div>
+              <div class="agree__row"><span class="agree__who"><i class="agree__av">P</i>Pair</span><span class="agree__track"><i class="agree__dot" style="--from:30%;--to:62%;--k:2"></i></span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile tile--b tile--glass flutes" data-reveal>
+        <div class="glass">
+          <div>
+            <h3 class="tile__title">Visualisation des accords et désaccords entre évaluateurs</h3>
+            <p class="tile__text">À plusieurs recruteurs, voyez l'avis de chacun et échangez en commentaires sur sa fiche.</p>
+          </div>
+          <div class="tile__vis" role="img" aria-label="Illustration : trois recruteurs donnent leur avis sur la fiche d’un candidat et échangent en commentaires ; un désaccord est signalé">
+            <div class="thread" aria-hidden="true">
+              <div class="thread__row" style="--k:0"><span class="who__avatar">A</span><div class="thread__bubble"><i class="sk sk--ink" style="--w:34%"></i><i class="sk" style="--w:88%"></i></div></div>
+              <div class="thread__row thread__row--parent" style="--k:1"><span class="who__avatar">B</span><div class="thread__bubble"><span class="badge">Désaccord</span><i class="sk" style="--w:76%"></i></div></div>
+              <div class="thread__row thread__row--reply" style="--k:2"><span class="who__avatar">C</span><div class="thread__bubble"><i class="sk" style="--w:62%"></i><i class="sk" style="--w:40%"></i></div></div>
+            </div>
+          </div>
+        </div>
+        </article>
+
+        <article class="tile tile--c" data-reveal>
+          <div>
+            <h3 class="tile__title">Synthèses individuelles et de campagne automatisées</h3>
+            <p class="tile__text">Deux synthèses prêtes à partager, que vous n’avez pas à rédiger : une par candidat, une par campagne. Vous ajustez, vous validez.</p>
+          </div>
+          <div class="tile__vis tile__vis--shot">
+            <img src="assets/img/syntheses.png" width="1672" height="941" alt="Aperçu de deux synthèses sur des panneaux de verre : la synthèse d’un candidat, avec son portrait et trois indicateurs, et la synthèse de la campagne d’un poste, avec le nombre de candidatures, la shortlist et les entretiens.">
+          </div>
+        </article>
+
+        <article class="tile tile--d" data-reveal>
+          <div>
+            <h3 class="tile__title">Espace client personnalisé</h3>
+            <p class="tile__text">Un lien à envoyer à votre client - aucun compte, rien à installer.</p>
+          </div>
+          <div class="tile__vis tile__vis--shot">
+            <img src="assets/img/espace-client.jpg" width="1800" height="520" alt="Aperçu : un lien d’espace client, avec un champ et un bouton flèche, sur un panneau de verre dépoli.">
+          </div>
+        </article>
+
+        <article class="tile tile--e" data-reveal>
+          <div>
+            <h3 class="tile__title">Partage sécurisé et révocable des résultats</h3>
+            <p class="tile__text">Le lien est révocable en un clic, et vous savez quand il a été consulté. Rien n’est partagé sans votre accord.</p>
+          </div>
+          <div class="tile__vis tile__vis--shot">
+            <img src="assets/img/partage-securise-revocable2.jpg" width="2690" height="520" alt="Aperçu : deux réglages de partage sur un panneau de verre dépoli, un lien et un cadenas, chacun avec un interrupteur.">
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Noike face aux autres solutions : comparatif réel, repris de noike.fr (juillet 2026) -->
+  <section class="compare-section" aria-labelledby="t-compare">
+    <div class="container">
+      <div class="dims2__head">
+        <div class="tiprow">
+          <h2 class="display" id="t-compare">Noike face aux autres solutions</h2>
+          <span class="tip">
+            <button class="tip__btn" type="button" aria-label="À propos des citations" aria-describedby="tip-compare" aria-expanded="false">i</button>
+            <span class="tip__bubble" role="tooltip" id="tip-compare">Leurs mots, pas les nôtres : tout ce que disent les concurrents est cité, sourcé et daté.</span>
+          </span>
+        </div>
+      </div>
+
+      <div data-tabs>
+        <div class="ctabs" role="tablist" aria-label="Solutions comparées" data-reveal>
+          <button class="ctab" type="button" role="tab" id="ct-1" aria-controls="cp-1" aria-selected="true">TestGorilla</button>
+          <button class="ctab" type="button" role="tab" id="ct-2" aria-controls="cp-2" aria-selected="false" tabindex="-1">AssessFirst</button>
+          <button class="ctab" type="button" role="tab" id="ct-3" aria-controls="cp-3" aria-selected="false" tabindex="-1">Maki</button>
+          <button class="ctab" type="button" role="tab" id="ct-4" aria-controls="cp-4" aria-selected="false" tabindex="-1">Yuzu</button>
+          <button class="ctab" type="button" role="tab" id="ct-5" aria-controls="cp-5" aria-selected="false" tabindex="-1">PerformanSe</button>
+          <button class="ctab" type="button" role="tab" id="ct-6" aria-controls="cp-6" aria-selected="false" tabindex="-1">Central Test</button>
+          <button class="ctab" type="button" role="tab" id="ct-7" aria-controls="cp-7" aria-selected="false" tabindex="-1">Thomas (PPA/DISC)</button>
+          <button class="ctab" type="button" role="tab" id="ct-8" aria-controls="cp-8" aria-selected="false" tabindex="-1">Hogan</button>
+        </div>
+        <div class="cmp" role="tabpanel" id="cp-1" aria-labelledby="ct-1" tabindex="0">
+          <div class="compare__scroll" role="region" aria-label="Tableau comparatif : TestGorilla et Noike" tabindex="0">
+            <table class="compare" role="table">
+              <caption class="sr-only">Comparaison de TestGorilla et de Noike</caption>
+              <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col"><span class="sr-only">Critère</span></th><th role="columnheader" scope="col">TestGorilla</th><th role="columnheader" scope="col" class="is-noike">Noike</th></tr></thead>
+              <tbody role="rowgroup"><tr role="row" class="compare__lead"><th role="rowheader" scope="row"><span class="sr-only">En une phrase</span></th><td role="cell" data-label="TestGorilla">Trie un volume avec des tests</td><td role="cell" class="is-noike" data-label="Noike">Établit le profil complet d'une personne.</td></tr>
+                
+                <tr role="row"><th role="rowheader" scope="row">Logique</th><td role="cell" data-label="TestGorilla">Bibliothèque : vous composez</td><td role="cell" class="is-noike" data-label="Noike">Profil : un seul passage, trois dimensions</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Tests techniques métier (code, logiciels)</th><td role="cell" data-label="TestGorilla">Oui, 350+</td><td role="cell" class="is-noike" data-label="Noike">Non</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Instruments publics et auditables</th><td role="cell" data-label="TestGorilla">Non communiqué</td><td role="cell" class="is-noike" data-label="Noike">Oui, nommés</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Scoring</th><td role="cell" data-label="TestGorilla">« Auto-scored using AI »</td><td role="cell" class="is-noike" data-label="Noike">Restitution en langage naturel, lue par vous</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Restitution candidat</th><td role="cell" data-label="TestGorilla">Non systématique</td><td role="cell" class="is-noike" data-label="Noike">Systématique</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Prix</th><td role="cell" data-label="TestGorilla">À partir de ~1 700 $/an (plan Core)</td><td role="cell" class="is-noike" data-label="Noike">Affiché, voir les tarifs</td></tr>
+              <tr role="row" class="compare__ideal"><th role="rowheader" scope="row">Idéal pour</th><td role="cell" data-label="TestGorilla">Trier des centaines de candidatures avec des tests techniques</td><td role="cell" class="is-noike" data-label="Noike">Recruter peu, mais décider bien : un profil complet, lisible, vérifiable</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="cmp__says">
+            <summary><span class="cmp__src">Source : testgorilla.com · 2026</span><span class="cmp__more">Ce que TestGorilla met en avant</span></summary>
+            <p class="cmp__quote">une bibliothèque de « 350+ tests » (cognitifs, techniques, langues, personnalité, culture), un screening automatisé avec scoring par IA, des questions éliminatoires avant l'évaluation, un modèle tarifaire à l'usage (offre gratuite limitée, plan Core à partir de ~1 700 $/an).</p>
+          </details>
+        </div>
+        <div class="cmp" role="tabpanel" id="cp-2" aria-labelledby="ct-2" tabindex="0" hidden>
+          <div class="compare__scroll" role="region" aria-label="Tableau comparatif : AssessFirst et Noike" tabindex="0">
+            <table class="compare" role="table">
+              <caption class="sr-only">Comparaison de AssessFirst et de Noike</caption>
+              <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col"><span class="sr-only">Critère</span></th><th role="columnheader" scope="col">AssessFirst</th><th role="columnheader" scope="col" class="is-noike">Noike</th></tr></thead>
+              <tbody role="rowgroup"><tr role="row" class="compare__lead"><th role="rowheader" scope="row"><span class="sr-only">En une phrase</span></th><td role="cell" data-label="AssessFirst">Vend une prédiction</td><td role="cell" class="is-noike" data-label="Noike">Vend une description exacte, et revendique de ne pas prédire.</td></tr>
+                
+                <tr role="row"><th role="rowheader" scope="row">Promesse</th><td role="cell" data-label="AssessFirst">Prédire le succès et la compatibilité</td><td role="cell" class="is-noike" data-label="Noike">Décrire : personnalité, motivations, raisonnement</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Modèle</th><td role="cell" data-label="AssessFirst">Propriétaire, IA prédictive</td><td role="cell" class="is-noike" data-label="Noike">Instruments publics de science ouverte, nommés</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Vérifiable par un tiers ?</th><td role="cell" data-label="AssessFirst">Non communiqué</td><td role="cell" class="is-noike" data-label="Noike">Oui</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Qui décide ?</th><td role="cell" data-label="AssessFirst">Modèles de décision basés sur l'IA</td><td role="cell" class="is-noike" data-label="Noike">Vous, l'outil prépare, il ne décide pas</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Limites dites dans le rapport</th><td role="cell" data-label="AssessFirst">Non communiqué</td><td role="cell" class="is-noike" data-label="Noike">Oui</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Prix</th><td role="cell" data-label="AssessFirst">Sur devis</td><td role="cell" class="is-noike" data-label="Noike">Affiché, voir les tarifs</td></tr>
+              <tr role="row" class="compare__ideal"><th role="rowheader" scope="row">Idéal pour</th><td role="cell" data-label="AssessFirst">Recruter en volume sur des postes homogènes, avec un modèle prédictif sur vos données</td><td role="cell" class="is-noike" data-label="Noike">Savoir qui est la personne, et décider vous-même</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="cmp__says">
+            <summary><span class="cmp__src">Source : assessfirst.com · 2026</span><span class="cmp__more">Ce que AssessFirst met en avant</span></summary>
+            <p class="cmp__quote">une « plateforme d'intelligence prédictive » qui « prédit le succès, l'engagement et la compatibilité des talents », des « modèles prédictifs personnalisés », « −50 % d'erreurs de recrutement, −45 % de temps de recrutement ».</p>
+          </details>
+        </div>
+        <div class="cmp" role="tabpanel" id="cp-3" aria-labelledby="ct-3" tabindex="0" hidden>
+          <div class="compare__scroll" role="region" aria-label="Tableau comparatif : Maki et Noike" tabindex="0">
+            <table class="compare" role="table">
+              <caption class="sr-only">Comparaison de Maki et de Noike</caption>
+              <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col"><span class="sr-only">Critère</span></th><th role="columnheader" scope="col">Maki</th><th role="columnheader" scope="col" class="is-noike">Noike</th></tr></thead>
+              <tbody role="rowgroup"><tr role="row" class="compare__lead"><th role="rowheader" scope="row"><span class="sr-only">En une phrase</span></th><td role="cell" data-label="Maki">Automatise tout le recrutement</td><td role="cell" class="is-noike" data-label="Noike">N'automatise rien, il prépare votre entretien.</td></tr>
+                
+                <tr role="row"><th role="rowheader" scope="row">Périmètre</th><td role="cell" data-label="Maki">Le processus entier (« end to end »)</td><td role="cell" class="is-noike" data-label="Noike">Un moment : connaître la personne avant l'entretien</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Agents IA autonomes</th><td role="cell" data-label="Maki">Oui, six agents</td><td role="cell" class="is-noike" data-label="Noike">Non</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Volume cible</th><td role="cell" data-label="Maki">Grands comptes, gros volumes</td><td role="cell" class="is-noike" data-label="Noike">PME, cabinets, recruteurs indépendants</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Instruments publics</th><td role="cell" data-label="Maki">Non communiqué</td><td role="cell" class="is-noike" data-label="Noike">Oui, nommés</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Restitution candidat</th><td role="cell" data-label="Maki">Non communiqué</td><td role="cell" class="is-noike" data-label="Noike">Systématique</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Prix</th><td role="cell" data-label="Maki">Sur devis</td><td role="cell" class="is-noike" data-label="Noike">Affiché, voir les tarifs</td></tr>
+              <tr role="row" class="compare__ideal"><th role="rowheader" scope="row">Idéal pour</th><td role="cell" data-label="Maki">Orchestrer tout le tunnel de recrutement de milliers de candidatures</td><td role="cell" class="is-noike" data-label="Noike">Discerner : savoir qui est vraiment la personne en face de vous</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="cmp__says">
+            <summary><span class="cmp__src">Source : makipeople.com · 2026</span><span class="cmp__more">Ce que Maki met en avant</span></summary>
+            <p class="cmp__quote">« the intelligence running your hiring, end to end », des agents IA qui « screènent, interviewent, planifient », un screening sur « 300+ skills », du voice screening « 24/7 en 45+ langues », des références grands comptes (H&amp;M, PwC, Deloitte, IKEA). Maki précise que la décision finale reste humaine.</p>
+          </details>
+        </div>
+        <div class="cmp" role="tabpanel" id="cp-4" aria-labelledby="ct-4" tabindex="0" hidden>
+          <div class="compare__scroll" role="region" aria-label="Tableau comparatif : Yuzu et Noike" tabindex="0">
+            <table class="compare" role="table">
+              <caption class="sr-only">Comparaison de Yuzu et de Noike</caption>
+              <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col"><span class="sr-only">Critère</span></th><th role="columnheader" scope="col">Yuzu</th><th role="columnheader" scope="col" class="is-noike">Noike</th></tr></thead>
+              <tbody role="rowgroup"><tr role="row" class="compare__lead"><th role="rowheader" scope="row"><span class="sr-only">En une phrase</span></th><td role="cell" data-label="Yuzu">Observe des comportements en jeu</td><td role="cell" class="is-noike" data-label="Noike">Mesure avec les instruments de la recherche.</td></tr>
+                
+                <tr role="row"><th role="rowheader" scope="row">Méthode</th><td role="cell" data-label="Yuzu">Mises en situation vidéoludiques</td><td role="cell" class="is-noike" data-label="Noike">Questionnaires standardisés de science ouverte</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Instruments publics et auditables</th><td role="cell" data-label="Yuzu">Non, algorithmes propriétaires</td><td role="cell" class="is-noike" data-label="Noike">Oui : IPIP-NEO-120, O*NET WIP, épreuves de raisonnement (science ouverte)</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Comparabilité inter-candidats</th><td role="cell" data-label="Yuzu">Propre à la plateforme</td><td role="cell" class="is-noike" data-label="Noike">Standards internationaux documentés</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Expérience candidat</th><td role="cell" data-label="Yuzu">L'immersion</td><td role="cell" class="is-noike" data-label="Noike">La restitution : le candidat repart avec son profil</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Raisonnement mesuré</th><td role="cell" data-label="Yuzu">Via jeux</td><td role="cell" class="is-noike" data-label="Noike">Épreuves de raisonnement issues de la science ouverte</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Prix</th><td role="cell" data-label="Yuzu">Sur devis</td><td role="cell" class="is-noike" data-label="Noike">Affiché, voir les tarifs</td></tr>
+              <tr role="row" class="compare__ideal"><th role="rowheader" scope="row">Idéal pour</th><td role="cell" data-label="Yuzu">Une expérience candidat immersive, des soft skills en mise en situation</td><td role="cell" class="is-noike" data-label="Noike">Vérifier la mesure et la partager telle quelle avec candidat et client</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="cmp__says">
+            <summary><span class="cmp__src">Source : yuzu.hr · 2026</span><span class="cmp__more">Ce que Yuzu met en avant</span></summary>
+            <p class="cmp__quote">un « assessment center nouvelle génération » gamifié, « immersion et neurosciences », une technologie « plus prédictive que les questionnaires traditionnels (de 40 à 60 %) », une expérience candidat « unique et mémorable », la réduction du biais de désirabilité sociale.</p>
+          </details>
+        </div>
+        <div class="cmp" role="tabpanel" id="cp-5" aria-labelledby="ct-5" tabindex="0" hidden>
+          <div class="compare__scroll" role="region" aria-label="Tableau comparatif : PerformanSe et Noike" tabindex="0">
+            <table class="compare" role="table">
+              <caption class="sr-only">Comparaison de PerformanSe et de Noike</caption>
+              <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col"><span class="sr-only">Critère</span></th><th role="columnheader" scope="col">PerformanSe</th><th role="columnheader" scope="col" class="is-noike">Noike</th></tr></thead>
+              <tbody role="rowgroup"><tr role="row" class="compare__lead"><th role="rowheader" scope="row"><span class="sr-only">En une phrase</span></th><td role="cell" data-label="PerformanSe">Un modèle propriétaire</td><td role="cell" class="is-noike" data-label="Noike">Des instruments publics que tout psychologue peut examiner.</td></tr>
+                
+                <tr role="row"><th role="rowheader" scope="row">Ancienneté</th><td role="cell" data-label="PerformanSe">35 ans</td><td role="cell" class="is-noike" data-label="Noike">Instruments issus de décennies de recherche publique (tradition Goldberg, O*NET)</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Base théorique</th><td role="cell" data-label="PerformanSe">Big Five + théorie des besoins, IRT</td><td role="cell" class="is-noike" data-label="Noike">Big Five (IPIP-NEO-120), motivations (O*NET WIP), raisonnement (épreuves de science ouverte)</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Modèle</th><td role="cell" data-label="PerformanSe">Propriétaire</td><td role="cell" class="is-noike" data-label="Noike">Science ouverte, auditables</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Promesse</th><td role="cell" data-label="PerformanSe">« Les plus prédictives du marché »</td><td role="cell" class="is-noike" data-label="Noike">Aucune promesse de prédiction, revendiqué</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Accompagnement conseil</th><td role="cell" data-label="PerformanSe">Oui, historique</td><td role="cell" class="is-noike" data-label="Noike">Autonomie : lisible sans expertise psychométrique</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Prix</th><td role="cell" data-label="PerformanSe">Sur devis</td><td role="cell" class="is-noike" data-label="Noike">Affiché, voir les tarifs</td></tr>
+              <tr role="row" class="compare__ideal"><th role="rowheader" scope="row">Idéal pour</th><td role="cell" data-label="PerformanSe">Un accompagnement conseil de long terme avec un éditeur historique</td><td role="cell" class="is-noike" data-label="Noike">Des instruments qu'on ne vous demande pas de croire sur parole</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="cmp__says">
+            <summary><span class="cmp__src">Source : performanse.com · 2026</span><span class="cmp__more">Ce que PerformanSe met en avant</span></summary>
+            <p class="cmp__quote">« 35 ans d'expertise », un modèle Big Five combiné à la théorie des besoins, l'IRT, le test TwoB-R (cognitif + comportemental), des données « anonymisées et hébergées en France » alimentant « les évaluations les plus prédictives du marché ».</p>
+          </details>
+        </div>
+        <div class="cmp" role="tabpanel" id="cp-6" aria-labelledby="ct-6" tabindex="0" hidden>
+          <div class="compare__scroll" role="region" aria-label="Tableau comparatif : Central Test et Noike" tabindex="0">
+            <table class="compare" role="table">
+              <caption class="sr-only">Comparaison de Central Test et de Noike</caption>
+              <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col"><span class="sr-only">Critère</span></th><th role="columnheader" scope="col">Central Test</th><th role="columnheader" scope="col" class="is-noike">Noike</th></tr></thead>
+              <tbody role="rowgroup"><tr role="row" class="compare__lead"><th role="rowheader" scope="row"><span class="sr-only">En une phrase</span></th><td role="cell" data-label="Central Test">Propose un catalogue où choisir</td><td role="cell" class="is-noike" data-label="Noike">Un profil unique, rien à choisir.</td></tr>
+                
+                <tr role="row"><th role="rowheader" scope="row">Logique</th><td role="cell" data-label="Central Test">Catalogue de tests spécialisés</td><td role="cell" class="is-noike" data-label="Noike">Un profil complet, un seul passage</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Expertise requise pour choisir et lire</th><td role="cell" data-label="Central Test">Recommandée</td><td role="cell" class="is-noike" data-label="Noike">Aucune : conçu pour être lisible sans psychométricien</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Usages</th><td role="cell" data-label="Central Test">Recrutement, carrière, orientation</td><td role="cell" class="is-noike" data-label="Noike">Le recrutement : préparer le meilleur entretien</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Instruments publics</th><td role="cell" data-label="Central Test">Non, tests édités en propre</td><td role="cell" class="is-noike" data-label="Noike">Oui, nommés</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Restitution candidat</th><td role="cell" data-label="Central Test">Selon les tests</td><td role="cell" class="is-noike" data-label="Noike">Systématique</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Prix</th><td role="cell" data-label="Central Test">Sur devis</td><td role="cell" class="is-noike" data-label="Noike">Affiché, voir les tarifs</td></tr>
+              <tr role="row" class="compare__ideal"><th role="rowheader" scope="row">Idéal pour</th><td role="cell" data-label="Central Test">Des besoins d'évaluation variés et une fonction RH pour piloter le catalogue</td><td role="cell" class="is-noike" data-label="Noike">Une seule réponse complète : qui est la personne en face de vous ?</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="cmp__says">
+            <summary><span class="cmp__src">Source : centraltest.com · 2026</span><span class="cmp__more">Ce que Central Test met en avant</span></summary>
+            <p class="cmp__quote">un éditeur international, « plus de 3 000 entreprises » accompagnées, une gamme étendue (personnalité, motivations, aptitudes, orientation, gestion émotionnelle), une plateforme « 100 % en ligne » alliant « performance, sécurité et simplicité ».</p>
+          </details>
+        </div>
+        <div class="cmp" role="tabpanel" id="cp-7" aria-labelledby="ct-7" tabindex="0" hidden>
+          <div class="compare__scroll" role="region" aria-label="Tableau comparatif : Thomas (PPA/DISC) et Noike" tabindex="0">
+            <table class="compare" role="table">
+              <caption class="sr-only">Comparaison de Thomas (PPA/DISC) et de Noike</caption>
+              <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col"><span class="sr-only">Critère</span></th><th role="columnheader" scope="col">Thomas (PPA/DISC)</th><th role="columnheader" scope="col" class="is-noike">Noike</th></tr></thead>
+              <tbody role="rowgroup"><tr role="row" class="compare__lead"><th role="rowheader" scope="row"><span class="sr-only">En une phrase</span></th><td role="cell" data-label="Thomas (PPA/DISC)">Décrit un style en 8 minutes</td><td role="cell" class="is-noike" data-label="Noike">Établit en 25 à 30 minutes un profil complet.</td></tr>
+                
+                <tr role="row"><th role="rowheader" scope="row">Modèle</th><td role="cell" data-label="Thomas (PPA/DISC)">DISC (4 types comportementaux)</td><td role="cell" class="is-noike" data-label="Noike">Big Five (30 facettes), motivations, raisonnement</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Durée</th><td role="cell" data-label="Thomas (PPA/DISC)">8 minutes</td><td role="cell" class="is-noike" data-label="Noike">25 à 30 minutes</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Ce qui est couvert</th><td role="cell" data-label="Thomas (PPA/DISC)">Le comportement au travail</td><td role="cell" class="is-noike" data-label="Noike">Personnalité + motivations + raisonnement</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Instruments publics</th><td role="cell" data-label="Thomas (PPA/DISC)">Non, propriétaire (certifié BPS)</td><td role="cell" class="is-noike" data-label="Noike">Oui, nommés et auditables</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Restitution candidat</th><td role="cell" data-label="Thomas (PPA/DISC)">Selon dispositif</td><td role="cell" class="is-noike" data-label="Noike">Systématique</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Prix</th><td role="cell" data-label="Thomas (PPA/DISC)">Sur devis</td><td role="cell" class="is-noike" data-label="Noike">Affiché, voir les tarifs</td></tr>
+              <tr role="row" class="compare__ideal"><th role="rowheader" scope="row">Idéal pour</th><td role="cell" data-label="Thomas (PPA/DISC)">Un profil comportemental très rapide, dans un langage DISC déjà installé</td><td role="cell" class="is-noike" data-label="Noike">Une demi-heure honnête pour une décision qui engage des années</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="cmp__says">
+            <summary><span class="cmp__src">Source : thomas.co · 2026</span><span class="cmp__more">Ce que Thomas (PPA/DISC) met en avant</span></summary>
+            <p class="cmp__quote">le PPA, analyse comportementale fondée sur le modèle DISC (1928), « 8 minutes » de passation, une certification par la British Psychological Society, plus de 60 ans d'usage, « recruter avec plus de certitude » et réduire le turnover.</p>
+          </details>
+        </div>
+        <div class="cmp" role="tabpanel" id="cp-8" aria-labelledby="ct-8" tabindex="0" hidden>
+          <div class="compare__scroll" role="region" aria-label="Tableau comparatif : Hogan et Noike" tabindex="0">
+            <table class="compare" role="table">
+              <caption class="sr-only">Comparaison de Hogan et de Noike</caption>
+              <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col"><span class="sr-only">Critère</span></th><th role="columnheader" scope="col">Hogan</th><th role="columnheader" scope="col" class="is-noike">Noike</th></tr></thead>
+              <tbody role="rowgroup"><tr role="row" class="compare__lead"><th role="rowheader" scope="row"><span class="sr-only">En une phrase</span></th><td role="cell" data-label="Hogan">L'évaluation experte des dirigeants</td><td role="cell" class="is-noike" data-label="Noike">Le profil lisible par tous.</td></tr>
+                
+                <tr role="row"><th role="rowheader" scope="row">Cible</th><td role="cell" data-label="Hogan">Leadership, executive assessment</td><td role="cell" class="is-noike" data-label="Noike">PME, cabinets, recruteurs indépendants</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Lecture des résultats</th><td role="cell" data-label="Hogan">Certification utilisateur requise</td><td role="cell" class="is-noike" data-label="Noike">Aucune : restitutions en langage naturel</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Modèle</th><td role="cell" data-label="Hogan">Propriétaire (HPI, HDS, MVPI)</td><td role="cell" class="is-noike" data-label="Noike">Science ouverte : IPIP-NEO-120, O*NET WIP, épreuves de raisonnement</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Promesse</th><td role="cell" data-label="Hogan">« Highest predictive validity in the industry »</td><td role="cell" class="is-noike" data-label="Noike">Aucune promesse de prédiction, revendiqué</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Restitution candidat</th><td role="cell" data-label="Hogan">Via débrief expert</td><td role="cell" class="is-noike" data-label="Noike">Systématique, directe</td></tr>
+                <tr role="row"><th role="rowheader" scope="row">Prix</th><td role="cell" data-label="Hogan">Sur devis, via distributeurs</td><td role="cell" class="is-noike" data-label="Noike">Affiché, voir les tarifs</td></tr>
+              <tr role="row" class="compare__ideal"><th role="rowheader" scope="row">Idéal pour</th><td role="cell" data-label="Hogan">Évaluer des dirigeants avec un accompagnement expert certifié</td><td role="cell" class="is-noike" data-label="Noike">Un profil lisible par qui décide et par qui est décrit, sans intermédiaire</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="cmp__says">
+            <summary><span class="cmp__src">Source : hoganassessments.com · 2026</span><span class="cmp__more">Ce que Hogan met en avant</span></summary>
+            <p class="cmp__quote">trois décennies de recherche, la mesure du « bright side, dark side, inside » de la personnalité, « the highest level of predictive validity in the industry », « 75 % des Fortune 500 », un usage centré leadership et cadres dirigeants, avec certification des utilisateurs.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="nofait on-dark" data-glass-card data-reveal>
+        <img class="nofait__bg" src="assets/img/mec-diffuse-prisme.jpg" alt="" width="2640" height="1200">
+        <div class="nofait__head">
+          <h3 class="nofait__title">Ce que Noike ne fait pas.</h3>
+          <p class="nofait__text">Si votre besoin est l'un de ces quatre-là, l'un des acteurs ci-dessus le servira mieux que nous, c'est écrit sur chacune de leurs pages.</p>
+        </div>
+        <ul class="nofait__list">
+          <li><svg class="icon" viewBox="0 0 11.5 11.5" aria-hidden="true"><use href="#close"/></svg>Ne prédit pas la réussite.</li>
+          <li><svg class="icon" viewBox="0 0 11.5 11.5" aria-hidden="true"><use href="#close"/></svg>Ne teste pas les compétences techniques métier.</li>
+          <li><svg class="icon" viewBox="0 0 11.5 11.5" aria-hidden="true"><use href="#close"/></svg>N’automatise pas le tri des candidatures.</li>
+          <li><svg class="icon" viewBox="0 0 11.5 11.5" aria-hidden="true"><use href="#close"/></svg>Ne décide pas à votre place.</li>
+        </ul>
+      </div>
+      <p class="compare__note">Toutes les affirmations concernant les concurrents proviennent de leurs propres sites et supports publics (juillet 2026).</p>
+    </div>
+  </section>
+
+  <!-- 8. L'expérience candidat : le portrait se garde et se partage -->
+  <section class="candidat" aria-labelledby="t-cand">
+    <div class="container cand">
+      <div class="cand__visual">
+        <img class="cand__photo" src="assets/img/experience-candidat.jpg" width="1100" height="1375" alt="Un candidat consulte sur une tablette son propre profil, dans une lumière chaude.">
+        <div class="cand__card" data-reveal>
+          <div class="cand__head">
+            <span class="picto" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.75"/><path d="M4.5 20c.8-3.9 3.8-6 7.5-6s6.7 2.1 7.5 6"/></svg></span>
+            <div class="mock__lines" aria-hidden="true"><i class="sk sk--ink" style="--w:56%"></i><i class="sk" style="--w:90%"></i><i class="sk" style="--w:72%"></i></div>
+          </div>
+          <div class="cand__actions">
+            <button class="pill-btn" type="button" aria-pressed="false" data-cand="telecharger">Télécharger</button>
+            <button class="pill-btn" type="button" aria-pressed="false" data-cand="partager">Partager</button>
+          </div>
+        </div>
+      </div>
+      <div class="cand__text">
+        <h2 class="cand__title" id="t-cand">L’expérience candidat</h2>
+        <ul class="cand__list">
+          <li><svg class="icon" viewBox="0 0 21.5 9.5" aria-hidden="true"><use href="#arrow"/></svg><span>Accès à son propre profil</span></li>
+          <li><svg class="icon" viewBox="0 0 21.5 9.5" aria-hidden="true"><use href="#arrow"/></svg><span>Meilleure compréhension de ses caractéristiques et motivations</span></li>
+          <li><svg class="icon" viewBox="0 0 21.5 9.5" aria-hidden="true"><use href="#arrow"/></svg><span>Possibilité de conserver et partager ses résultats</span></li>
+        </ul>
+        <a class="btn btn--primary" href="#">Découvrir mon profil <svg class="icon" width="22" height="10" viewBox="0 0 21.5 9.5" aria-hidden="true"><use href="#arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prix affichés : textes et tarifs repris de noike.fr (juillet 2026) -->
+  <section class="tarifs" id="tarifs" aria-labelledby="t-tarifs">
+    <div class="container">
+      <div class="dims2__head">
+        <h2 class="display" id="t-tarifs">Un profil complet, quel que soit votre palier.</h2>
+        <p class="dims2__lead">Toutes les fonctions. Vous choisissez le nombre de candidats que vous évaluez et le nombre de recruteurs – et vous résiliez en un clic.</p>
+      </div>
+      <div class="tarifs__stage">
+        <div class="plans" data-reveal>
+        <article class="plan">
+          
+          <div class="plan__id"><h3 class="plan__name">Free</h3><p class="plan__for"></p></div>
+          <p class="plan__price"><span>0&nbsp;€</span></p>
+          <div class="plan__cap">
+            <div class="cap__bar" aria-hidden="true"><i style="--w:9%"></i></div>
+            <p class="cap__label">5 candidats à vie</p>
+            <p class="cap__extra">1 recruteur</p>
+          </div>
+          <a class="btn btn--outline" href="#">Créer un compte Free</a>
+        </article>
+        <article class="plan">
+          
+          <div class="plan__id"><h3 class="plan__name">Solo</h3><p class="plan__for">RH solo</p></div>
+          <p class="plan__price"><span>590&nbsp;€</span><span class="plan__per">/an</span></p>
+          <div class="plan__cap">
+            <div class="cap__bar" aria-hidden="true"><i style="--w:32%"></i></div>
+            <p class="cap__label">60 candidats/an</p>
+            
+          </div>
+          <a class="btn btn--outline" href="#">Choisir Solo</a>
+        </article>
+        <article class="plan plan--pro">
+          <span class="badge badge--dark plan__badge">Recommandé</span>
+          <div class="plan__id"><h3 class="plan__name">Pro</h3><p class="plan__for">PME, cabinets</p></div>
+          <p class="plan__price"><span>1&nbsp;190&nbsp;€</span><span class="plan__per">/an</span></p>
+          <div class="plan__cap">
+            <div class="cap__bar" aria-hidden="true"><i style="--w:58%"></i></div>
+            <p class="cap__label">200 candidats/an</p>
+            
+          </div>
+          <a class="btn btn--light" href="#">Choisir Pro</a>
+        </article>
+        <article class="plan">
+          
+          <div class="plan__id"><h3 class="plan__name">Équipe</h3><p class="plan__for">Équipes</p></div>
+          <p class="plan__price"><span>2&nbsp;490&nbsp;€</span><span class="plan__per">/an</span></p>
+          <div class="plan__cap">
+            <div class="cap__bar" aria-hidden="true"><i style="--w:100%"></i></div>
+            <p class="cap__label">600 candidats/an</p>
+            <p class="cap__extra">5 recruteurs</p>
+          </div>
+          <a class="btn btn--outline" href="#">Choisir Équipe</a>
+        </article>
+      </div>
+      <div class="plan-wide">
+        <div class="plan-wide__id"><h3 class="plan__name">Enterprise</h3><p class="plan__for">Multi-entités · sur mesure</p></div>
+        <p class="plan__price plan__price--wide"><span>dès&nbsp;4&nbsp;900&nbsp;€</span><span class="plan__per">/an</span></p>
+        <a class="btn btn--primary" href="#">Nous contacter</a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CTA final -->
+  <section class="cta" aria-labelledby="t-cta">
+    <div class="container">
+      <div class="cta__card on-dark">
+        <img class="cta__img" src="assets/img/cta-podium.jpg" alt="" width="2640" height="1091" loading="lazy">
+        <div class="cta__content">
+          <h2 class="cta__title" id="t-cta">Mieux comprendre les personnes pour mieux recruter.</h2>
+          <p class="cta__text">Le plan Free suffit pour évaluer vos premiers candidats avec Noike. Sans carte bancaire, sans engagement.</p>
+          <div class="cta__actions">
+            <a class="btn btn--light" href="#">Inscription gratuite</a>
+            <a class="link link--underlined" href="#tarifs">Offres et tarifs <svg class="icon" width="22" height="10" viewBox="0 0 21.5 9.5" aria-hidden="true"><use href="#arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <a class="logo" href="#" aria-label="Noike — accueil"><svg viewBox="0 0 76.8401 28.97" aria-hidden="true"><use href="#logo"/></svg></a>
+      <nav class="site-footer__links" aria-label="Pied de page">
+        <a class="nav__link" href="produit.html">Produit</a>
+        <a class="nav__link" href="#">Méthode</a>
+        <a class="nav__link" href="#tarifs">Tarifs</a>
+        <a class="nav__link" href="#">Candidats</a>
+      </nav>
+    </div>
+    <div class="site-footer__mark" aria-hidden="true"><svg viewBox="0 0 76.8401 28.97"><use href="#logo"/></svg></div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=2" defer></script>
+<script src="js/guide.js" defer></script>
+<script src="js/page.js?v=4" defer></script>
+<script src="js/glass.js?v=6" defer></script>
+</body>
+</html>
