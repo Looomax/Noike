@@ -107,3 +107,10 @@
     padding-top: 0;
   }
 }
+
+/* ---------- Ancien hero, placé plus bas : pas d'animation au chargement (le H2 flou → net est géré comme les autres titres) ---------- */
+.v2 .hero--mid .hero__text,
+.v2 .hero--mid .hero__actions,
+.v2 .hero--mid .hero__note {
+  animation: none;
+}
