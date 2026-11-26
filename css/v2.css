@@ -1,29 +1,22 @@
 /* V2 alternative : « Levez le voile » devient le hero, la navbar flotte par-dessus.
    Tout est limité à body.v2 : l'original (index.html) n'est pas touché. */
 
-/* ---------- Navbar flottante en verre sombre (lisible sur la photo comme sur les sections claires) ---------- */
+/* ---------- Navbar blanche, collée en haut, pleine largeur ---------- */
 .v2 .site-header {
   position: fixed;
-  top: var(--gap-s);
+  top: 0;
   left: 0;
   right: 0;
   z-index: 50;
-  pointer-events: none;
-}
-
-.v2 .site-header__bar {
-  pointer-events: auto;
-  width: min(100% - 2 * var(--page-pad), var(--container-max));
-  max-width: none;
-  min-height: calc(64rem / 16);
-  margin-inline: auto;
-  padding: 0 var(--gap-xs) 0 var(--gap-m);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.92);
   -webkit-backdrop-filter: blur(20px) saturate(1.4);
   backdrop-filter: blur(20px) saturate(1.4);
-  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+/* La barre garde la largeur et les marges du reste du site (.container) */
+.v2 .site-header__bar {
+  min-height: calc(72rem / 16);
 }
 
 .v2 .logo,
@@ -44,12 +37,13 @@
 
 @media (max-width: 53.75rem) {
   .v2 .nav {
-    top: calc(100% + var(--gap-xs));
+    top: 100%;
     left: 0;
     right: 0;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.96);
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    border-radius: 0;
+    background: var(--color-white);
     -webkit-backdrop-filter: blur(20px) saturate(1.4);
     backdrop-filter: blur(20px) saturate(1.4);
   }
