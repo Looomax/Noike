@@ -1,0 +1,135 @@
+/* V3 alternative : « Levez le voile » devient le hero, la navbar flotte par-dessus.
+   Tout est limité à body.v3 : l'original (index.html) n'est pas touché. */
+
+/* ---------- Navbar blanche, collée en haut, pleine largeur ---------- */
+.v3 .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+/* La barre garde la largeur et les marges du reste du site (.container) */
+.v3 .site-header__bar {
+  min-height: calc(72rem / 16);
+}
+
+.v3 .logo,
+.v3 .nav__link {
+  color: var(--color-ink);
+}
+
+.v3 .nav-toggle {
+  border-color: var(--color-border);
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+.v3 .site-header :focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+@media (max-width: 53.75rem) {
+  .v3 .nav {
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    border-radius: 0;
+    background: var(--color-white);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(20px) saturate(1.4);
+  }
+
+  .v3 .nav__link {
+    border-bottom-color: var(--color-border);
+  }
+}
+
+/* ---------- Hero : « Levez le voile » en plein écran, épinglé dès le chargement ---------- */
+.v3 .voile {
+  --voile-h: 100vh;
+}
+
+@supports (height: 100svh) {
+  .v3 .voile {
+    --voile-h: 100svh;
+  }
+}
+
+.v3 .voile__sticky > .container {
+  width: 100%;
+  max-width: none;
+  padding-inline: 0;
+}
+
+.v3 .voile__card {
+  min-height: var(--voile-h);
+  border-radius: 0;
+}
+
+.v3 .voile__title .w {
+  display: inline-block;
+  animation: focus-in 900ms var(--ease-out) both;
+  animation-delay: calc(var(--i) * 80ms + 150ms);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .v3 .voile {
+    height: calc(var(--voile-h) + 160vh);
+  }
+
+  .v3 .voile__sticky {
+    position: sticky;
+    top: 0;
+  }
+}
+
+/* Mobile : le hero reste épinglé aussi */
+@media (max-width: 56.1875rem) {
+  .v3 .voile__layer,
+  .v3 .voile__glass {
+    height: 100%;
+  }
+
+  .v3 .voile__card::after {
+    background: linear-gradient(180deg, rgba(10, 12, 18, 0) 0, rgba(10, 12, 18, 0) 35%, rgba(10, 12, 18, 0.92) 78%);
+  }
+
+  .v3 .voile__content {
+    padding-top: 0;
+  }
+}
+
+/* ---------- Ancien hero, placé plus bas : pas d'animation au chargement (le H2 flou → net est géré comme les autres titres) ---------- */
+.v3 .hero--mid .hero__text,
+.v3 .hero--mid .hero__actions,
+.v3 .hero--mid .hero__note {
+  animation: none;
+}
+
+/* ---------- Menu : caché à l'arrivée, il apparaît quand tout est dévoilé (classe voile-done posée par main.js) ----------
+   Sans JavaScript ou avec « animations réduites » (pas de classe js-anim), il reste visible en permanence. */
+.js-anim .v3 .site-header {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition:
+    opacity 400ms var(--ease-out),
+    transform 400ms var(--ease-out),
+    visibility 0s linear 400ms;
+}
+
+.js-anim .v3.voile-done .site-header {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}

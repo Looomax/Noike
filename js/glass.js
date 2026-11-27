@@ -480,7 +480,12 @@ void main() {
       flag: "has-glass",
       observe: (schedule) => new MutationObserver(schedule).observe(voile, { attributes: true, attributeFilter: ["style"] }),
       geometry: (w, h) => {
-        const g = Math.min(1, Math.max(0, (progress() - START) / (END - START)));
+        // Moments de retrait réglables par page (data-glass-start / data-glass-end), sinon les valeurs par défaut
+        const vStart = parseFloat(voile.dataset.glassStart);
+        const vEnd = parseFloat(voile.dataset.glassEnd);
+        const s = Number.isFinite(vStart) ? vStart : START;
+        const e = Number.isFinite(vEnd) ? vEnd : END;
+        const g = Math.min(1, Math.max(0, (progress() - s) / (e - s)));
         // La bande va du haut au bas de la photo ; elle se retire par le haut et disparaît tout en bas.
         const yTop = -OVER + g * (1 + OVER);
         const c = cover(voileImg, w, h);

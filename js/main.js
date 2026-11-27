@@ -109,7 +109,11 @@
     let locked = false;
 
     const clamp = (value) => Math.min(1, Math.max(0, value));
-    const setProgress = (p) => voile.style.setProperty("--p", p.toFixed(4));
+    const setProgress = (p) => {
+      voile.style.setProperty("--p", p.toFixed(4));
+      /* Tout est dévoilé : la page peut afficher son menu (utilisé par la V3, ignoré ailleurs) */
+      document.body.classList.toggle("voile-done", p >= 0.995);
+    };
 
     const update = () => {
       ticking = false;
